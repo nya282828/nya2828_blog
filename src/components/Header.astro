@@ -5,14 +5,12 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<h2>
-		{SITE_TITLE}
+		<HeaderLink href="/">
+			{SITE_TITLE}
+		</HeaderLink>
 	</h2>
 	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
 		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
 	</nav>
 </header>
 <style>
