@@ -1,0 +1,11 @@
+@use '../../ask' as ask;
+// Prohibition
+// 禁則処理用ユーティリティ。字間を詰めたい方向のclassを指定
+
+.u-prohibition-left {
+  margin-left: -0.45em;
+}
+
+.u-prohibition-right {
+  margin-right: -0.45em;
+}

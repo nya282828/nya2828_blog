@@ -1,0 +1,351 @@
+@use "./variable" as *;
+@use "./function" as *;
+// common window-size set
+// ----------------------------------------------
+// @function auto-generate-bp($head: "mq", $bp-map: $bp) {
+//   @each $key, $var in $bp-map {
+//     // @return @mixin #{$head}-#{$key} {@media (min-width: $var) { @content; }};
+//     @debug $head, $key, $var;
+//     @return 
+
+//     @debug $a;
+//   }
+// };
+
+// 任意の値のブレークポイント（横）
+// ------------------------------------------
+@mixin mq-width($size) {
+  @media (min-width: $size) { @content; }
+}
+
+// オプション
+@mixin mq-xxxs {
+  @include mq-width(break(xxxs)) {@content;}
+}
+
+@mixin mq-xxs {
+  @include mq-width(break(xxs)) {@content;}
+}
+
+@mixin mq-xs {
+  @include mq-width(break(xs)) {@content;}
+}
+
+@mixin mq-s {
+  @include mq-width(break(s)) {@content;}
+}
+
+@mixin mq-m {
+  @include mq-width(break(m)) {@content;}
+}
+
+@mixin mq-l {
+  @include mq-width(break(l)) {@content;}
+}
+
+@mixin mq-xl {
+  @include mq-width(break(xl)) {@content;}
+}
+
+@mixin mq-xxl {
+  @include mq-width(break(xxl)) {@content;}
+}
+
+@mixin mq-xxxl {
+  @include mq-width(break(xxxl)) {@content;}
+}
+
+// 任意の値のブレークポイント（縦）
+// ------------------------------------------
+@mixin mq-height($size) {
+  @media (min-height: $size) { @content; }
+}
+
+// Retina
+// ------------------------------------------
+@mixin mq-retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) { @content; }
+}
+
+// 縦長画面
+// ------------------------------------------
+@mixin mq-portrait {
+  @media (orientation: portrait) { @content; }
+}
+
+// 横長画面
+// ------------------------------------------
+@mixin mq-landscape {
+  @media (orientation: landscape) { @content; }
+}
+
+// hover-media-query
+// ------------------------------------------
+// タッチデバイス
+@mixin mq-hover-touch {
+  @media (hover: none) and (pointer: coarse) { @content; }
+}
+
+// タッチデバイスのペン
+@mixin mq-hover-pen {
+  @media (hover: none) and (any-pointer: coarse) { @content; }
+}
+
+// マウスホバー
+@mixin mq-hover-mouse {
+  @media (hover: hover) and (pointer: fine) { @content; }
+}
+
+// キーボード
+@mixin mq-hover-key {
+  @media (hover: none) and (pointer: none) { @content; }
+}
+
+// font-size & line-height
+// ----------------------------------------------
+/// font-sizeとline-height、そしてレスポンシブフォントスケールを自動で吐き出す。
+/// line-heightは基準値($t_lh_base = default値:2)を基準に本文サイズ(デフォルト16px)から離れるほど小さくなる
+/// $t_spacing(字間)が定義されている場合、それも加味したline-heightを吐き出す
+/// 画面サイズが375pxより小さい場合のサイズも自動で吐き出す。縮小率は0.95倍
+/// @param {number} $size [$t_h_size_s = 16px(default)] - フォントサイズを入力する。デフォルトでは変数に格納された本文サイズが入っている。
+/// @param {number} $line_height [true = flag] - 行間を入力する。関数を用いて入力される行間以外を使いたい場合に入力する。すべてのブレイクポイントで同じ行間が適用される。
+/// @example
+///   elm {
+///     @include t-size(21.33333px)
+///   }
+///
+///   elm {
+///     @include t-size(32px, 1.5)
+///   }
+/// @output
+///   elm {
+///     font-size: 21.33333px
+///     line-height: 1.6885;
+///   }
+///   @media screen and (max-width: 23.375em) {
+///     elm {
+///       font-size: 20.26667px;
+///       line-height: 1.77632;
+///     }
+///   }
+///   @media screen(min-width: 36.25em) {
+///     elm {
+///       font-size: 24px;
+///       line-height: 1.66767;
+///     }
+///   }
+///   @media screen(min-width: 80em) {
+///     elm {
+///       font-size: 27px;
+///       line-height: 1.63063;
+///     }
+///   }
+///   @media screen(min-width: 120em) {
+///     elm {
+///       font-size: 30.375px;
+///       line-height: 1.71293;
+///     }
+///   }
+///
+///
+///   elm {
+///     font-size: 32px;
+///     line-height: 1.5;
+///   }
+///   @media screen and (max-width: 23.375em) {
+///     elm {
+///       font-size: 20.26667px;
+///       line-height: 1.5;
+///     }
+///   }
+///   @media screen(min-width: 36.25em) {
+///     elm {
+///       font-size: 36px;
+///       line-height: 1.5;
+///     }
+///   }
+///   @media screen(min-width: 80em) {
+///     elm {
+///       font-size: 40.5px;
+///       line-height: 1.5;
+///     }
+///   }
+///   @media screen(min-width: 120em) {
+///     elm {
+///       font-size: 45.5625px;
+///       line-height: 1.5;
+///     }
+///   }
+
+@mixin t-size($size: $t_h_size_s, $line_height: true) {
+  // Viewport 375px以上 基準値
+  font-size: $size;
+  letter-spacing: $t_spacing;
+
+  // line-heightの値の指定がない場合get-line-height、値がある場合それを引用
+  @if $line_height == true {
+    line-height: get-line-height($size, $t_size_base);
+  }
+  @else {
+    line-height: $line_height;
+  }
+
+  // 375px未満のsmall phone
+  @media screen and (max-width: map-get($bp, xxxs) - 0.0625) {
+    $scale: $t_scale_small;
+
+    font-size: $size*$scale; // For small phone
+
+    // line-heightの値の指定がない場合get-line-height、値がある場合それを引用
+    @if $line_height == true {
+      line-height: get-line-height($size*$scale, $t_size_base*$scale);
+    }
+    @else {
+      line-height: $line_height;
+    }
+  }
+
+  // over 580px
+  @include mq-width(break(xs)) {
+    $scale: $t_scale_media;
+
+    font-size: $size*$scale;
+
+    // line-heightの値の指定がない場合get-line-height、値がある場合それを引用
+    @if $line_height == true {
+      line-height: get-line-height($size*$scale, $t_size_base*$scale);
+    }
+    @else {
+      line-height: $line_height;
+    }
+  }
+
+  // over 1280px
+  @include mq-width(break(xl)) {
+    $scale: $t_scale_media*$t_scale_media;
+
+    font-size: $size*$scale;
+
+    // line-heightの値の指定がない場合get-line-height、値がある場合それを引用
+    @if $line_height == true {
+      line-height: get-line-height($size*$scale, $t_size_base*$scale);
+    }
+    @else {
+      line-height: $line_height;
+    }
+  }
+
+  // over 1920px
+  @include mq-width(break(xxxl)) {
+    $scale: $t_scale_media*$t_scale_media*$t_scale_media;
+
+    font-size: $size*$scale;
+
+    // line-heightの値の指定がない場合get-line-height、値がある場合それを引用
+    @if $line_height == true {
+      line-height: get-line-height($size*$scale, $t_size_base*$scale);
+    }
+    @else {
+      line-height: $line_height;
+    }
+  }
+}
+
+
+// animation（codepen検証済）
+// ----------------------------------------------
+// animation-name       = { @string }
+// animation-duration     = { @number }
+// animation-timing-function  = {'ease'|'linear'|'ease-in'|'ease-out'|'ease-in-out'|'cubic-bezier(A,B,C,D)'}
+// animation-delay      = { @number }
+// animation-iteration-count  = {'infinite'| @number }
+// animation-direction    = {'normal'|'alternate'}
+// animation-fill-mode    = {'none'|'forwards'|'backwards'|'both'}
+// ex. @include animation(sample,.2s,ease-out,.3s,infinite,alternate);
+// ex. @include keyframes(sample){
+//   0% {width:50px; height:50px; background-color:gray;}
+//   100% {width:200px; height:50px; background-color:black;}
+// };
+
+// animation
+@mixin animation($name:name,$duration:0, $timing_function:ease, $delay:0, $iteration_count:1, $direction:normal, $fill_mode:none) {
+  animation: $name $duration $timing_function $delay $iteration_count $direction $fill_mode;
+}
+
+// keyframes
+@mixin keyframes($animation_name) {
+  @keyframes #{$animation_name} { @content; }
+}
+
+
+// absolute position
+// ----------------------------------------------
+// 絶対位置指定
+@mixin absolute ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// pseudo base
+// ----------------------------------------------
+// 擬似要素生成
+@mixin pseudo-element($width: 0, $height: 0, $display: block) {
+  content: '';
+  display: $display;
+  width: $width;
+  height: $height;
+}
+
+// flex column 生成
+// ----------------------------------------------
+@mixin flex-row($column_num, $gap: 1em) {
+
+  @if $column_num > 2 {
+    
+    &--#{$column_num} {
+      display: flex;
+    }
+
+    &__col--#{$column_num} {
+      flex: 1 1 calc(100% / #{$column_num} - #{$gap});
+      gap: $gap;
+    }
+  }
+}
+
+// Genelate util class & break point
+// ----------------------------------------------
+// ユーティリティクラスをブレークポイントの配列分自動生成する。
+// プロパティの文字列とその値の配列を渡すことで、配列分のユーティリティクラスを生成できる。
+// ブレークポイントの配列を書き換えることで、生成するクラスを操作できる。
+// クラス名の例 基礎".u-ar-1x1" ブレークポイントつき".u-ar-1x1-over-xxs"
+/// @param {text} $class [$class = ".u-ar"] - クラス名の接頭辞を入力する。文字列。「入力した名前+比率+over+ブレークポイントサイズ」といったクラス名を生成する。
+/// @param {text} $prop [$prop = "aspect-ratio"] - プロパティを入力する。文字列。入力したCSSプロパティが出力される。
+/// @param {map} $var-map [$var-map = $ar] - CSSプロパティに対応した値の入った配列を指定する。配列内のkeyはクラス名に、値はCSSプロパティの値に出力される。
+/// @param {map} $bp-map [$bp-map = $bp] - プレークポイントの入った配列を指定する。初期値は _variable.scss内に定義された配列が使用される。入力の省略可。
+/// @example
+/// @include auto-util-class(".u-ar", "aspect-ratio", $ar);
+/// ".u-ar"というクラス名で$ar配列に則ったaspect-ratioを指定するためのユーティリティクラスを生成する。
+
+@mixin generate-util($class, $prop, $var-map, $bp-map: $bp) {
+
+  @each $key, $var in $var-map {
+
+    // デフォルト（スマホ時）に動くクラスの生成
+    #{$class}-#{$key} {
+      #{$prop}: #{$var};
+    }
+
+    // それ以上のサイズで動くクラスの生成
+    @each $name, $size in $bp-map {
+      #{$class}-#{$key}-over-#{$name} {
+        @media (min-width: #{$size}) {
+          #{$prop}: #{$var};
+        }
+      }
+    }
+  }
+}

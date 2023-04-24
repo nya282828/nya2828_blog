@@ -1,0 +1,15 @@
+@use "../../ask" as ask;
+
+// 変数に代入、意味の付与
+ask.$z_modal:   ask.z-index(layer1);
+ask.$z_content: ask.z-index(default);
+
+// z-index
+
+.l-content {
+  z-index: ask.$z_content;
+}
+
+.c-modal {
+  z-index: ask.$z_modal;
+}

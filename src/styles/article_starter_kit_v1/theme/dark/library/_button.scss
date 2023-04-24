@@ -1,0 +1,5 @@
+@use '../../../ask' as ask;
+// button 
+.c-button {
+  color: ask.$c_text;
+}

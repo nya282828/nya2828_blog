@@ -1,0 +1,129 @@
+@use "./variable" as *;
+@use "sass:math";
+// function
+// 計算式から単位を取り除く
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    // @return $number / ($number * 0 + 1);
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+// z-index
+// ----------------------------------------------
+// マップの呼び出し
+// あらかじめ定義されている10段階のレイヤーを指定して呼び出す
+/// @param {text} - layer1~10 or default のどれかを引数として入力
+/// @returns {number}
+/// @example
+///   z-index: z-index(layer1);
+/// @output
+///   z-index: 100;
+///
+@function z-index($key) {
+  @return map-get($z, $key);
+}
+
+// Break point
+// ----------------------------------------------
+// マップの呼び出し
+// あらかじめ定義されているブレークポイントを指定して呼び出す
+/// @param {text} 
+/// @returns {number}
+/// @example
+///   @include mq-width(break(xl))
+/// @output
+///   @include mq-width(80em)
+///   ↓
+///   @media (min-width: 80em)
+///
+@function break($key) {
+  @return map-get($bp, $key);
+}
+
+// harmonic type scale
+// ----------------------------------------------
+// 調和数列に基づくタイプスケールを出力する。
+// 基本サイズの-2段階〜+6段階まで出力
+// 分母が0にならないように段階を調整される。例えば $t_scale_lv_harmony が6ならば、(6 - 6) = 0 になると計算されないので $t_h_size_xxxl には $t_h_size_xxlと同じ値が代入される。つまり、$t_scale_lv_harmony の値が小さいほどスケール間のサイズ差は大きくなり、段階は狭くなる。
+/// @param {number} $bace - 基本サイズ,本文サイズ 例) 16px
+/// @param {number} $level - ハーモニックレベル比率 例) 8
+/// @param {number} $n - ハーモニックレベル 例) 1
+/// @returns {number} + px
+/// @example
+///   $font-size-xl: harmonic-type-scale(16px, 8, -4);
+///   $font-size-xxxxl: harmonic-type-scale(16px, 8, -7);
+///   $font-size-xxxxxl: harmonic-type-scale(16px, 8, -8);
+/// @output
+///   $font-size-xl === 32px;
+///   $font-size-xxxxl: 128px;
+///   $font-size-xxxxxl: 128px; // 差が0以下の場合、最小差と同じ結果を得る
+//
+@function harmonic-type-scale($base, $level, $n) {
+
+  $difference: $level + $n;
+  @if $difference == 0 {
+    $difference: $difference + 1;
+    // @return $base*$level/($difference);
+    @return $base*math.div($level, $difference);
+  }
+  @else if $difference < 0 {
+    $difference: 1;
+    // @return $base*$level/($difference);
+    @return $base*math.div($level, $difference);
+  }
+  @else {
+    // @return $base*$level/($difference);
+    @return $base*math.div($level, $difference);
+  }
+}
+
+// line height
+// ----------------------------------------------
+/// フォントサイズから字間まで加味したline-heightを算出する。値が基準値($t_lh_bace = default 2)から離れるにつれ、値が基準値より小さくなる。
+/// @param {number} $size [0] - 文字サイズ。単位なしor単位pxに対応
+/// @returns {number}
+/// @example
+///   $line-height: get-line-heignt(22px);
+/// @output
+///   $line-height === 1.81918;
+///
+@function get-line-height($size, $base_size: $t_size_base,  $base_height: $t_lh_base) {
+  // @debug サイズ $size;
+  // @debug サイズ基準 $base_size;
+  // @debug 高さ基準 $base_height;
+  
+  $size-num: strip-unit($size);
+
+  // 本文より大きい
+  @if $size > $base_size {
+    // 本文サイズとの倍率を算出
+    // $ratio: $base_size/$size-num + ($base_height - 1);
+    $ratio: math.div($base_size, $size-num) + ($base_height - 1);
+    // 文字サイズを4の倍数に丸める。floorで小数点以下切り下げ
+    // $lh-px: floor(($size-num*$ratio) / 4)*4;
+    $lh-px: floor(math.div(($size-num*$ratio), 4))*4;
+    // 4の倍数に直した数値を、字間を考慮した行の高さに直す
+    // $lh: $lh-px / $size-num* strip-unit($t_spacing+1);
+    $lh: math.div($lh-px, $size-num) * strip-unit($t_spacing+1);
+    // 出力
+    @return $lh;
+  }
+  // 本文より小さい
+  @else if $size < $base_size {
+    // $ratio: $size-num/$base_size + ($base_height - 1);
+    $ratio: math.div($size-num, $base_size) + ($base_height - 1);
+    // $lh-px: floor(($size-num*$ratio) / 4)*4;
+    $lh-px: floor(math.div(($size-num*$ratio), 4))*4;
+    // $lh: $lh-px / $size-num* strip-unit($t_spacing+1);
+    $lh: math.div($lh-px, $size-num) * strip-unit($t_spacing+1);
+    @return $lh;
+  }
+  // 本文サイズ
+  @else {
+    $lh: strip-unit($base_height* strip-unit($t_spacing+1));
+    @return $lh;
+  }
+}
+

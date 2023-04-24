@@ -1,0 +1,45 @@
+// =================================================
+// vdata core scss
+// =================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// html {
+//   font-size: 62.5%;  //TODO: root font sizeを10px化。いじるとvuiに影響（関連記事）
+//   line-height: 1.15; //TODO: root font sizeを10px化。いじるとvuiに影響（関連記事）
+//   -ms-text-size-adjust: 100%;
+//   -webkit-text-size-adjust: 100%;
+//   scroll-behavior: smooth;
+// }
+
+body {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// Images
+img {
+  vertical-align: middle;
+}
+
+// iOS "clickable elements" fix for role="button"
+[role="button"] {
+  cursor: pointer;
+}
+
+// Overwrite for only iOS App
+html.vui-ua__nikkeiappli {
+  .u-hide-ios {
+    display: none!important;
+  }
+}

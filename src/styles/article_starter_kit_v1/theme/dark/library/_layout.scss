@@ -1,0 +1,31 @@
+@use '../../../ask' as ask;
+// default theme layout
+
+.l-content__section {
+  margin: 8em auto;
+}
+
+.t-paragraph,
+.t-headline1,
+.t-headline2,
+.t-headline3 {
+  margin: 1em auto;
+}
+
+.t-paragraph {
+  margin: 1em auto 0;
+}
+
+.t-headline3 {
+  margin: 2em auto 1em;
+}
+
+.t-headline2,
+.t-headline1 {
+  margin: 3em auto 1em;
+}
+
+.c-media {
+  margin: 2em 0;
+}
+

@@ -1,0 +1,107 @@
+@use "../../ask" as ask;
+// Typeface
+
+// 調和数列
+ask.$t_h_size_xxxs: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3); // 12.8
+ask.$t_h_size_xxs: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2); // 12.8
+ask.$t_h_size_xs: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1); // 14.22222
+ask.$t_h_size_s: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0); // 16
+ask.$t_h_size_sm: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1); // 18.28571
+ask.$t_h_size_m: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2); // 21.33333
+ask.$t_h_size_l: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3); // 25.6
+ask.$t_h_size_xl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4); // 32
+ask.$t_h_size_xxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5); // 42.66666
+ask.$t_h_size_xxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6); // 64
+ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7); // 128
+
+// root
+//----------------------------------------------
+.ask-wrapper {
+  @if ask.$t_type_sans == true {
+    font-family: ask.$t_list_ja_sans;
+  }
+  -webkit-font-smoothing: antialiased;
+  line-break: strict;
+  hanging-punctuation: allow-end;
+  @include ask.t-size(ask.$t_h_size_s);
+}
+
+// level
+//----------------------------------------------
+
+.t-headline1 {
+  @include ask.t-size(ask.$t_h_size_xl);
+}
+
+.t-headline2 {
+  @include ask.t-size(ask.$t_h_size_l);
+}
+
+.t-headline3 {
+  @include ask.t-size(ask.$t_h_size_m);
+}
+
+.t-paragraph {
+  text-align: left;
+
+  html:lang(en) & {
+    text-align: left;
+  }
+}
+
+.t-caption {
+  @include ask.t-size(ask.$t_h_size_xxs);
+}
+
+// サイズ別クラス名
+// 等比数列
+.t-size-xs {
+  @include ask.t-size(ask.$t_g_size_xs, 1.5);
+}
+.t-size-s {
+  @include ask.t-size(ask.$t_g_size_s, 2);
+}
+.t-size-m {
+  @include ask.t-size(ask.$t_g_size_m, 1.5);
+}
+.t-size-l {
+  @include ask.t-size(ask.$t_g_size_l, 1.5);
+}
+.t-size-xl {
+  @include ask.t-size(ask.$t_g_size_xl, 1.5);
+}
+.t-size-xxl {
+  @include ask.t-size(ask.$t_g_size_xxl, 1.5);
+}
+
+// 調和数列
+.t-h-size-xxs {
+  @include ask.t-size(ask.$t_h_size_xxs);
+}
+.t-h-size-xs {
+  @include ask.t-size(ask.$t_h_size_xs);
+}
+.t-h-size-s {
+  @include ask.t-size(ask.$t_h_size_s);
+}
+.t-h-size-sm {
+  @include ask.t-size(ask.$t_h_size_sm);
+}
+.t-h-size-m {
+  @include ask.t-size(ask.$t_h_size_m);
+}
+.t-h-size-l {
+  @include ask.t-size(ask.$t_h_size_l);
+}
+.t-h-size-xl {
+  @include ask.t-size(ask.$t_h_size_xl);
+}
+.t-h-size-xxl {
+  @include ask.t-size(ask.$t_h_size_xxl);
+}
+.t-h-size-xxxl {
+  @include ask.t-size(ask.$t_h_size_xxxl);
+}
+
+
+

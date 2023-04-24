@@ -1,0 +1,12 @@
+@use '../../ask' as ask;
+// media
+.c-media {
+
+  &__unit {
+    margin-top: 0;
+  }
+
+  &__caption {
+    margin: 1em 0 0 0;
+  }
+}

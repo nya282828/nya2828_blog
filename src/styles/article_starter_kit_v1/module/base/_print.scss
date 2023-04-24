@@ -1,0 +1,18 @@
+@use "../../ask" as ask;
+// print
+@media print {
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    width: 210mm; // chrome
+    -webkit-print-color-adjust: exact;
+  }
+
+  .ask-wrapper {
+    font-size: 8.5pt;
+  }
+}

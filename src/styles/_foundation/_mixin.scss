@@ -1,0 +1,19 @@
+// mixin
+
+// ankit変数及び関数の呼び出し
+// ---------------------------------
+@use "../article_starter_kit_v1/ask" as ankit;
+
+// プロジェクト変数の呼び出し
+// ---------------------------------
+@use "variable" as prj-var;
+
+// プロジェクトmixinの作成
+// ---------------------------------
+// @mixin sample1 {
+//   color: ankit.$c_text;
+// }
+
+// @mixin sample2 {
+//   color: prj-var.$c_headline;
+// }

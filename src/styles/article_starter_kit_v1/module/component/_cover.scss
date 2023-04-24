@@ -1,0 +1,26 @@
+@use '../../ask' as ask;
+// cover
+.c-cover {
+  position: relative;
+  width: 100%;
+  background: ask.$c_gray80;
+  color: ask.$c_white;
+  background: {
+    image: url(../img/sample_cover_bg.jpg);
+    size: cover;
+    repeat: no-repeat;
+    position: center center;
+  }
+
+  &__title {
+    margin: 1em auto;
+  }
+  
+  &__sub-title {
+    margin: 1em auto;
+  }
+  
+  &__lead {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,6 @@
+@use '../../../ask' as ask;
+// theme base
+.ask-wrapper {
+  background: ask.$c_background;
+  color: ask.$c_text;
+}

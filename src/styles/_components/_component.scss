@@ -1,0 +1,25 @@
+// component
+
+// 全ての変数及びmixin、他の呼び出し
+// ---------------------------------
+@use "../ask_setting" as glob;
+
+// .c-chart__area {
+//   background: glob.$c_gray80;
+// }
+
+// .t-paragraph {
+//   // color: glob.$c_text;
+//   @include glob.sample1;
+//   // font-size: glob.$t_original_fontsize;
+// }
+
+// .t-headline1 {
+//   @include glob.sample2;
+//   font-family: glob.$t_family_serif;
+//   font-weight: 700;
+// }
+
+// .c-cover {
+//   z-index: glob.$c_cover_zindex;
+// }

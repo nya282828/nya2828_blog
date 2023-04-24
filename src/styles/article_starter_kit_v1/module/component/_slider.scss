@@ -1,0 +1,74 @@
+@use '../../ask' as ask;
+// slider == input type range
+.c-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 4px;
+  padding: 16px 0;
+  margin: auto;
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  // -webkit-
+  &::-webkit-slider-runnable-track {
+    height: 4px;
+    background: ask.$c_gray80;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    margin-top: -14px;
+    background: ask.$c_gray20;
+    display: block;
+    border-radius: 50%;
+  }
+  // firefox
+  &::-moz-range-track {
+    height: 4px;
+    background: ask.$c_gray80;
+  }
+
+  &::-moz-range-thumb {
+    border: none;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: -14px;
+    background: #333;
+    display: block;
+    border-radius: 50%;
+  }
+  // ie11 & edge
+  &::-ms-track {
+    height: 4px;
+    background: ask.$c_gray80;
+  }
+
+  &::-ms-thumb {
+    border: none;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: -14px;
+    background: ask.$c_gray20;
+    display: block;
+    border-radius: 50%;
+  }
+
+  @include ask.mq-xs {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb,
+    &::-ms-thumb {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

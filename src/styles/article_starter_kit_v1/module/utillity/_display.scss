@@ -1,0 +1,132 @@
+@use '../../ask' as ask;
+// display
+// sp -> pc間でdisplayを切り替えるユーティリティクラス一覧
+// hiddenのみ
+// xs以下でhidden, xs以上でhiddenなど
+// 注）0.0625em = 1px
+
+// 375以上で非表示
+.u-hide-over-xxxs {
+  @include ask.mq-xxxs {
+    display: none;
+  }
+}
+
+// 375未満で非表示
+.u-hide-under-xxxs {
+  @media (max-width: map-get(ask.$bp, xxxs) - 0.0625) {
+    display: none;
+  }
+}
+
+// 480以上で非表示
+.u-hide-over-xxs {
+  @include ask.mq-xxs {
+    display: none;
+  }
+}
+
+// 480未満で非表示
+.u-hide-under-xxs {
+  @media (max-width: map-get(ask.$bp, xxs) - 0.0625) {
+    display: none;
+  }
+}
+
+// 580以上で非表示
+.u-hide-over-xs {
+  @include ask.mq-xs {
+    display: none;
+  }
+}
+
+// 580未満で非表示
+.u-hide-under-xs {
+  @media (max-width: map-get(ask.$bp, xs) - 0.0625) {
+    display: none;
+  }
+}
+
+// 768以上で非表示
+.u-hide-over-s {
+  @include ask.mq-s {
+    display: none;
+  }
+}
+
+// 768未満で非表示
+.u-hide-under-s {
+  @media (max-width: map-get(ask.$bp, s) - 0.0625) {
+    display: none;
+  }
+}
+
+// 960以上で非表示
+.u-hide-over-m {
+  @include ask.mq-m {
+    display: none;
+  }
+}
+
+// 960未満で非表示
+.u-hide-under-m {
+  @media (max-width: map-get(ask.$bp, m) - 0.0625) {
+    display: none;
+  }
+}
+
+// 1024以上で非表示
+.u-hide-over-l {
+  @include ask.mq-l {
+    display: none;
+  }
+}
+
+// 1024未満で非表示
+.u-hide-under-l {
+  @media (max-width: map-get(ask.$bp, l) - 0.0625) {
+    display: none;
+  }
+}
+
+// 1280以上で非表示
+.u-hide-over-xl {
+  @include ask.mq-xl {
+    display: none;
+  }
+}
+
+// 1280未満で非表示
+.u-hide-under-xl {
+  @media (max-width: map-get(ask.$bp, xl) - 0.0625) {
+    display: none;
+  }
+}
+
+// 1440以上で非表示
+.u-hide-over-xxl {
+  @include ask.mq-xxl {
+    display: none;
+  }
+}
+
+// 1440未満で非表示
+.u-hide-under-xxl {
+  @media (max-width: map-get(ask.$bp, xxl) - 0.0625) {
+    display: none;
+  }
+}
+
+// 1920以上で非表示
+.u-hide-over-xxxl {
+  @include ask.mq-xxxl {
+    display: none;
+  }
+}
+
+// 1920未満で非表示
+.u-hide-under-xxxl {
+  @media (max-width: map-get(ask.$bp, xxxl) - 0.0625) {
+    display: none;
+  }
+}

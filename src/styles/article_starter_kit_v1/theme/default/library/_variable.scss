@@ -1,0 +1,8 @@
+@use '../../../ask' as ask;
+// default theme variable
+
+// contents background
+ask.$c_background: #fff;
+
+// text
+ask.$c_text: ask.$c_black;

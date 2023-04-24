@@ -1,0 +1,48 @@
+@use '../../ask' as ask;
+// flex
+.c-row {
+  $r_gap: 1em;
+
+  @include ask.mq-xs{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: $r_gap;
+
+    &__col{
+      flex: 1 1 calc(50% - #{$r_gap});
+
+      // カラム直下の最初の要素の上マージンと、最後の要素の下マージンをリセット
+      & > *:first-child {
+        margin-top: 0;
+      }
+
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+
+      // カラム直下にrailが入る場合の対応
+      & > .l-rail:first-child > *:first-child{
+        margin-top: 0;
+      }
+
+      & > .l-rail:last-child > *:last-child{
+        margin-bottom: 0;
+      }
+    }
+
+    &--3,
+    &--4 {
+      display: block;
+    }
+  }
+
+  @include ask.mq-xs {
+    @include ask.flex-row(3, $r_gap);
+  }
+
+  @include ask.mq-xs {
+    @include ask.flex-row(4, $r_gap);
+  }
+}

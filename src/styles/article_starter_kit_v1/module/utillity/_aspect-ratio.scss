@@ -1,0 +1,33 @@
+@use '../../ask' as ask;
+// aspect ratio
+/// u-ar接頭辞で$arの配列に基づくutilクラスを自動生成する。
+/// 配列は
+/// Keyが比率名でクラス名に使われる（ex 16x9）
+/// Valueが実際の値でプロパティに使われる（ex 16 / 9）
+/// $bp連想配列に基づいたブレークポイント分も自動生成される。
+/// なので、$arの数 × $bpの数だけクラスが生成される。
+/// 行数が大量に増えるので、$arの配列は最小限にすること。
+///
+/// 命名規則
+/// .u-ar - $arのKey と
+/// .u-ar - $arのKey - over - $bpのKey
+/// という命名規則でクラス名が生成される。
+///
+/// @example
+/// .u-ar-16x9 {
+///   aspect-ratio: 16 / 9;
+/// }
+///
+/// @media (min-width: 23.4375em) {
+///   .u-ar-16x9-over-xxxs {
+///     aspect-ratio: 16 / 9;
+///   }
+/// }
+///
+/// @media (min-width: 30em) {
+///   .u-ar-16x9-over-xxs {
+///     aspect-ratio: 16 / 9;
+///   }
+/// } ...以下$bp配列分繰り返し
+///
+@include ask.generate-util(".u-ar", "aspect-ratio", ask.$ar);

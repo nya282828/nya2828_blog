@@ -18,21 +18,23 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
+		<div class="">
+			<Header title={SITE_TITLE} />
+			<main class="ask-wrapper">
+				<section>
+					<ul>
+						{
+							posts.map((post) => (
+								<li>
+									<FormattedDate date={post.data.pubDate} />
+									<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+								</li>
+							))
+						}
+					</ul>
+				</section>
+			</main>
+			<Footer />
+		</div>
 	</body>
 </html>

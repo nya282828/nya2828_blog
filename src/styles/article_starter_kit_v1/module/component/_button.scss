@@ -1,0 +1,129 @@
+@use '../../ask' as ask;
+// button
+.c-button {
+  margin: 0;
+  padding: 1em;
+  background: none; 
+  border: 1px solid ask.$c_gray80;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  touch-action: manipulation;
+  cursor: pointer;
+
+  // タッチデバイス
+  @include ask.mq-hover-touch {
+    &:active {
+      background-color: ask.$c_gray85;
+      text-decoration: none;
+    }
+  }
+
+  // タッチデバイス&ペン
+  @include ask.mq-hover-pen {
+    &:active {
+      background-color: ask.$c_gray85;
+      text-decoration: none;
+    }
+  }
+  
+  // マウス
+  @include ask.mq-hover-mouse {
+    &:hover {
+      background-color: ask.$c_gray90;
+      text-decoration: none;
+    }
+  }
+
+  // キーボード
+  @include ask.mq-hover-key {
+    &:focus {
+      color: ask.$c_link_focus;
+    }
+  }
+
+  // radio button
+  &--input-button {
+    display: inline-block;
+    user-select: none;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    
+    &,
+    &:active,
+    &.active {
+      &:focus,
+      &.focus {
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+      }
+    }
+
+    &:focus,
+    &.focus {
+      text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+      outline: 0;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      cursor: not-allowed;
+      opacity: .65;
+      box-shadow: none;
+    }
+    // 本体
+    &__body {
+      display: block;
+      position: relative;
+      padding: 1em;
+      border: 1px solid ask.$c_gray80;
+      cursor: pointer;
+    }
+    // ラジオボタン
+    &__input {
+      display: none;
+    }
+    &__input:checked + &__div {
+      background: ask.$c_gray90;
+    }
+
+    // タッチデバイス
+    @include ask.mq-hover-touch {
+      &:active {
+        background-color: ask.$c_gray85;
+        text-decoration: none;
+      }
+    }
+
+    // タッチデバイス&ペン
+    @include ask.mq-hover-pen {
+      &:active {
+        background-color: ask.$c_gray85;
+        text-decoration: none;
+      }
+    }
+
+    // マウス
+    @include ask.mq-hover-mouse {
+      &:hover {
+        background-color: ask.$c_gray90;
+        text-decoration: none;
+      }
+    }
+
+    // キーボード
+    @include ask.mq-hover-key {
+      &:focus {
+        color: ask.$c_link_focus;
+      }
+    }
+  }
+}

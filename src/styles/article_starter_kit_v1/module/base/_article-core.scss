@@ -1,0 +1,48 @@
+@use "../../ask" as ask;
+// article ---> root of this project
+.ask-wrapper {
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+  font-family: ask.$t_list_system_ja;
+  color: ask.$c_text;
+  background: ask.$c_background;
+}
+
+// content section
+.l-content__section {
+  &__wrapper {
+    margin: 0 auto;
+  }
+}
+
+// Google tag manager 読了率チェック要素
+a[data-checkpoint] {
+	display: inline-block;
+	width: 1px;
+	height: 1px;
+}
+
+// default link color
+.t-link {
+  color: ask.$c_link;
+  text-decoration: underline;
+
+  &:focus {
+    color: ask.$c_link_hover;
+    text-decoration: underline;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  &:visited {
+    color: ask.$c_link_visited;
+  }
+
+  // マウス
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: ask.$c_link_hover;
+      text-decoration: underline;
+    }
+  }
+}
