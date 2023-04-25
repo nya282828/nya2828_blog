@@ -1,13 +1,12 @@
 ---
 const today = new Date();
+import Social from "./Social.astro";
 ---
 
 <footer>
-	&copy; {today.getFullYear()} nyasusho. All rights reserved.
+	<p>
+		<Social platform="twitter" username="nya2828" />
+		<Social platform="github" username="nyasusho" />
+	</p>
+	<p>&copy; {today.getFullYear()} nyasusho. All rights reserved.</p>
 </footer>
-<style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
-</style>
