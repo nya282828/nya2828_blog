@@ -1,0 +1,17 @@
+---
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+<ul>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+        <FormattedDate date={post.data.pubDate} />
+      </li>
+    ))
+  }
+</ul>

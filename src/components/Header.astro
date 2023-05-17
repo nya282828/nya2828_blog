@@ -1,5 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import Dropdown from './Dropdown.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -11,7 +12,7 @@ import { SITE_TITLE } from '../consts';
 	</h2>
 	<nav>
 		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/">Category</HeaderLink>
+		<Dropdown></Dropdown>
 	</nav>
 </header>
 <style>

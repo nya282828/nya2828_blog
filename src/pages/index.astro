@@ -1,40 +1,11 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-// import 'style.css';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+import PostList from '../components/PostList.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<div class="">
-			<Header title={SITE_TITLE} />
-			<main class="ask-wrapper">
-				<section>
-					<ul>
-						{
-							posts.map((post) => (
-								<li>
-									<FormattedDate date={post.data.pubDate} />
-									<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-								</li>
-							))
-						}
-					</ul>
-				</section>
-			</main>
-			<Footer />
-		</div>
-	</body>
-</html>
+<BaseLayout>
+	<section>
+		<PostList></PostList>
+	</section>
+</BaseLayout>
