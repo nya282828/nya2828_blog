@@ -4,9 +4,6 @@ import Social from "./Social.astro";
 ---
 
 <footer class="c-footer">
-	<p>
-		<Social platform="twitter" username="nya2828" />
-		<Social platform="github" username="nyasusho" />
-	</p>
-	<p>&copy; {today.getFullYear()} nyasusho. All rights reserved.</p>
+	<p class="c-footer__copy">
+		&copy; {today.getFullYear()} <Social platform="twitter" username="nya2828">nya{"{susho}"}</Social></p>
 </footer>

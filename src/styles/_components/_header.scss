@@ -1,0 +1,17 @@
+// header
+.c-header {
+  margin: 0;
+  padding: 3em 0 0;
+
+  &__logo {
+    margin: 0;
+
+    .t-link {
+      text-decoration: none;
+    }
+  }
+
+  &__nav {
+    margin: 2em 0 0;
+  }
+}
