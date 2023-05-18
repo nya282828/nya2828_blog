@@ -81,16 +81,10 @@ ankit.$ar: (
 // - 軽量化のため、使わない項目はコメントアウトする
 
 // コンポーネント
-@use "article_starter_kit_v1/module/component/cover"; // カバー
 @use "article_starter_kit_v1/module/component/media"; // 文字以外の媒体共通の設定
 @use "article_starter_kit_v1/module/component/image"; // 画像
-@use "article_starter_kit_v1/module/component/chart"; // チャート
 @use "article_starter_kit_v1/module/component/button"; // ボタン
-@use "article_starter_kit_v1/module/component/slider"; // レンジスライダー
-@use "article_starter_kit_v1/module/component/legend"; // 判例
-@use "article_starter_kit_v1/module/component/movie"; // 動画モジュール
 @use "article_starter_kit_v1/module/component/table"; // テーブル
-@use "article_starter_kit_v1/module/component/modal"; // モーダル
 
 // テーマ
 @use "article_starter_kit_v1/theme/default/index";
@@ -99,9 +93,6 @@ ankit.$ar: (
 // レイアウト用モジュール
 @use "article_starter_kit_v1/module/layout/rail"; // rail
 @use "article_starter_kit_v1/module/layout/row"; // 2カラム以上
-
-// コンテンツ形式モジュール
-@use "article_starter_kit_v1/module/layout/scrolly"; // スクローリーテリング
 
 // -----------------------------------------------------
 // 3. このコンテンツのスタイル

@@ -2,7 +2,7 @@
 import FormattedDate from '../components/FormattedDate.astro';
 import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // const allPosts = await Astro.glob('../content/blog/*.mdx');
 

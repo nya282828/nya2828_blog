@@ -4,22 +4,14 @@ import Dropdown from './Dropdown.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
-	<h2>
+<header class="c-header">
+	<h2 class="c-header__logo">
 		<HeaderLink href="/">
 			{SITE_TITLE}
 		</HeaderLink>
 	</h2>
-	<nav>
+	<nav class="c-header__nav">
 		<HeaderLink href="/about">About</HeaderLink>
 		<!-- <Dropdown></Dropdown> -->
 	</nav>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>
