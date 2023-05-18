@@ -8,20 +8,6 @@
   background: ask.$c_background;
 }
 
-// content section
-.l-content__section {
-  &__wrapper {
-    margin: 0 auto;
-  }
-}
-
-// Google tag manager 読了率チェック要素
-a[data-checkpoint] {
-	display: inline-block;
-	width: 1px;
-	height: 1px;
-}
-
 // default link color
 .t-link {
   color: ask.$c_link;

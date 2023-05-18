@@ -9,16 +9,12 @@ $base-url: "" !default;
 // Color = c
 //----------------------------------------------
 
-// Nikkei
-$c_nikkei:      #0a385b !default; //nikkei_blue
-
 // Basic color
 $c_black:       #333 !default;
 $c_white:       #fff !default;
 
 // Content
 $c_text:         $c_black !default; //本文
-$c_main:         $c_nikkei !default; //基本メインカラー
 
 // Link
 $c_link:         #06f !default;
