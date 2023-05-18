@@ -104,6 +104,9 @@ ask.$ar: (
 @use "./_components/header";
 @use "./_components/post-list";
 @use "./_components/footer";
+@use "./_components/back-link";
+@use "./_components/image-custom";
+@use "./_components/rail-custom";
 @use "./_components/layout";
 
 // -----------------------------------------------------

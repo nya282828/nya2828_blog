@@ -1,0 +1,15 @@
+// rail
+@use "../ask_setting" as ask;
+.l-rail {
+  &--fit-left {
+    margin: 0;
+  }
+
+  &--overflow {
+    &--m {
+      padding: 0;
+      width: calc(100vw - #{ask.$r_size_space});
+      max-width: ask.$r_size_width*1.5;
+    }
+  }
+}

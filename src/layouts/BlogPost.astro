@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import BackLink from '../components/BackLink.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -9,8 +10,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseLayout>
-	<article class="l-rail">
-		{heroImage && <img width="100%" src={heroImage} alt="" />}
+	<article class="l-rail l-rail--full l-rail--fit-left">
+		<div class="l-rail l-rail--overflow--m">
+			{heroImage && <img width="100%" class="c-image" src={heroImage} alt="" />}
+		</div>
 		<h1 class="title">{title}</h1>
 		<FormattedDate date={pubDate} />
 		{
@@ -23,4 +26,5 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<hr />
 		<slot />
 	</article>
+	<BackLink></BackLink>
 </BaseLayout>

@@ -7,6 +7,12 @@
       margin: 3em 0 0;
     }
 
+    &__link,
+    &__title,
+    &__link {
+      max-width: fit-content;
+    }
+
     &__link {
       display: block;
       text-decoration: none;

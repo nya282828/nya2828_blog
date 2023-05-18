@@ -1,0 +1,9 @@
+// back link
+@use "../ask_setting" as ask;
+
+.c-back-link {
+  display: block;
+  max-width: fit-content;
+  text-decoration: none;
+  color: ask.$c_text;
+}
