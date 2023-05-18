@@ -7,9 +7,19 @@
 
   &--overflow {
     &--m {
+      margin: 0 0 0 ask.$r_size_space/2*-1;
       padding: 0;
-      width: calc(100vw - #{ask.$r_size_space});
+      width: 100vw;
       max-width: ask.$r_size_width*1.5;
+    }
+  }
+
+  @include ask.mq-xxxs {
+    &--overflow {
+      &--m {
+        margin: 0;
+        width: calc(100vw - #{ask.$r_size_space});
+      }
     }
   }
 }
