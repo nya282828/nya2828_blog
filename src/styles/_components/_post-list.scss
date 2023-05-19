@@ -22,6 +22,8 @@
       display: block;
       color: ask.$c_text;
       text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
     }
 
     &__time {
