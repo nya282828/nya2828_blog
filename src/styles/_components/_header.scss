@@ -4,6 +4,7 @@
   padding: 3em 0 0;
 
   &__logo {
+    line-height: 32px;
     margin: 0;
 
     .t-link {
@@ -12,6 +13,16 @@
   }
 
   &__nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
     margin: 2em 0 0;
+  }
+
+  &__theme {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 3em;
   }
 }

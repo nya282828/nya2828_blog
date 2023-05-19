@@ -1,0 +1,16 @@
+// Theme
+@use "../ask_setting" as ask;
+
+html.dark {
+  background-color: ask.$c_black;
+  color: ask.$c_white;
+}
+
+.dark .nav-links a {
+  color: ask.$c_white;
+}
+
+.dark .ask-wrapper {
+  background: ask.$c_black;
+  color: ask.$c_white;
+}
