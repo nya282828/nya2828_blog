@@ -1,4 +1,6 @@
 // theme toggle button
+@use "../ask_setting" as ask;
+
 .c-theme-toggle {
   height: 32px;
   width: 32px;
@@ -6,4 +8,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background: ask.$c_background;
+  border: none;
 }

@@ -1,4 +1,5 @@
 // header
+@use "../ask_setting" as ask;
 .c-header {
   margin: 0;
   padding: 3em 0 0;
@@ -22,9 +23,9 @@
   }
 
   &__theme {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    margin: 3em;
+    margin: 3em ask.$r_size_space;
   }
 }
