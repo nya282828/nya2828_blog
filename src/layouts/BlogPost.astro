@@ -6,24 +6,29 @@ import BackLink from '../components/BackLink.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.props;
 ---
 
 <BaseLayout>
 	<article class="c-blog l-rail l-rail--full l-rail--fit-left">
-		<div class="l-rail l-rail--overflow--m">
-			{heroImage && <img width="100%" class="c-image" src={heroImage} alt="" />}
+		<div class="c-blog__head">
+			<div class="l-rail l-rail--overflow--m">
+				<figure class="c-media">
+					<div class="c-image">
+						{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}
+					</div>
+				</figure>
+			</div>
+			<FormattedDate date={pubDate} />
+			{
+				updatedDate && (
+					<div class="last-updated-on">
+						Last updated on <FormattedDate date={updatedDate} />
+					</div>
+				)
+			}
+			<h1 class="title">{title}</h1>
 		</div>
-		<h1 class="title">{title}</h1>
-		<FormattedDate date={pubDate} />
-		{
-			updatedDate && (
-				<div class="last-updated-on">
-					Last updated on <FormattedDate date={updatedDate} />
-				</div>
-			)
-		}
-		<hr />
 		<slot />
 	</article>
 	<BackLink></BackLink>
