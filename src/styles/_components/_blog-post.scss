@@ -1,4 +1,50 @@
 // blog-post
+@use "../ask_setting" as ask;
+
 .c-blog {
+  &__head {
+    &__info {
+      margin: 3em 0 0;
+      padding: 0 ask.$r_size_space 0 0;
+    }
+
+    &__date {
+      @include ask.t-size(ask.$t_h_size_xxs, 1);
+    }
+  }
+
+  &__hero {
+    margin: 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  &__body {
+    margin: 3em 0 0;
+  }
   
+  h1 {
+    @include ask.t-size(ask.$t_h_size_l);
+    font-weight: 700;
+  }
+
+  h2 {
+    @include ask.t-size(ask.$t_h_size_sm);
+    font-weight: 700;
+  }
+
+  h3 {
+    @include ask.t-size(ask.$t_h_size_s);
+    font-weight: 700;
+    color: ask.$c_gray50;
+  }
+
+  h4 {
+    @include ask.t-size(ask.$t_h_size_xs);
+    font-weight: 700;
+    color: ask.$c_gray50;
+  }
 }

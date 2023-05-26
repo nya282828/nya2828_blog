@@ -1,4 +1,6 @@
 // typo
+@use "../ask_setting" as ask;
+
 .ask-wrapper {
   // font-family: "TazuganeGothicStdN-Regular", sans-serif;
   font-family: 'IBM Plex Mono','Noto Sans JP', sans-serif;
@@ -14,4 +16,9 @@ h1,h2,h3,h4 {
   text-decoration-thickness: 1px;
   text-decoration-skip: 2px;
   text-underline-offset: 0.15em;
+}
+
+.t-time {
+  color: ask.$c_gray50;
+  font-family:'IBM Plex Mono', dnp-shuei-gothic-kin-std, sans-serif;
 }

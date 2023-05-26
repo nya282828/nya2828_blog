@@ -28,9 +28,7 @@
 
     &__time {
       display: block;
-      color: ask.$c_gray50;
-      @include ask.t-size(ask.$t_h_size_xxs);
-      font-family:'IBM Plex Mono', dnp-shuei-gothic-kin-std, sans-serif;
+      @include ask.t-size(ask.$t_h_size_xxs, 1);
     }
   }
 }
