@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
+// コンテンツタイプblog記事のコンテンツスキーマ
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
