@@ -4,15 +4,17 @@
 $a: math.div(ask.$r_size_space, 2);
 
 .l-rail {
+  margin: 0;
+  padding: 0;
+
   &--fit-left {
     margin: 0;
   }
 
   &--overflow {
     &--m {
-      margin: 0 0 0 $a*-1;
+      margin: 0 0 0 0;
       padding: 0;
-      width: 100vw;
       max-width: ask.$r_size_width*1.5;
     }
   }

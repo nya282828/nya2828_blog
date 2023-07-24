@@ -3,6 +3,8 @@
 
 .c-blog {
   &__head {
+    width: calc(100vw - 2em);
+    
     &__info {
       margin: 3em 0 0;
       padding: 0 ask.$r_size_space 0 0;

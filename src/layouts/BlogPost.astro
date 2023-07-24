@@ -16,13 +16,13 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 	<head>
 		<BaseHead title={title + " - " + SITE_TITLE} description={description} image={heroImage} />
 	</head>
-	<body>
-		<div class="ask-wrapper l-rail l-rail--m">
+	<body class="ask-wrapper">
+		<div class="l-content">
 			<Header title={SITE_TITLE} />
-			<main class="l-main">
-				<article class="c-blog l-rail l-rail--full l-rail--fit-left">
+			<main class="l-main l-g-container">
+				<article class="c-blog l-g-container">
 					<div class="c-blog__head">
-						<div class="l-rail l-rail--overflow--m">
+						<div class="l-rail l-rail--m">
 							<figure class="c-blog__hero c-media">
 								<div class="c-image c-image--hero u-ar-16x9">
 									{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}
@@ -42,11 +42,15 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 							</div>
 						</div>
 					</div>
-					<div class="c-blog__body">
-						<slot />
+					<div class="c-blog__body l-g-container">
+						<div class="l-rail">
+							<slot />
+						</div>
+					</div>
+					<div class="c-blog__foot l-g-container">
+						<BackLink></BackLink>
 					</div>
 				</article>
-				<BackLink></BackLink>
 			</main>
 			<Footer />
 		</div>

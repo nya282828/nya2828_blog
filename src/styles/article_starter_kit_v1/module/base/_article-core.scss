@@ -1,7 +1,6 @@
 @use "../../ask" as ask;
 // article ---> root of this project
 .ask-wrapper {
-  min-height: 100vh;
   -webkit-text-size-adjust: 100%;
   font-family: ask.$t_list_system_ja;
   color: ask.$c_text;

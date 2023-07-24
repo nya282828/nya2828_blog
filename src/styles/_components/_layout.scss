@@ -1,11 +1,30 @@
 // layout
+@use "../ask_setting" as ask;
+
 .ask-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
+
 }
 
-.c-header {
+.l-content {
+  // display: flex;
+  // flex-flow: column nowrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,1em);
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
+  align-items: baseline;
+  min-height: 100svh;
+  max-width: 53em;
+  margin: auto;
+  overflow: hidden;
 
+  @include ask.mq-xl {
+    margin: 0 0 0 10vw;
+  }
+
+  & > * {
+    grid-column: 3 / -3;
+  }
 }
 
 .l-main {
@@ -19,4 +38,14 @@
 .c-footer {
   flex: 0 0 auto;
   margin: auto 0 0 0;
+}
+
+.l-g-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,1em);
+  justify-content: center;
+
+  & > * {
+    grid-column: 1 / -1;
+  }
 }

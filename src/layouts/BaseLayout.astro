@@ -15,10 +15,10 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<div class="ask-wrapper l-rail l-rail--m">
+	<body class="ask-wrapper">
+		<div class="l-content">
 			<Header title={SITE_TITLE} />
-			<main class="l-main">
+			<main class="l-main l-g-container">
         <slot />
 			</main>
 			<Footer />
