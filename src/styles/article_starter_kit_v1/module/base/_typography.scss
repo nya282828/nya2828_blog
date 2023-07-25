@@ -21,7 +21,7 @@ ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_l
     font-family: ask.$t_list_ja_sans;
   }
   -webkit-font-smoothing: antialiased;
-  line-break: strict;
+  line-break: normal;
   hanging-punctuation: allow-end;
   @include ask.t-size(ask.$t_h_size_s);
 }

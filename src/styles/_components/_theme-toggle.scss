@@ -8,6 +8,32 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: ask.$c_background;
+  background: rgba(0,0,0,0);
   border: none;
+  transition: background .2s ease;
+  border-radius: 50%;
+  
+  // &:hover {
+  //   background: rgba(0,0,0,0.1);
+  // }
+
+  // .dark &:hover {
+  //   background: rgba(255,255,255,0.2);
+  // }
+}
+
+.sun {
+  fill: black;
+  transition: fill .2s ease;
+}
+.moon {
+  fill: transparent;
+  transition: fill .2s ease;
+}
+
+.dark .sun {
+  fill: transparent;
+}
+.dark .moon {
+  fill: white;
 }

@@ -7,14 +7,6 @@
   </svg>
 </button>
 
-<style>
-  .sun { fill: black; }
-  .moon { fill: transparent; }
-  
-
-  :global(.dark) .sun { fill: transparent; }
-  :global(.dark) .moon { fill: white; }
-</style>
 <script>
   const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
