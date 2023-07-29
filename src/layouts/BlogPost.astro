@@ -23,11 +23,7 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 				<article class="c-blog l-g-container">
 					<div class="c-blog__head">
 						<div class="l-rail l-rail--m">
-							<figure class="c-blog__hero c-media">
-								<div class="c-image c-image--hero u-ar-16x9">
-									{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}
-								</div>
-							</figure>
+							<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}</div>
 							<div class="c-blog__head__info">
 								<p class="c-blog__head__date">
 									<FormattedDate date={pubDate} />

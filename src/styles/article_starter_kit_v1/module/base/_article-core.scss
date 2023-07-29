@@ -3,6 +3,10 @@
 .ask-wrapper {
   -webkit-text-size-adjust: 100%;
   font-family: ask.$t_list_system_ja;
+  font-feature-settings: "palt" 0;
+  font-kerning: none;
+  line-break: normal;
+  hanging-punctuation: allow-end;
   color: ask.$c_text;
   background: ask.$c_background;
 }
