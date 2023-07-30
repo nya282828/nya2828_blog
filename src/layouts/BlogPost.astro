@@ -21,7 +21,7 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 			<Header title={SITE_TITLE} />
 			<main class="l-main l-g-container">
 				<article class="c-blog l-g-container">
-					<div class="c-blog__head">
+					<header class="c-blog__head">
 						<div class="l-rail l-rail--m">
 							<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}</div>
 							<div class="c-blog__head__info">
@@ -37,7 +37,7 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 								<h1 class="c-blog__title t-headline1">{title}</h1>
 							</div>
 						</div>
-					</div>
+					</header>
 					<div class="c-blog__body l-g-container">
 						<div class="l-rail">
 							<slot />
