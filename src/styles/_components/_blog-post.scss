@@ -5,6 +5,7 @@
 
   &__head {
     width: calc(100vw - 2em);
+    // width: calc((100% + 4em) - (100vw / (100 / #{ask.$t_size_base}) / 2));
 
     &__hero {
       margin: 0;

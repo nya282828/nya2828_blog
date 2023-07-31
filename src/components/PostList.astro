@@ -7,16 +7,18 @@ const posts = (await getCollection('blog')).sort(
 // const allPosts = await Astro.glob('../content/blog/*.mdx');
 
 ---
-{
-  posts.map((post) => (
-    <article class="c-post-list__item">
-      <a class="c-post-list__item__link" href={`/blog/${post.slug}/`}>
-        <span class="c-post-list__item__title">{post.data.title}</span>
-        <span class="c-post-list__item__time"><FormattedDate date={post.data.pubDate} /></span>
-      </a>
-    </article>
-  ))
-}
+<div class="c-post-list l-g-container">
+  {
+    posts.map((post) => (
+      <article class="c-post-list__item">
+        <a class="c-post-list__item__link" href={`/blog/${post.slug}/`}>
+          <span class="c-post-list__item__title">{post.data.title}</span>
+          <span class="c-post-list__item__time"><FormattedDate date={post.data.pubDate} /></span>
+        </a>
+      </article>
+    ))
+  }
+</div>
 <!-- {
   allPosts.map(
     (post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>

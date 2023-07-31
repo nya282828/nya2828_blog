@@ -18,7 +18,7 @@ const posts = (await getCollection('blog')).sort(
 	<body class="ask-wrapper">
 		<div class="l-content">
 			<Header title={SITE_TITLE} />
-			<main class="l-main l-g-container">
+			<main class="l-main">
         <slot />
 			</main>
 			<Footer />
