@@ -1,49 +1,49 @@
 @charset "utf-8";
 
 // ask初期設定、及びプロジェクト用に定義した変数の呼び出し
-@use "./ask_setting" as ask;
+@use "./ask_setting" as *;
 
 // -----------------------------------------------------
 // 1. askの文字組設定
 // -----------------------------------------------------
 
 // font/typogrphy: Source Han Sans | 源の角ゴシックは読み込むか？
-ask.$t_type_sans: false;
+$t_type_sans: false;
 
 // font/typogrphy: Source Han Serif' | 源の角明朝は読み込むか？
-ask.$t_type_serif: false;
+$t_type_serif: false;
 
 // font/typogrphy: どのウェイトを読み込むか.（100,200,300,400,500,700,900）
-ask.$t_list_weight: 400, 700;
+$t_list_weight: 400, 700;
 
 // font/typogrphy: 本文のフォントサイズ（単位:なし）
-ask.$t_size_base: 16;
-ask.$t_size_base_px: ask.$t_size_base*1px; //単位付きの数値に変換。編集不要
+$t_size_base: 16;
+$t_size_base_px: $t_size_base*1px; //単位付きの数値に変換。編集不要
 
 // font/typogrphy: 本文の行の高さ（単位：なし）
-ask.$t_lh_base: 2;
+$t_lh_base: 2;
 
 // font/typogrphy: 字間（単位:em、負数も可）
-ask.$t_spacing: 0em;
+$t_spacing: 0em;
 
 // font/typogrphy: 画面サイズごとの文字の拡大比率（単位:なし）
-ask.$t_scale_media: 1.125;
+$t_scale_media: 1.125;
 
 // font/typogrphy: 見出しレベルごとの文字の拡大比率（単位:なし）
-ask.$t_scale_lv_harmony: 9;
+$t_scale_lv_harmony: 9;
 
 // layout: 段の左右余白の大きさ（単位:em）
-ask.$r_size_space: 2em;
+$r_size_space: 2em;
 
 // layout: 行文字数（単位:なし）
-ask.$r_num_text: 30;
-ask.$r_size_width: (1+ask.$t_spacing) * ask.$r_num_text; // 行最大サイズ。編集不要
+$r_num_text: 30;
+$r_size_width: (1+$t_spacing) * $r_num_text; // 行最大サイズ。編集不要
 
 // small phone: 375px未満の画面における文字の縮小率
-ask.$t_scale_small: 0.853333;
+$t_scale_small: 0.853333;
 
 // layout: media-query（単位:em）
-ask.$bp: (
+$bp: (
   'xxxs': 23.4375em,  //375px
   'xxs': 30em,        //480px
   'xs': 36.25em,      //580px
@@ -56,7 +56,7 @@ ask.$bp: (
 );
 
 // 必要なアスペクト比
-ask.$ar: (
+$ar: (
   1x1: "1 / 1",
   4x3: "4 / 3",
   16x9: "16 / 9",

@@ -3,11 +3,13 @@
 .c-header {
   margin: 0;
   padding: 3em 0 0;
+  font-family: ask.$t_fontset_en;
 
   &__logo {
-    line-height: 32px;
+    @include ask.t-size(ask.$t_h_size_l, 32px);
+    // line-height: 32px;
     margin: 0;
-    font-family:'IBM Plex Mono', dnp-shuei-gothic-kin-std, sans-serif;
+    font-family: ask.$t_fontset_en;
 
     .t-link {
       text-decoration: none;
@@ -19,7 +21,6 @@
     flex-flow: row wrap;
     justify-content: space-between;
     margin: 2em 0 0;
-    font-family:'IBM Plex Mono', dnp-shuei-gothic-kin-std, sans-serif;
   }
 
   &__theme {

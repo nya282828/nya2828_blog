@@ -6,8 +6,13 @@
 
 // プロジェクト変数の定義
 // ---------------------------------
-$c_link_darkhover: #40a0ff;
 
-// ankit変数の上書き
-// ---------------------------------
+// Fontset
+// $t_fontset_ja: "dnp-shuei-gothic-kin-std",  sans-serif;
+// $t_fontset_ja: hiragino-kaku-gothic-pron, sans-serif;
+$t_fontset_ja: "ryo-gothic-plusn", sans-serif;
+$t_fontset_en: 'IBM Plex Mono', monospace;
+
+// Color
 ankit.$c_black: #111;
+$c_link_darkhover: #40a0ff;

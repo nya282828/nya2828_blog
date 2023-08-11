@@ -7,7 +7,7 @@
   // font-family: 'IBM Plex Mono','Noto Sans JP', sans-serif;
   // font-family: "dnp-shuei-gothic-kin-std",  sans-serif;
   // font-family: hiragino-kaku-gothic-pron, sans-serif;
-  font-family:  "ryo-gothic-plusn", sans-serif;
+  font-family:  ask.$t_fontset_ja;
   font-weight: 400;
 }
 
@@ -17,7 +17,7 @@ h1,h2,h3,h4 {
   // font-family: 'IBM Plex Mono','Noto Sans JP', sans-serif;
   // font-family: "m-plus-2p", sans-serif;
   // font-family: 'IBM Plex Mono', hiragino-kaku-gothic-pron, sans-serif;
-  font-family: "ryo-gothic-plusn", sans-serif;
+  font-family: ask.$t_fontset_ja;
   font-weight: 700;
 }
 
@@ -50,5 +50,5 @@ h1,h2,h3,h4 {
 
 .t-time {
   color: ask.$c_gray50;
-  font-family:'IBM Plex Mono', dnp-shuei-gothic-kin-std, sans-serif;
+  font-family: ask.$t_fontset_en;
 }
