@@ -9,7 +9,6 @@
   // font-family: hiragino-kaku-gothic-pron, sans-serif;
   font-family:  "ryo-gothic-plusn", sans-serif;
   font-weight: 400;
-  transition: all .2s ease;
 }
 
 h1,h2,h3,h4 {
@@ -27,7 +26,6 @@ h1,h2,h3,h4 {
   text-decoration-thickness: 1px;
   text-decoration-skip: 2px;
   text-underline-offset: 0.15em;
-  transition: all .2s ease;
 
   &:visited {
     color: ask.$c_text;
