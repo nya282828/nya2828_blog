@@ -6,7 +6,7 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com/',
+  site: 'https://nya2828.com/',
   integrations: [mdx({
     extendMarkdownConfig: false,
     smartypants: true,

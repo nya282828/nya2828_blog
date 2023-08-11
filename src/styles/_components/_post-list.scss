@@ -31,4 +31,12 @@
       @include ask.t-size(ask.$t_h_size_xxs, 1);
     }
   }
+
+  .dark & {
+    &__item {
+        &__title {
+        color: ask.$c_white;
+      }
+    }
+  }
 }

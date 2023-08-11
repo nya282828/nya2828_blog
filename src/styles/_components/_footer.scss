@@ -1,9 +1,17 @@
 // footer
+@use "../ask_setting" as ask;
+
 .c-footer {
   padding: 0 0 3em;
+  @include ask.t-size(ask.$t_h_size_xxs);
   font-family:'IBM Plex Mono', dnp-shuei-gothic-kin-std, sans-serif;
 
+  &__links {
+    display: flex;
+    gap: 1em;
+  }
+
   &__copy {
-    margin: 0;
+    margin: 1em 0 0 0;
   }
 }
