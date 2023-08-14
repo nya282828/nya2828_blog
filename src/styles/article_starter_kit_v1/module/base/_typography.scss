@@ -46,6 +46,20 @@ ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_l
   --t-size_xxxxl:        #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)}; // 128
   --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl, ask.$t_size_base)};
 
+  // Font family
+  --t-font-family-ja: #{ask.$t_list_ja_sans};
+
+  @if ask.$t_type_sans == true {
+    font-family: var(--t-font-family-ja);
+  }
+
+  -webkit-font-smoothing: antialiased;
+  line-break: normal;
+  hanging-punctuation: allow-end;
+  font-size: var(--t-base-size);
+  line-height: var(--t-base-line-height);
+  letter-spacing: var(--t-lettr-spacing);
+
   // ブレークポイント毎に再設定
   @media screen and (max-width: map-get(ask.$bp, xxxs) - 0.0625) {
     --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_small};
@@ -154,17 +168,6 @@ ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_l
     --t-size_xxxxl:        #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)*math.pow(ask.$t_scale_media, 3)};
     --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
   }
-
-  @if ask.$t_type_sans == true {
-    font-family: ask.$t_list_ja_sans;
-  }
-
-  -webkit-font-smoothing: antialiased;
-  line-break: normal;
-  hanging-punctuation: allow-end;
-  font-size: var(--t-base-size);
-  line-height: var(--t-base-line-height);
-  letter-spacing: var(--t-lettr-spacing);
 }
 
 // level

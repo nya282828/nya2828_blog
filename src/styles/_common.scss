@@ -3,34 +3,24 @@
 @use "ask_setting" as ask;
 
 .ask-wrapper {
-  // --t-base-size: #{ask.$t_size_base_px}; // 本文サイズ
-  // --t-base-line-height: ask.$t_lh_base; // ベース行間
+  // Color Set
+  // Light
+  --c-light-bg:      #{ask.$c_background};
+  --c-light-text:    #{ask.$c_text};
+  --c-light-caption: #{ask.$c_gray50};
+  --c-light-link:    #{ask.$c_link};
+  --c-light-hover:   #{ask.$c_link_hover};
+  --c-light-visited: #{ask.$c_link_visited};
+  --c-light-active:  #{ask.$c_link_active};
+  --c-light-focus:   #{ask.$c_link_focus};
 
-  // --t-size_xxxs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)}; // 12.8
-  // --t-size_xxs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2)}; // 12.8
-  // --t-size_xs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1)}; // 14.22222
-  // --t-size_s: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0)}; // 16
-  // --t-size_sm: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1)}; // 18.28571
-  // --t-size_m: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2)}; // 21.33333
-  // --t-size_l: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3)}; // 25.6
-  // --t-size_xl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4)}; // 32
-  // --t-size_xxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5)}; // 42.66666
-  // --t-size_xxxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6)}; // 64
-  // --t-size_xxxxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)}; // 128
-
-  // @media screen and (max-width: map-get(ask.$bp, xxxs) - 0.0625) {
-  //   --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_small};
-  // }
-
-  // @include ask.mq-xs {
-  //   --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_media};
-  // }
-
-  // @include ask.mq-xl {
-  //   --t-base-size: #{ask.$t_size_base_px*math.pow(ask.$t_scale_media, 2)};
-  // }
-
-  // @include ask.mq-xxxl {
-  //   --t-base-size: #{ask.$t_size_base_px*math.pow(ask.$t_scale_media, 3)};
-  // }
+  // Dark
+  --c-dark-bg:      #{ask.$c_black};
+  --c-dark-text:    #{ask.$c_white};
+  --c-dark-caption: #{ask.$c_gray50};
+  // --c-dark-link:    #{ask.$c_link};
+  --c-dark-hover:   #{ask.$c_link_darkhover};
+  // --c-dark-visited: #{ask.$c_link_visited};
+  // --c-dark-active:  #{ask.$c_link_active};
+  // --c-dark-focus:   #{ask.$c_link_focus};
 }
