@@ -1,0 +1,36 @@
+// common
+@use "sass:math";
+@use "ask_setting" as ask;
+
+.ask-wrapper {
+  // --t-base-size: #{ask.$t_size_base_px}; // 本文サイズ
+  // --t-base-line-height: ask.$t_lh_base; // ベース行間
+
+  // --t-size_xxxs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)}; // 12.8
+  // --t-size_xxs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2)}; // 12.8
+  // --t-size_xs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1)}; // 14.22222
+  // --t-size_s: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0)}; // 16
+  // --t-size_sm: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1)}; // 18.28571
+  // --t-size_m: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2)}; // 21.33333
+  // --t-size_l: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3)}; // 25.6
+  // --t-size_xl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4)}; // 32
+  // --t-size_xxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5)}; // 42.66666
+  // --t-size_xxxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6)}; // 64
+  // --t-size_xxxxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)}; // 128
+
+  // @media screen and (max-width: map-get(ask.$bp, xxxs) - 0.0625) {
+  //   --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_small};
+  // }
+
+  // @include ask.mq-xs {
+  //   --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_media};
+  // }
+
+  // @include ask.mq-xl {
+  //   --t-base-size: #{ask.$t_size_base_px*math.pow(ask.$t_scale_media, 2)};
+  // }
+
+  // @include ask.mq-xxxl {
+  //   --t-base-size: #{ask.$t_size_base_px*math.pow(ask.$t_scale_media, 3)};
+  // }
+}

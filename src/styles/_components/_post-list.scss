@@ -28,7 +28,9 @@
 
     &__time {
       display: block;
-      @include ask.t-size(ask.$t_h_size_xxs, 1);
+      // @include ask.t-size(ask.$t_h_size_xxxs, 1);
+      font-size: var(--t-size_xxxs);
+      line-height: 1;
     }
   }
 

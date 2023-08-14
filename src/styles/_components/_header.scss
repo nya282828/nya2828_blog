@@ -6,7 +6,9 @@
   font-family: ask.$t_fontset_en;
 
   &__logo {
-    @include ask.t-size(ask.$t_h_size_l, 32px);
+    // @include ask.t-size(ask.$t_h_size_l, 32px);
+    font-size: var(--t-size_l);
+    line-height: 32px;
     // line-height: 32px;
     margin: 0;
     font-family: ask.$t_fontset_en;

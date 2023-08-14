@@ -1,7 +1,8 @@
+@use "sass:math";
 @use "../../ask" as ask;
 // Typeface
 
-// 調和数列
+// 調和数列のフォントサイズを算出し、SASS変数化
 ask.$t_h_size_xxxs: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3); // 12.8
 ask.$t_h_size_xxs: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2); // 12.8
 ask.$t_h_size_xs: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1); // 14.22222
@@ -17,28 +18,174 @@ ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_l
 // root
 //----------------------------------------------
 .ask-wrapper {
+  --t-base-size: #{ask.$t_size_base_px}; // 本文サイズ
+  --t-base-line-height: #{ask.$t_lh_base}; // ベース行間
+  --t-letter-spacing: #{ask.$t_spacing};
+
+  // 以下xxxs〜xxxxlまでのデフォルトサイズとline-height
+  --t-size_xxxs:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)}; // 12.8
+  --t-line-height_xxxs:  #{ask.get-line-height(ask.$t_h_size_xxxs, ask.$t_size_base)};
+  --t-size_xxs:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2)}; // 12.8
+  --t-line-height_xxs:   #{ask.get-line-height(ask.$t_h_size_xxs, ask.$t_size_base)};
+  --t-size_xs:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1)}; // 14.22222
+  --t-line-height_xs:    #{ask.get-line-height(ask.$t_h_size_xs, ask.$t_size_base)};
+  --t-size_s:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0)}; // 16
+  --t-line-height_s:     #{ask.get-line-height(ask.$t_h_size_s, ask.$t_size_base)};
+  --t-size_sm:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1)}; // 18.28571
+  --t-line-height_sm:    #{ask.get-line-height(ask.$t_h_size_sm, ask.$t_size_base)};
+  --t-size_m:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2)}; // 21.33333
+  --t-line-height_m:     #{ask.get-line-height(ask.$t_h_size_m, ask.$t_size_base)};
+  --t-size_l:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3)}; // 25.6
+  --t-line-height_l:     #{ask.get-line-height(ask.$t_h_size_l, ask.$t_size_base)};
+  --t-size_xl:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4)}; // 32
+  --t-line-height_xl:    #{ask.get-line-height(ask.$t_h_size_xl, ask.$t_size_base)};
+  --t-size_xxl:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5)}; // 42.66666
+  --t-line-height_xxl:   #{ask.get-line-height(ask.$t_h_size_xxl, ask.$t_size_base)};
+  --t-size_xxxl:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6)}; // 64
+  --t-line-height_xxxl:  #{ask.get-line-height(ask.$t_h_size_xxxl, ask.$t_size_base)};
+  --t-size_xxxxl:        #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)}; // 128
+  --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl, ask.$t_size_base)};
+
+  // ブレークポイント毎に再設定
+  @media screen and (max-width: map-get(ask.$bp, xxxs) - 0.0625) {
+    --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_small};
+    // 以下xxxs〜xxxxlまでのデフォルトサイズとline-height
+    --t-size_xxxs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)*ask.$t_scale_small}; 
+    --t-line-height_xxxs: #{ask.get-line-height(ask.$t_h_size_xxxs*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_xxs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2)*ask.$t_scale_small}; 
+    --t-line-height_xxs: #{ask.get-line-height(ask.$t_h_size_xxs*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_xs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1)*ask.$t_scale_small}; 
+    --t-line-height_xs: #{ask.get-line-height(ask.$t_h_size_xs*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_s: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0)*ask.$t_scale_small}; 
+    --t-line-height_s: #{ask.get-line-height(ask.$t_h_size_s*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_sm: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1)*ask.$t_scale_small}; 
+    --t-line-height_sm: #{ask.get-line-height(ask.$t_h_size_sm*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_m: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2)*ask.$t_scale_small}; 
+    --t-line-height_m: #{ask.get-line-height(ask.$t_h_size_m*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_l: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3)*ask.$t_scale_small}; 
+    --t-line-height_l: #{ask.get-line-height(ask.$t_h_size_l*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_xl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4)*ask.$t_scale_small}; 
+    --t-line-height_xl: #{ask.get-line-height(ask.$t_h_size_xl*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_xxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5)*ask.$t_scale_small}; 
+    --t-line-height_xxl: #{ask.get-line-height(ask.$t_h_size_xxl*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_xxxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6)*ask.$t_scale_small}; 
+    --t-line-height_xxxl: #{ask.get-line-height(ask.$t_h_size_xxxl*ask.$t_scale_small, ask.$t_size_base)};
+    --t-size_xxxxl: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)*ask.$t_scale_small}; 
+    --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl*ask.$t_scale_small, ask.$t_size_base)};
+  }
+
+  @include ask.mq-xs {
+    --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_media};
+    // 以下xxxs〜xxxxlまでのデフォルトサイズとline-height
+    --t-size_xxxs:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)*ask.$t_scale_media};
+    --t-line-height_xxxs:  #{ask.get-line-height(ask.$t_h_size_xxxs*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_xxs:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2)*ask.$t_scale_media};
+    --t-line-height_xxs:   #{ask.get-line-height(ask.$t_h_size_xxs*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_xs:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1)*ask.$t_scale_media};
+    --t-line-height_xs:    #{ask.get-line-height(ask.$t_h_size_xs*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_s:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0)*ask.$t_scale_media};
+    --t-line-height_s:     #{ask.get-line-height(ask.$t_h_size_s*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_sm:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1)*ask.$t_scale_media};
+    --t-line-height_sm:    #{ask.get-line-height(ask.$t_h_size_sm*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_m:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2)*ask.$t_scale_media};
+    --t-line-height_m:     #{ask.get-line-height(ask.$t_h_size_m*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_l:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3)*ask.$t_scale_media};
+    --t-line-height_l:     #{ask.get-line-height(ask.$t_h_size_l*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_xl:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4)*ask.$t_scale_media};
+    --t-line-height_xl:    #{ask.get-line-height(ask.$t_h_size_xl*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_xxl:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5)*ask.$t_scale_media};
+    --t-line-height_xxl:   #{ask.get-line-height(ask.$t_h_size_xxl*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_xxxl:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6)*ask.$t_scale_media};
+    --t-line-height_xxxl:  #{ask.get-line-height(ask.$t_h_size_xxxl*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+    --t-size_xxxxl:        #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)*ask.$t_scale_media};
+    --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl*ask.$t_scale_media, ask.$t_size_base*ask.$t_scale_media)};
+  }
+
+  @include ask.mq-xl {
+    --t-base-size: #{ask.$t_size_base_px*math.pow(ask.$t_scale_media, 2)};
+    // 以下xxxs〜xxxxlまでのデフォルトサイズとline-height
+    --t-size_xxxs:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_xxxs:  #{ask.get-line-height(ask.$t_h_size_xxxs*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_xxs:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_xxs:   #{ask.get-line-height(ask.$t_h_size_xxs*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_xs:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_xs:    #{ask.get-line-height(ask.$t_h_size_xs*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_s:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_s:     #{ask.get-line-height(ask.$t_h_size_s*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_sm:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_sm:    #{ask.get-line-height(ask.$t_h_size_sm*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_m:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_m:     #{ask.get-line-height(ask.$t_h_size_m*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_l:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_l:     #{ask.get-line-height(ask.$t_h_size_l*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_xl:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_xl:    #{ask.get-line-height(ask.$t_h_size_xl*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_xxl:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_xxl:   #{ask.get-line-height(ask.$t_h_size_xxl*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_xxxl:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_xxxl:  #{ask.get-line-height(ask.$t_h_size_xxxl*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+    --t-size_xxxxl:        #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)*math.pow(ask.$t_scale_media, 2)};
+    --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl*math.pow(ask.$t_scale_media, 2), ask.$t_size_base*math.pow(ask.$t_scale_media, 2))};
+  }
+
+  @include ask.mq-xxxl {
+    --t-base-size: #{ask.$t_size_base_px*math.pow(ask.$t_scale_media, 3)};
+    // 以下xxxs〜xxxxlまでのデフォルトサイズとline-height
+    --t-size_xxxs:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_xxxs:  #{ask.get-line-height(ask.$t_h_size_xxxs*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_xxs:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 2)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_xxs:   #{ask.get-line-height(ask.$t_h_size_xxs*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_xs:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 1)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_xs:    #{ask.get-line-height(ask.$t_h_size_xs*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_s:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 0)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_s:     #{ask.get-line-height(ask.$t_h_size_s*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_sm:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -1)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_sm:    #{ask.get-line-height(ask.$t_h_size_sm*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_m:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -2)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_m:     #{ask.get-line-height(ask.$t_h_size_m*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_l:            #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -3)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_l:     #{ask.get-line-height(ask.$t_h_size_l*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_xl:           #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -4)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_xl:    #{ask.get-line-height(ask.$t_h_size_xl*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_xxl:          #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -5)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_xxl:   #{ask.get-line-height(ask.$t_h_size_xxl*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_xxxl:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -6)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_xxxl:  #{ask.get-line-height(ask.$t_h_size_xxxl*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+    --t-size_xxxxl:        #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)*math.pow(ask.$t_scale_media, 3)};
+    --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
+  }
+
   @if ask.$t_type_sans == true {
     font-family: ask.$t_list_ja_sans;
   }
+
   -webkit-font-smoothing: antialiased;
   line-break: normal;
   hanging-punctuation: allow-end;
-  @include ask.t-size(ask.$t_h_size_s);
+  font-size: var(--t-base-size);
+  line-height: var(--t-base-line-height);
+  letter-spacing: var(--t-lettr-spacing);
 }
 
 // level
 //----------------------------------------------
 
 .t-headline1 {
-  @include ask.t-size(ask.$t_h_size_xl);
+  // @include ask.t-size(ask.$t_h_size_xl);
+  font-size: var(--t-size_xl);
+  line-height: var(--t-line-height_xl);
 }
 
 .t-headline2 {
-  @include ask.t-size(ask.$t_h_size_l);
+  // @include ask.t-size(ask.$t_h_size_l);
+  font-size: var(--t-size_l);
+  line-height: var(--t-line-height_l);
 }
 
 .t-headline3 {
-  @include ask.t-size(ask.$t_h_size_m);
+  // @include ask.t-size(ask.$t_h_size_m);
+  font-size: var(--t-size_m);
+  line-height: var(--t-line-height_m);
 }
 
 .t-paragraph {
@@ -50,58 +197,60 @@ ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_l
 }
 
 .t-caption {
-  @include ask.t-size(ask.$t_h_size_xxs);
+  // @include ask.t-size(ask.$t_h_size_xxs);
+  font-size: var(--t-size_xxs);
+  line-height: var(--t-line-height_xxs);
 }
 
 // サイズ別クラス名
 // 等比数列
-.t-size-xs {
-  @include ask.t-size(ask.$t_g_size_xs, 1.5);
-}
-.t-size-s {
-  @include ask.t-size(ask.$t_g_size_s, 2);
-}
-.t-size-m {
-  @include ask.t-size(ask.$t_g_size_m, 1.5);
-}
-.t-size-l {
-  @include ask.t-size(ask.$t_g_size_l, 1.5);
-}
-.t-size-xl {
-  @include ask.t-size(ask.$t_g_size_xl, 1.5);
-}
-.t-size-xxl {
-  @include ask.t-size(ask.$t_g_size_xxl, 1.5);
-}
+// .t-size-xs {
+//   @include ask.t-size(ask.$t_g_size_xs, 1.5);
+// }
+// .t-size-s {
+//   @include ask.t-size(ask.$t_g_size_s, 2);
+// }
+// .t-size-m {
+//   @include ask.t-size(ask.$t_g_size_m, 1.5);
+// }
+// .t-size-l {
+//   @include ask.t-size(ask.$t_g_size_l, 1.5);
+// }
+// .t-size-xl {
+//   @include ask.t-size(ask.$t_g_size_xl, 1.5);
+// }
+// .t-size-xxl {
+//   @include ask.t-size(ask.$t_g_size_xxl, 1.5);
+// }
 
-// 調和数列
-.t-h-size-xxs {
-  @include ask.t-size(ask.$t_h_size_xxs);
-}
-.t-h-size-xs {
-  @include ask.t-size(ask.$t_h_size_xs);
-}
-.t-h-size-s {
-  @include ask.t-size(ask.$t_h_size_s);
-}
-.t-h-size-sm {
-  @include ask.t-size(ask.$t_h_size_sm);
-}
-.t-h-size-m {
-  @include ask.t-size(ask.$t_h_size_m);
-}
-.t-h-size-l {
-  @include ask.t-size(ask.$t_h_size_l);
-}
-.t-h-size-xl {
-  @include ask.t-size(ask.$t_h_size_xl);
-}
-.t-h-size-xxl {
-  @include ask.t-size(ask.$t_h_size_xxl);
-}
-.t-h-size-xxxl {
-  @include ask.t-size(ask.$t_h_size_xxxl);
-}
+// // 調和数列
+// .t-h-size-xxs {
+//   @include ask.t-size(ask.$t_h_size_xxs);
+// }
+// .t-h-size-xs {
+//   @include ask.t-size(ask.$t_h_size_xs);
+// }
+// .t-h-size-s {
+//   @include ask.t-size(ask.$t_h_size_s);
+// }
+// .t-h-size-sm {
+//   @include ask.t-size(ask.$t_h_size_sm);
+// }
+// .t-h-size-m {
+//   @include ask.t-size(ask.$t_h_size_m);
+// }
+// .t-h-size-l {
+//   @include ask.t-size(ask.$t_h_size_l);
+// }
+// .t-h-size-xl {
+//   @include ask.t-size(ask.$t_h_size_xl);
+// }
+// .t-h-size-xxl {
+//   @include ask.t-size(ask.$t_h_size_xxl);
+// }
+// .t-h-size-xxxl {
+//   @include ask.t-size(ask.$t_h_size_xxxl);
+// }
 
 
 

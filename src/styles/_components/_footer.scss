@@ -3,7 +3,9 @@
 
 .c-footer {
   padding: 0 0 3em;
-  @include ask.t-size(ask.$t_h_size_xxs);
+  // @include ask.t-size(ask.$t_h_size_xxs);
+  font-size: var(--t-size_xxxs);
+  line-height: var(--t-line-height_xxxs);
   font-family: ask.$t_fontset_en;
 
   &__links {
