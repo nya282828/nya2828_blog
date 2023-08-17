@@ -101,21 +101,21 @@
         display: block;
         width: 0.25em;
         height: 100%;
-        background: ask.$c_gray90;
+        background: var(--c-code-bg);
         position: absolute;
         left: 0;
         border-radius: 0.125em;
       }
   
       p {
-        color: ask.$c_gray50;
+        color: var(--c-caption);
       }
     }
   
     code {
-      font-family: ask.$t_fontset_en;
-      color: ask.$c_code;
-      background: ask.$c_gray90;
+      font-family: var(--t-font-family-en);
+      color: var(--c-code);
+      background: var(--c-code-bg);
       padding: 0.1em 0.25em 0.15em 0.25em;
       font-size: 0.75em;
       border-radius: 0.1em;
@@ -134,7 +134,7 @@
     hr {
       margin: 4em auto;
       border: none;
-      border-top: 2px solid ask.$c_gray90;
+      border-top: 2px solid var(--c-border);
     }
   
     table {

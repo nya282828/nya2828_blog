@@ -21,31 +21,22 @@ h1,h2,h3,h4 {
   text-underline-offset: 0.15em;
 
   &:visited {
-    color: ask.$c_text;
+    color: var(--c-text);
   }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      color: ask.$c_link_hover;
-    }
-  }
-
-  .dark & {
-    color: ask.$c_white;
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        color: ask.$c_link_darkhover;
-      }
+      color: var(--c-hover);
+      text-decoration-thickness: 1px;
     }
   }
 }
 
 .t-caption {
-  color: ask.$c_gray50;
+  color: var(--c-caption);
 }
 
 .t-time {
-  color: ask.$c_gray50;
+  color: var(--c-caption);
   font-family: var(--t-font-family-en);
 }

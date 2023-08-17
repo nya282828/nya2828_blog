@@ -3,7 +3,7 @@
 .c-header {
   margin: 0;
   padding: 3em 0 0;
-  font-family: ask.$t_fontset_en;
+  font-family: var(--t-font-family-en);
 
   &__logo {
     // @include ask.t-size(ask.$t_h_size_l, 32px);
@@ -11,7 +11,7 @@
     line-height: 32px;
     // line-height: 32px;
     margin: 0;
-    font-family: ask.$t_fontset_en;
+    font-family: var(--t-font-family-en);
 
     .t-link {
       text-decoration: none;

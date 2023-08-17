@@ -6,7 +6,7 @@
   // @include ask.t-size(ask.$t_h_size_xxs);
   font-size: var(--t-size_xxxs);
   line-height: var(--t-line-height_xxxs);
-  font-family: ask.$t_fontset_en;
+  font-family: var(--t-font-family-en);
 
   &__links {
     display: flex;

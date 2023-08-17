@@ -1,8 +1,8 @@
 // variable
 
-// ankit変数及び関数の呼び出し
+// ask変数及び関数の呼び出し
 // ---------------------------------
-@use "../article_starter_kit_v1/ask" as ankit;
+@use "../article_starter_kit_v1/ask" as ask;
 
 // プロジェクト変数の定義
 // ---------------------------------
@@ -14,6 +14,11 @@ $t_fontset_ja: "ryo-gothic-plusn", sans-serif;
 $t_fontset_en: 'IBM Plex Mono', monospace;
 
 // Color
-ankit.$c_black: #111;
+ask.$c_black: #111;
+$c_link_dark: ask.$c_white;
 $c_link_darkhover: #40a0ff;
-$c_code: ankit.$c_link;
+$c_link_darkvisited: #40a0ff;
+$c_link_darkactive: #40a0ff;
+$c_link_darkfocus: #40a0ff;
+
+$c_code: ask.$c_link;

@@ -23,7 +23,7 @@
 }
 
 .sun {
-  fill: black;
+  fill: var(--c-text);
   transition: fill .2s ease;
 }
 .moon {
@@ -35,5 +35,5 @@
   fill: transparent;
 }
 .dark .moon {
-  fill: white;
+  fill: var(--c-text);
 }

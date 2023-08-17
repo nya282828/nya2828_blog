@@ -1,26 +1,38 @@
 // common
+// css variables
 @use "sass:math";
 @use "ask_setting" as ask;
 
 .ask-wrapper {
   // Color Set
   // Light
-  --c-light-bg:      #{ask.$c_background};
-  --c-light-text:    #{ask.$c_text};
-  --c-light-caption: #{ask.$c_gray50};
-  --c-light-link:    #{ask.$c_link};
-  --c-light-hover:   #{ask.$c_link_hover};
-  --c-light-visited: #{ask.$c_link_visited};
-  --c-light-active:  #{ask.$c_link_active};
-  --c-light-focus:   #{ask.$c_link_focus};
+  --c-bg:      #{ask.$c_background};
+  --c-text:    #{ask.$c_text};
+  --c-caption: #{ask.$c_gray50};
+  --c-code:    #{ask.$c_code};
+  --c-code-bg: #{ask.$c_gray90};
+  --c-border:  #{ask.$c_gray90};
+  --c-link:    #{ask.$c_link};
+  --c-hover:   #{ask.$c_link_hover};
+  --c-visited: #{ask.$c_link_visited};
+  --c-active:  #{ask.$c_link_active};
+  --c-focus:   #{ask.$c_link_focus};
 
-  // Dark
-  --c-dark-bg:      #{ask.$c_black};
-  --c-dark-text:    #{ask.$c_white};
-  --c-dark-caption: #{ask.$c_gray50};
-  // --c-dark-link:    #{ask.$c_link};
-  --c-dark-hover:   #{ask.$c_link_darkhover};
-  // --c-dark-visited: #{ask.$c_link_visited};
-  // --c-dark-active:  #{ask.$c_link_active};
-  // --c-dark-focus:   #{ask.$c_link_focus};
+  background-color: var(--c-bg);
+  color: var(--c-text);
+
+  .dark & {
+    // Dark
+    --c-bg:      #{ask.$c_black};
+    --c-text:    #{ask.$c_white};
+    --c-caption: #{ask.$c_gray50};
+    // --c-code:    #{ask.$c_code};
+    // --c-code-bg: #{ask.$c_gray90};
+    // --c-border:  #{ask.$c_gray90};
+    --c-link:    #{ask.$c_link_dark};
+    --c-hover:   #{ask.$c_link_darkhover};
+    --c-visited: #{ask.$c_link_darkvisited};
+    --c-active:  #{ask.$c_link_darkactive};
+    --c-focus:   #{ask.$c_link_darkfocus};
+  }
 }

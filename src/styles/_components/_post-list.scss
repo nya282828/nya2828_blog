@@ -16,11 +16,18 @@
     &__link {
       display: block;
       text-decoration: none;
+      color: var(--c-text);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--c-hover);
+          transition: color .2s ease;
+        }
+      }
     }
 
     &__title {
       display: block;
-      color: ask.$c_text;
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 0.15em;
@@ -31,14 +38,6 @@
       // @include ask.t-size(ask.$t_h_size_xxxs, 1);
       font-size: var(--t-size_xxxs);
       line-height: 1;
-    }
-  }
-
-  .dark & {
-    &__item {
-        &__title {
-        color: ask.$c_white;
-      }
     }
   }
 }
