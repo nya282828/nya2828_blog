@@ -55,7 +55,7 @@
       font-size: var(--t-size_m);
       line-height: var(--t-line-height_m);
       font-weight: 700;
-      margin: 4em 0 1em;
+      margin: calc(var(--t-size_m)*3*var(--t-line-height_m)) 0 1em;
     }
   
     h3 {
@@ -63,7 +63,7 @@
       font-size: var(--t-size_sm);
       line-height: var(--t-line-height_sm);
       font-weight: 700;
-      margin: 3em 0 1em;
+      margin: calc(var(--t-size_sm)*2*var(--t-line-height_sm)) 0 1em;
     }
   
     h4 {
