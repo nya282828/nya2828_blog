@@ -101,7 +101,10 @@ $ar: (
 // ここに直接スタイルを記述するとエラーになるので注意
 // 必ず別モジュールでスタイルを記述して@useする
 
+// CSSカスタムプロパティ
 @use "./_css_variable";
+
+// プロジェクトモジュール
 @use "./_components/typo";
 @use "./_components/header";
 @use "./_components/post-list";
