@@ -42,4 +42,10 @@ h1,h2,h3,h4 {
 
 .t-link {
   color: var(--c-text);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--c-hover);
+      transition: color .2s ease;
+    }
+  }
 }

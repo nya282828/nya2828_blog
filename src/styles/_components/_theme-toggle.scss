@@ -20,15 +20,31 @@
   // .dark &:hover {
   //   background: rgba(255,255,255,0.2);
   // }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .sun {
+      fill: var(--c-hover);
+      transition: fill .2s ease;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dark &:hover .moon {
+      fill: var(--c-hover);
+      transition: fill .2s ease;
+    }
+
+    .dark &:hover .sun {
+      fill: initial;
+    }
+  }
 }
 
 .sun {
   fill: var(--c-text);
-  transition: fill .2s ease;
 }
 .moon {
   fill: transparent;
-  transition: fill .2s ease;
 }
 
 .dark .sun {

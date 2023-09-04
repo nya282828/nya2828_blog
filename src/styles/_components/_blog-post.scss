@@ -7,24 +7,15 @@
     margin-top: 0;
   }
 
-  // &__body > * {
-  //   max-width: 30rem;
-  // }
-
-  // &__body > *:first-child {
-  //   margin-top: 0;
-  // }
-
   &__head {
     width: calc(100vw - 2em);
-    // width: calc((100% + 4em) - (100vw / (100 / #{ask.$t_size_base}) / 2));
 
     &__hero {
-      margin: 0;
+      margin: 3em 0 0;
     }
     
     &__info {
-      margin: 3em 0 0;
+      margin: 0;
       padding: 0 ask.$r_size_space 0 0;
 
       .c-blog__head__hero:empty + & {
@@ -33,15 +24,14 @@
     }
 
     &__date {
-      // @include ask.t-size(ask.$t_h_size_xxs, 1);
       font-size: var(--t-size_xxxs);
       line-height: 1;
+      margin-top: 0;
     }
   }
 
   &__title {
     margin: 0;
-    // @include ask.t-size(ask.$t_h_size_l);
     font-size: var(--t-size_l);
     line-height: var(--t-line-height_l);
     font-weight: 400;
@@ -77,6 +67,17 @@
   
     p {
       margin: 1em 0 0;
+    }
+
+    a {
+      color: var(--c-link);
+
+      @include ask.mq-hover-mouse {
+        &:hover {
+          color: var(--c-hover);
+          transition: color .2s ease;
+        }
+      }
     }
   
     .t-caption {

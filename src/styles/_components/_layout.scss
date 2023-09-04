@@ -9,7 +9,7 @@
   // display: flex;
   // flex-flow: column nowrap;
   display: grid;
-  grid-template-columns: repeat(auto-fill,1em);
+  grid-template-columns: repeat(auto-fill, calc(1em + var(--t-letter-spacing)));
   grid-template-rows: auto 1fr auto;
   justify-content: center;
   align-items: baseline;
@@ -42,7 +42,7 @@
 
 .l-g-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill,1em);
+  grid-template-columns: repeat(auto-fill, calc(1em + var(--t-letter-spacing)));
   justify-content: center;
 
   & > * {
