@@ -12,6 +12,6 @@ export default defineConfig({
     syntaxHighlight: 'shiki',
     extendMarkdownConfig: false,
     smartypants: true,
-    gfm: true
+    gfm: true,
   }), sitemap(), preact(), image()]
 });
