@@ -15,9 +15,7 @@ h1,h2,h3,h4 {
 
 .t-link {
   color: ask.$c_text;
-  text-decoration-thickness: 1px;
-  text-decoration-skip: 2px;
-  text-underline-offset: 0.15em;
+  @include ask.link-style;
 
   &:visited {
     color: var(--c-text);

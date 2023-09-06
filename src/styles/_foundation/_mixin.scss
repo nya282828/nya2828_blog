@@ -8,12 +8,10 @@
 // ---------------------------------
 @use "variable" as prj-var;
 
-// プロジェクトmixinの作成
-// ---------------------------------
-// @mixin sample1 {
-//   color: ankit.$c_text;
-// }
 
-// @mixin sample2 {
-//   color: prj-var.$c_headline;
-// }
+@mixin link-style {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-style: dotted;
+  text-underline-offset: 0.2em;
+}

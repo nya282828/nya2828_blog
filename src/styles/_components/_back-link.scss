@@ -7,4 +7,5 @@
   text-decoration: none;
   color: var(--c-text);
   font-family: var(--t-font-family-en);
+  @include ask.link-style;
 }

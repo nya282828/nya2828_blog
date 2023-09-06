@@ -18,7 +18,16 @@
       text-decoration: none;
       color: var(--c-text);
 
-      @media (hover: hover) and (pointer: fine) {
+      // タッチデバイス
+      @include ask.mq-hover-touch {
+        &:active {
+          color: var(--c-hover);
+          transition: color .2s ease;
+        }
+      }
+
+      // マウス
+      @include ask.mq-hover-mouse {
         &:hover {
           color: var(--c-hover);
           transition: color .2s ease;
@@ -28,9 +37,21 @@
 
     &__title {
       display: block;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.15em;
+      @include ask.link-style;
+
+      // タッチデバイス
+      @include ask.mq-hover-touch {
+        &:active {
+          text-decoration-style: solid;
+        }
+      }
+
+      // マウス
+      @include ask.mq-hover-mouse {
+        &:hover {
+          text-decoration-style: solid;
+        }
+      }
     }
 
     &__time {
