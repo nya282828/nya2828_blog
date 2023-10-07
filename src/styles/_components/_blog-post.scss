@@ -96,21 +96,42 @@
       position: relative;
       margin: 1em 0 0;
       padding: 0 0 0 0.75em;
-      // border-left: 0.25em solid ask.$c_gray90;
+      border-left: 0.25em solid var(--c-gray90);
+
       &:before {
-        content: '';
-        display: block;
-        width: 0.25em;
-        height: 100%;
-        background: var(--c-code-bg);
-        position: absolute;
-        left: 0;
-        border-radius: 0.125em;
-      }
-  
-      p {
+        content: '“';
+        font-size: 300%;
+        line-height: 1;
+        font-family: serif;
         color: var(--c-caption);
       }
+      
+      // &:before {
+      //   content: '';
+      //   display: block;
+      //   width: 0.25em;
+      //   height: 100%;
+      //   background: var(--c-code-bg);
+      //   position: absolute;
+      //   left: 0;
+      //   border-radius: 0.125em;
+      // }
+  
+      & > p {
+        color: var(--c-caption);
+        margin: -1.5em 0 0 0;
+      }
+
+      // & > blockquote {
+        
+      //   & > p {
+      //     margin: 0;
+      //   }
+
+      //   &:before {
+      //     display: none;
+      //   }
+      // }
     }
   
     code {

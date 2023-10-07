@@ -178,62 +178,17 @@
 ///     }
 ///   }
 
-@mixin t-font-size($size: $t_h_size_s) {
-  font-size: $size;
+@mixin t-font-size($size: s, $line_height: true) {
+  font-size: var(--t-size_#{$size});
   
-  // 375px未満のsmall phone
-  @media screen and (max-width: map-get($bp, xxxs) - 0.0625) {
-    $scale: $t_scale_small;
-    font-size: $size*$scale; // For small phone
+  @if $line_height == true {
+    line-height: var(--t-line-hegiht_#{$size});
   }
-
-  // over 580px
-  @include mq-width(break(xs)) {
-    $scale: $t_scale_media;
-    font-size: $size*$scale;
+  @else {
+    line-height: $line_height;
   }
-
-  // over 1280px
-  @include mq-width(break(xl)) {
-    $scale: math.pow($t_scale_media, 2);
-    font-size: $size*$scale;
-  }
-
-  // over 1920px
-  @include mq-width(break(xxxl)) {
-    $scale: math.pow($t_scale_media, 3);
-    font-size: $size*$scale;
-  }
-}
-
-@mixin t-line-height($size: $t_h_size_s) {
-  line-height: get-line-height($size, $t_size_base);
   
-  // 375px未満のsmall phone
-  @media screen and (max-width: map-get($bp, xxxs) - 0.0625) {
-    $scale: $t_scale_small;
-    line-height: get-line-height($size*$scale, $t_size_base*$scale);
-  }
-
-  // over 580px
-  @include mq-width(break(xs)) {
-    $scale: $t_scale_media;
-    line-height: get-line-height($size*$scale, $t_size_base*$scale);
-  }
-
-  // over 1280px
-  @include mq-width(break(xl)) {
-    $scale: math.pow($t_scale_media, 2);
-    line-height: get-line-height($size*$scale, $t_size_base*$scale);
-  }
-
-  // over 1920px
-  @include mq-width(break(xxxl)) {
-    $scale: math.pow($t_scale_media, 3);
-    line-height: get-line-height($size*$scale, $t_size_base*$scale);
-  }
 }
-
 
 @mixin t-size($size: $t_h_size_s, $line_height: true) {
   // Viewport 375px以上 基準値

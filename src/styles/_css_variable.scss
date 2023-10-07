@@ -40,6 +40,9 @@
   --t-font-family-ja: #{ask.$t_list_ja_sans};
 
   // Color Set
+  // common
+  --c-gray90: #{ask.$c_gray90};
+
   // Light
   --c-bg:      #{ask.$c_background};
   --c-text:    #{ask.$c_text};
@@ -177,20 +180,4 @@
     --t-size_xxxxl:        #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7)*math.pow(ask.$t_scale_media, 3)};
     --t-line-height_xxxxl: #{ask.get-line-height(ask.$t_h_size_xxxxl*math.pow(ask.$t_scale_media, 3), ask.$t_size_base*math.pow(ask.$t_scale_media, 3))};
   }
-}
-
-//  Root Style
-.ask-wrapper {
-
-  @if ask.$t_type_sans == true {
-    font-family: var(--t-font-family-ja);
-  }
-  -webkit-font-smoothing: antialiased;
-  line-break: normal;
-  hanging-punctuation: allow-end;
-  font-size: var(--t-base-size);
-  line-height: var(--t-base-line-height);
-  letter-spacing: var(--t-letter-spacing);
-  background-color: var(--c-bg);
-  color: var(--c-text);
 }

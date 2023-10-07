@@ -1,7 +1,20 @@
 // Project typeface
 @use "../ask_setting" as ask;
 
+//  Root typo Style
 .ask-wrapper {
+  @if ask.$t_type_sans == true {
+    font-family: var(--t-font-family-ja);
+  }
+  -webkit-font-smoothing: antialiased;
+  line-break: normal;
+  hanging-punctuation: allow-end;
+  font-size: var(--t-size_s);
+  line-height: var(--t-line-height_s);
+  letter-spacing: var(--t-letter-spacing);
+  background-color: var(--c-bg);
+  color: var(--c-text);
+
   // Project Fontset
   --t-font-family-ja: #{ask.$t_fontset_ja};
   --t-font-family-en: #{ask.$t_fontset_en};
