@@ -7,12 +7,6 @@
 // 1. askの文字組設定
 // -----------------------------------------------------
 
-// font/typogrphy: Source Han Sans | 源の角ゴシックは読み込むか？
-$t_type_sans: false;
-
-// font/typogrphy: Source Han Serif' | 源の角明朝は読み込むか？
-$t_type_serif: false;
-
 // font/typogrphy: どのウェイトを読み込むか.（100,200,300,400,500,700,900）
 $t_list_weight: 400, 700;
 
@@ -68,7 +62,6 @@ $ar: (
 // 以下編集禁止
 // -----------------------------------------------------
 // 基本表示設定
-@use "article_starter_kit_v1/foundation/fontface"; // fontの読み込み
 @use "article_starter_kit_v1/module/base/article-core"; // 記事全体
 @use "article_starter_kit_v1/module/base/print"; // プリント設定
 @use "article_starter_kit_v1/module/base/z-index"; // z-index

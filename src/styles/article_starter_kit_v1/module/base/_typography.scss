@@ -16,9 +16,7 @@ ask.$t_h_size_xxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv
 ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, -7); // 128
 
 .ask-wrapper {
-  @if ask.$t_type_sans == true {
-    font-family: var(--t-font-family-ja);
-  }
+  font-family: var(--t-font-family-ja);
   -webkit-font-smoothing: antialiased;
   line-break: normal;
   hanging-punctuation: allow-end;
