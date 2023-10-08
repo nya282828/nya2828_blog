@@ -9,7 +9,7 @@ import image from '@astrojs/image';
 export default defineConfig({
   site: 'https://nya2828.com/',
   integrations: [mdx({
-    syntaxHighlight: 'shiki',
+    syntaxHighlight: 'prism',
     extendMarkdownConfig: false,
     smartypants: true,
     gfm: true,

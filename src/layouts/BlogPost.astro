@@ -6,6 +6,7 @@ import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import BackLink from '../components/BackLink.astro';
 import { SITE_TITLE } from '../consts';
+// import { hljs } from '../../public/highlight.js';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -15,6 +16,7 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 <html lang="ja">
 	<head>
 		<BaseHead title={title + " - " + SITE_TITLE} description={description} image={heroImage} />
+		<!-- <link rel="stylesheet" href="../../public/prism-one-light.css"> -->
 	</head>
 	<body class="ask-wrapper">
 		<div class="l-content">

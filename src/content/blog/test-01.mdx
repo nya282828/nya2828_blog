@@ -42,11 +42,11 @@ draft: false
 #### code
 インストールコマンドは `gem install hoge` です
 
-``` html
+``` html  
 <div class="l-rail"></div>
 ```
 
-```scss
+```scss  
 .elm {
   width: 100%;
 
@@ -54,6 +54,27 @@ draft: false
     margin: 0;
   }
 }
+```
+
+```js  
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import preact from "@astrojs/preact";
+import image from '@astrojs/image';
+
+
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://nya2828.com/',
+  integrations: [mdx({
+    syntaxHighlight: 'prism',
+    extendMarkdownConfig: false,
+    smartypants: true,
+    gfm: true,
+  }), sitemap(), preact(), image()]
+});
+
 ```
 
 #### 強調・斜体
