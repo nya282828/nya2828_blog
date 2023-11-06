@@ -2,13 +2,18 @@
 @use "../ask_setting" as ask;
 
 .c-blog {
+  display: grid;
+  grid-template-columns: subgrid;
 
   &__body > .l-rail > *:first-child {
     margin-top: 0;
   }
 
   &__head {
+    display: grid;
+    grid-template-columns: subgrid;
     width: calc(100vw - 2em);
+    grid-column: 3 / -3;
 
     &__hero {
       margin: 3em 0 0;
@@ -38,6 +43,9 @@
   }
 
   &__body {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
     margin: 3em 0 0;
     
     h2 {
@@ -162,6 +170,10 @@
     table {
   
     }
+  }
+
+  &__foot {
+    grid-column: 1 / -1;
   }
 }
 
