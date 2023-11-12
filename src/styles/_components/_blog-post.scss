@@ -13,15 +13,15 @@
     display: grid;
     grid-template-columns: subgrid;
     width: calc(100vw - 2em);
-    grid-column: 3 / -3;
+    grid-column: 3 / -1;
 
     &__hero {
-      margin: 3em 0 0;
+      margin: 3em -0.5em 0 0;
     }
     
     &__info {
       margin: 0;
-      padding: 0 ask.$r_size_space 0 0;
+      padding: 0 ask.$r_size_space*1em 0 0;
 
       .c-blog__head__hero:empty + & {
         margin: 0
@@ -47,6 +47,11 @@
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
     margin: 3em 0 0;
+
+    & > * {
+      grid-column: 3 / -3;
+      max-width: 34em;
+    }
     
     h2 {
       // @include ask.t-size(ask.$t_h_size_m);
