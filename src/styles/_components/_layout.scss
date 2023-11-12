@@ -32,7 +32,9 @@
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1/ -1;
-  margin: 5em 0;
+  grid-row: 2 / 3;
+  height: 100%;
+  padding: 5em 0;
 
   & > * {
     grid-column: 1 / -1;
