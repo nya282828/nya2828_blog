@@ -2,7 +2,12 @@
 @use "../ask_setting" as ask;
 
 .c-post-list {
+  display: grid;
+  grid-template-columns: subgrid;
+
   &__item {
+    grid-column: 3 / -3;
+
     &:not(:first-child) {
       margin: 3em 0 0;
     }
