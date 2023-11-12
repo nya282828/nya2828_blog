@@ -28,7 +28,9 @@
 }
 
 .l-main {
-  margin: 5em 0;
+  padding: 5em 0;
+  grid-row: 2 / 3;
+  height: 100%;
 }
 
 .c-back-link {

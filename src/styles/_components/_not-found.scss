@@ -1,0 +1,19 @@
+@use "../ask_setting" as ask;
+
+.c-404 {
+  display: grid;
+  align-items: center;
+  height: 100%;
+  font-family: var(--t-font-family-en);
+
+  &__code {
+    display: block;
+    font-size: var(--t-size_xxxxl);
+    line-height: 1;
+  }
+
+  &__error {
+    display: block;
+    font-size: var(--t-size_l);
+  }
+}
