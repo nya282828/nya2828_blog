@@ -6,7 +6,7 @@
   grid-template-columns: subgrid;
 
   &__item {
-    grid-column: 3 / -3;
+    grid-column: 1 / -1;
 
     &:not(:first-child) {
       margin: 3em 0 0;

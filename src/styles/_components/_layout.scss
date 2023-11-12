@@ -7,14 +7,15 @@
 
 .c-header,
 .c-footer {
-  grid-column: 3 / -3;
+  grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 6};
 }
 
 .l-content {
   // display: flex;
   // flex-flow: column nowrap;
   display: grid;
-  grid-template-columns: repeat(auto-fill, calc(1em + var(--t-letter-spacing)));
+  // grid-template-columns: repeat(auto-fill, calc(1em + var(--t-letter-spacing)));
+  grid-template-columns: minmax(0, 1fr) repeat(auto-fill, calc(1em + var(--t-letter-spacing))) minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   justify-content: center;
   align-items: baseline;
@@ -35,10 +36,6 @@
   grid-row: 2 / 3;
   height: 100%;
   padding: 5em 0;
-
-  & > * {
-    grid-column: 1 / -1;
-  }
 }
 
 .c-back-link {
