@@ -2,18 +2,23 @@
 @use "../ask_setting" as ask;
 
 .c-footer {
+  display: grid;
+  grid-template-columns: subgrid;
   padding: 0 0 3em;
   // @include ask.t-size(ask.$t_h_size_xxs);
   font-size: var(--t-size_xxxs);
   line-height: var(--t-line-height_xxxs);
   font-family: var(--t-font-family-en);
+  gap: 1em 0;
 
   &__links {
+    grid-column: 1 / -1;
     display: flex;
     gap: 1em;
   }
 
   &__copy {
-    margin: 1em 0 0 0;
+    grid-column: 1 / -1;
+    margin: 0;
   }
 }

@@ -2,8 +2,8 @@
 @use "../ask_setting" as ask;
 
 .c-theme-toggle {
-  height: 32px;
-  width: 32px;
+  height: 1.5em;
+  width: 1.5em;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -12,14 +12,12 @@
   border: none;
   transition: background .2s ease;
   border-radius: 50%;
+  padding: 0;
   
-  // &:hover {
-  //   background: rgba(0,0,0,0.1);
-  // }
-
-  // .dark &:hover {
-  //   background: rgba(255,255,255,0.2);
-  // }
+  & > svg {
+    width: 100%;
+    height: 100%;
+  }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover .sun {

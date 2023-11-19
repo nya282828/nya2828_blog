@@ -2,21 +2,24 @@
 @use "../ask_setting" as ask;
 
 .c-blog {
-
-  &__body > .l-rail > *:first-child {
-    margin-top: 0;
-  }
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
 
   &__head {
+    display: grid;
+    grid-template-columns: subgrid;
     width: calc(100vw - 2em);
+    grid-column: #{ask.$r_size_space+2} / -1;
 
     &__hero {
-      margin: 3em 0 0;
+      margin: 3em 0 0 0;
+      grid-column: 1 / -1;
     }
     
     &__info {
       margin: 0;
-      padding: 0 ask.$r_size_space 0 0;
+      grid-column: 1 / #{ask.$r_size_space - 6};
 
       .c-blog__head__hero:empty + & {
         margin: 0
@@ -38,14 +41,52 @@
   }
 
   &__body {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
     margin: 3em 0 0;
+
+    // contents max width
+    & > p,
+    & > h2,
+    & > h3,
+    & > h4,
+    & > ul,
+    & > ol,
+    & > blockquote,
+    & > table,
+    & > .footnotes {
+      grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 6};
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text});
+    }
+
+    & > pre {
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text+2});
+    }
+
+    & > .l-rail {
+      &--m {
+        grid-column: #{ask.$r_size_space + 2} / -1;
+      }
+    }
+
+    & > hr {
+      width: 100%;
+      grid-column: #{ask.$r_size_space + 2} / -1;
+    }
     
+    // style
+
+    & > *:first-child {
+      margin-top: 0;
+    }
+
     h2 {
       // @include ask.t-size(ask.$t_h_size_m);
       font-size: var(--t-size_m);
       line-height: var(--t-line-height_m);
       font-weight: 700;
-      margin: calc(var(--t-size_m)*3*var(--t-line-height_m)) 0 1em;
+      margin: calc(var(--t-size_m)*3*var(--t-line-height_m)) 0 0;
     }
   
     h3 {
@@ -53,7 +94,7 @@
       font-size: var(--t-size_sm);
       line-height: var(--t-line-height_sm);
       font-weight: 700;
-      margin: calc(var(--t-size_sm)*2*var(--t-line-height_sm)) 0 1em;
+      margin: calc(var(--t-size_sm)*2*var(--t-line-height_sm)) 0 0;
     }
   
     h4 {
@@ -62,7 +103,7 @@
       line-height: var(--t-line-height_s);
       font-weight: 700;
       color: ask.$c_gray50;
-      margin: 1em 0 1em;
+      margin: calc(var(--t-size_s)*1*var(--t-line-height_s)) 0 0;
     }
   
     p {
@@ -89,6 +130,12 @@
     }
   
     ul {
+      margin: 1em 0 0;
+      padding: 0 0 0 1em;
+    }
+
+    ol {
+      margin: 1em 0 0;
       padding: 0 0 0 1em;
     }
   
@@ -105,33 +152,11 @@
         font-family: serif;
         color: var(--c-caption);
       }
-      
-      // &:before {
-      //   content: '';
-      //   display: block;
-      //   width: 0.25em;
-      //   height: 100%;
-      //   background: var(--c-code-bg);
-      //   position: absolute;
-      //   left: 0;
-      //   border-radius: 0.125em;
-      // }
   
       & > p {
         color: var(--c-caption);
         margin: -1.5em 0 0 0;
       }
-
-      // & > blockquote {
-        
-      //   & > p {
-      //     margin: 0;
-      //   }
-
-      //   &:before {
-      //     display: none;
-      //   }
-      // }
     }
   
     code {
@@ -144,6 +169,7 @@
     }
   
     pre {
+      grid-column: 3 / -3;
       border-radius: 0.1em;
       padding: 0.25em;
       line-height: 1.25;
@@ -154,7 +180,7 @@
     }
   
     hr {
-      margin: 4em auto;
+      margin: calc(var(--t-size_s)*2*var(--t-line-height_s)) 0;
       border: none;
       border-top: 2px solid var(--c-border);
     }
@@ -162,6 +188,10 @@
     table {
   
     }
+  }
+
+  &__foot {
+    grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 6};
   }
 }
 

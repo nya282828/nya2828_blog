@@ -7,7 +7,7 @@ const posts = (await getCollection('blog')).filter((post) => !post.data.draft).s
 // const allPosts = await Astro.glob('../content/blog/*.mdx');
 
 ---
-<div class="c-post-list l-g-container">
+<div class="c-post-list">
   {
     posts.map((post) => (
       <article class="c-post-list__item">

@@ -2,11 +2,14 @@
 @use "sass:math";
 // rails
 .l-rail {
+  // display: grid;
+  // grid-template-columns: subgrid;
   width: 100%;
   margin: 0 auto;
-  padding-right: math.div(ask.$r_size_space, 2);
-  padding-left: math.div(ask.$r_size_space, 2);
-  max-width: calc(#{ask.$r_size_width} + #{ask.$r_size_space} * 2);
+  // padding-right: math.div(ask.$r_size_space*1em, 2);
+  // padding-left: math.div(ask.$r_size_space*1em, 2);
+  max-width: calc(#{ask.$r_size_width*1em} + #{ask.$r_size_space*1em} * 2);
+  grid-column: #{ask.$r_size_space + 1} / -#{ask.$r_size_space + 1};
 
   // 実験的文字組メソッドプロトタイプ
   // ----------------------------------------------
@@ -20,16 +23,16 @@
   // ----------------------------------------------
 
   @include ask.mq-xxxs {
-    padding-right: ask.$r_size_space;
-    padding-left: ask.$r_size_space;
+    // padding-right: ask.$r_size_space*1em;
+    // padding-left: ask.$r_size_space*1em;
   }
 
   &--m {
-    max-width: (ask.$r_size_width*1.5 + ask.$r_size_space*2);
+    max-width: (ask.$r_size_width*1.5em + ask.$r_size_space*2);
   }
 
   &--l {
-    max-width: (ask.$r_size_width*2 + ask.$r_size_space*2);
+    max-width: (ask.$r_size_width*2em + ask.$r_size_space*2);
   }
 
   &--xl {
@@ -37,25 +40,29 @@
   }
 
   &--full {
-    padding-right: 0;
-    padding-left: 0;
-    max-width: ask.$r_size_width;
+    // padding-right: 0;
+    // padding-left: 0;
+    grid-column: 1 / -1;
+    max-width: ask.$r_size_width*1em;
 
     &--m {
-      padding-right: 0;
-      padding-left: 0;
-      max-width: ask.$r_size_width*1.5;
+      // padding-right: 0;
+      // padding-left: 0;
+      grid-column: 1 / -1;
+      max-width: ask.$r_size_width*1.5em;
     }
 
     &--l {
-      padding-right: 0;
-      padding-left: 0;
-      max-width: ask.$r_size_width*2;
+      // padding-right: 0;
+      // padding-left: 0;
+     grid-column: 1 / -1;
+      max-width: ask.$r_size_width*2em;
     }
 
     &--xl {
-      padding-right: 0;
-      padding-left: 0;
+      // padding-right: 0;
+      // padding-left: 0;
+      grid-column: 1 / -1;
       max-width: 100%;
     }
   }

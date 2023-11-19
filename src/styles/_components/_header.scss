@@ -1,11 +1,15 @@
 // header
 @use "../ask_setting" as ask;
 .c-header {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: auto;
   margin: 0;
   padding: 3em 0 0;
   font-family: var(--t-font-family-en);
 
   &__logo {
+    grid-column: 1 / -1;
     // @include ask.t-size(ask.$t_h_size_l, 32px);
     font-size: var(--t-size_l);
     line-height: 32px;
@@ -19,6 +23,7 @@
   }
 
   &__nav {
+    grid-column: 1 / -1;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -29,6 +34,6 @@
     position: fixed;
     top: 0;
     right: 0;
-    margin: 3em ask.$r_size_space;
+    margin: 3em ask.$r_size_space*1em;
   }
 }
