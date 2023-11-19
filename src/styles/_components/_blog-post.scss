@@ -60,15 +60,19 @@
       max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text});
     }
 
+    & > pre {
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text+2});
+    }
+
     & > .l-rail {
       &--m {
-        grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 4};
+        grid-column: #{ask.$r_size_space + 2} / -1;
       }
     }
 
     & > hr {
       width: 100%;
-      grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 4};
+      grid-column: #{ask.$r_size_space + 2} / -1;
     }
     
     // style
@@ -165,7 +169,7 @@
     }
   
     pre {
-      grid-column: 1 / -1;
+      grid-column: 3 / -3;
       border-radius: 0.1em;
       padding: 0.25em;
       line-height: 1.25;
