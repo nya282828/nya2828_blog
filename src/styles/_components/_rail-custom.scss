@@ -18,10 +18,10 @@ $a: math.div(ask.$r_size_space, 2);
   }
 
   &--full {
-    grid-column: 1 / -1;
+    grid-column: 4 / -1;
 
     &--m {
-      grid-column: 1 / -1;
+      grid-column: 4 / -1;
       max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text*1.5});
     }
   }

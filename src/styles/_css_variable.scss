@@ -10,7 +10,12 @@
   // Font Size
   --t-base-size: #{ask.$t_size_base_px}; // 本文サイズ
   --t-base-line-height: #{ask.$t_lh_base}; // ベース行間
-  --t-letter-spacing: #{ask.$t_spacing};
+  --t-letter-spacing: #{ask.$t_spacing}; // 字間
+
+  // Rail size
+  --l-content-max-width: calc(#{ask.$r_num_text*1.5em} + #{ask.$r_size_space*1em});
+  // --l-rail-max-width: 
+
 
   // 以下xxxs〜xxxxlまでのデフォルトサイズとline-height
   --t-size_xxxs:         #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)}; // 12.8
