@@ -6,10 +6,6 @@
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
 
-  &__body > .l-rail > *:first-child {
-    margin-top: 0;
-  }
-
   &__head {
     display: grid;
     grid-template-columns: subgrid;
@@ -50,10 +46,25 @@
     grid-column: 1 / -1;
     margin: 3em 0 0;
 
-    & > * > * {
+    // contents max width
+    & > p,
+    & > h2,
+    & > h3,
+    & > h4,
+    & > ul,
+    & > blockquote,
+    & > table {
       grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 6};
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text});
+    }
+
+    .l-rail {
+      &--m {
+        grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 4};
+      }
     }
     
+    // style
     h2 {
       // @include ask.t-size(ask.$t_h_size_m);
       font-size: var(--t-size_m);
@@ -119,33 +130,11 @@
         font-family: serif;
         color: var(--c-caption);
       }
-      
-      // &:before {
-      //   content: '';
-      //   display: block;
-      //   width: 0.25em;
-      //   height: 100%;
-      //   background: var(--c-code-bg);
-      //   position: absolute;
-      //   left: 0;
-      //   border-radius: 0.125em;
-      // }
   
       & > p {
         color: var(--c-caption);
         margin: -1.5em 0 0 0;
       }
-
-      // & > blockquote {
-        
-      //   & > p {
-      //     margin: 0;
-      //   }
-
-      //   &:before {
-      //     display: none;
-      //   }
-      // }
     }
   
     code {
@@ -176,11 +165,6 @@
   
     table {
   
-    }
-
-    & > * >.l-rail--full,
-    & > * >.l-rail--full--m {
-      grid-column: #{ask.$r_size_space + 2} / -1;
     }
   }
 

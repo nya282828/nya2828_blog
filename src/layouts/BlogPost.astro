@@ -39,9 +39,7 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}</div>
 					</header>
 					<div class="c-blog__body">
-						<div class="l-rail l-rail--full--m">
-							<slot />
-						</div>
+						<slot />
 					</div>
 					<div class="c-blog__foot">
 						<BackLink></BackLink>

@@ -13,36 +13,20 @@ $a: math.div(ask.$r_size_space, 2);
     grid-column: 1 / -1;
   }
 
+  &--m {
+    max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text} * 1.5);
+  }
+
   &--full {
     grid-column: 1 / -1;
 
     &--m {
       grid-column: 1 / -1;
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text*1.5});
     }
   }
 }
 
 .l-rail {
   margin: 0 auto 0 0;
-
-  &--fit-left {
-    margin: 0;
-  }
-
-  &--overflow {
-    &--m {
-      margin: 0 0 0 0;
-      padding: 0;
-      // max-width: ask.$r_size_width*1.5;
-    }
-  }
-
-  @include ask.mq-xxxs {
-    &--overflow {
-      &--m {
-        margin: 0;
-        width: calc(100vw - #{ask.$r_size_space});
-      }
-    }
-  }
 }

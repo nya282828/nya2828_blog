@@ -15,12 +15,12 @@
   // flex-flow: column nowrap;
   display: grid;
   // grid-template-columns: repeat(auto-fill, calc(1em + var(--t-letter-spacing)));
-  grid-template-columns: minmax(0, 1fr) repeat(auto-fill, calc(1em + var(--t-letter-spacing))) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) repeat(auto-fill, calc(1em + var(--t-letter-spacing) * 1em)) minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   justify-content: center;
   align-items: baseline;
   min-height: 100svh;
-  max-width: 53em;
+  max-width: calc(#{ask.$r_num_text*1.5em} + #{ask.$r_size_space*1em});
   margin: auto;
   overflow: hidden;
 

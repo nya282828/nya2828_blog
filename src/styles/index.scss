@@ -17,8 +17,8 @@ $t_size_base_px: $t_size_base*1px; //単位付きの数値に変換。編集不�
 // font/typogrphy: 本文の行の高さ（単位：なし）
 $t_lh_base: 2;
 
-// font/typogrphy: 字間（単位:em、負数も可）
-$t_spacing: 0em;
+// font/typogrphy: 字間（単位:なし、負数も可）
+$t_spacing: 0;
 
 // font/typogrphy: 画面サイズごとの文字の拡大比率（単位:なし）
 $t_scale_media: 1.125;
@@ -30,7 +30,7 @@ $t_scale_lv_harmony: 9;
 $r_size_space: 2;
 
 // layout: 行文字数（単位:なし）
-$r_num_text: 30;
+$r_num_text: 34;
 $r_size_width: (1+$t_spacing) * $r_num_text; // 行最大サイズ。編集不要
 
 // small phone: 375px未満の画面における文字の縮小率
