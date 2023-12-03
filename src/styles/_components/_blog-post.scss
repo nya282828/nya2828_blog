@@ -15,6 +15,7 @@
     &__hero {
       margin: 3em 0 0 0;
       grid-column: 1 / -1;
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * 51);
     }
     
     &__info {
@@ -46,6 +47,11 @@
     grid-column: 1 / -1;
     margin: 3em 0 0;
 
+    & > P:empty {
+      display: none;
+      margin: 0;
+    }
+
     // contents max width
     & > p,
     & > h1,
@@ -66,8 +72,24 @@
     }
 
     & > .l-rail {
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text});
+      
       &--m {
+        max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text*1.5});
+      }
+
+      &--full--m {
         grid-column: #{ask.$r_size_space + 2} / -1;
+        max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text*1.5});
+      }
+
+      &--xl {
+        max-width: 100%;
+      }
+
+      &--full--xl {
+        grid-column: #{ask.$r_size_space + 2} / -1;
+        max-width: 100%;
       }
     }
 

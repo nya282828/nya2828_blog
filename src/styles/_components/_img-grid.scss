@@ -1,0 +1,10 @@
+// image grid
+@use "../ask_setting" as ask;
+
+.c-image-grid {
+  display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(100%, 25em));
+  // grid-template-columns: repeat(2, min(30em, calc(50% - 0.5em)));
+  grid-template-columns: repeat(auto-fit, minmax(#{ask.$r_num_text*0.5em}, 1fr));
+  gap: 0 1em;
+}
