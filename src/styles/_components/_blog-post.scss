@@ -13,7 +13,7 @@
     grid-column: #{ask.$r_size_space+2} / -1;
 
     &__hero {
-      margin: 3em 0 0 0;
+      margin: 1.5lh 0 0 0;
       grid-column: 1 / -1;
       max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * 51);
     }
@@ -30,7 +30,7 @@
     &__date {
       font-size: var(--t-size_xxxs);
       line-height: 1;
-      margin-top: 0;
+      margin: 0 0 1lh 0;
     }
   }
 
@@ -45,7 +45,7 @@
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
-    margin: 3em 0 0;
+    margin: 1.5lh 0 0;
 
     p:empty {
       display: none;
@@ -109,7 +109,8 @@
       font-size: var(--t-size_m);
       line-height: var(--t-line-height_m);
       font-weight: 700;
-      margin: calc(var(--t-size_m)*3*var(--t-line-height_m)) 0 0;
+      // margin: calc(var(--t-size_m)*3*var(--t-line-height_m)) 0 0;
+      margin: 3lh 0 0;
     }
   
     h3 {
@@ -117,7 +118,8 @@
       font-size: var(--t-size_sm);
       line-height: var(--t-line-height_sm);
       font-weight: 700;
-      margin: calc(var(--t-size_sm)*2*var(--t-line-height_sm)) 0 0;
+      // margin: calc(var(--t-size_sm)*2*var(--t-line-height_sm)) 0 0;
+      margin: 2lh 0 0;
     }
   
     h4 {
@@ -126,11 +128,12 @@
       line-height: var(--t-line-height_s);
       font-weight: 700;
       color: ask.$c_gray50;
-      margin: calc(var(--t-size_s)*1*var(--t-line-height_s)) 0 0;
+      // margin: calc(var(--t-size_s)*1*var(--t-line-height_s)) 0 0;
+      margin: 1lh 0 0;
     }
   
     p {
-      margin: 1em 0 0;
+      margin: 0.5lh 0 0;
     }
 
     a {
@@ -145,7 +148,7 @@
     }
   
     .t-caption {
-      margin-top: 0.5em;
+      margin-top: 0.2lh;
     }
   
     img {
@@ -203,7 +206,8 @@
     }
   
     hr {
-      margin: calc(var(--t-size_s)*2*var(--t-line-height_s)) 0;
+      // margin: calc(var(--t-size_s)*2*var(--t-line-height_s)) 0;
+      margin: 2lh 0;
       border: none;
       border-top: 2px solid var(--c-border);
     }
