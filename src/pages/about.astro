@@ -3,13 +3,14 @@ import Layout from '../layouts/BlogPost.astro';
 const pageTitle = "nyasusho（@nya2828）";
 ---
 
-<Layout
-	title={pageTitle}
-	description="nya2828について"
-	pubDate={new Date('2023/11/05')}
-	heroImage="/about.jpg"
->
-	<p>報道機関で働くデザイナー。<br>デザインで食べて、オートバイで遊ぶ。</p>
-	<p>Webデザイン、グラフィックデザイン、データビジュアライズ、UIデザイン、HTML、CSS設計、SASSなどが得意。</p>
+<Layout title={pageTitle} description="nya2828について" pubDate={new Date('2023/11/05')}>
+	<div class="l-rail l-rail--full--m">
+		<div class="c-media u-ar-16x9">
+			<div class="c-image">
+				<img src="/about.jpg" alt="写真：:nyasusho">
+			</div>
+		</div>
+	</div>
+	<p>報道機関で働くデザイナー。デザインで食べて、オートバイで遊ぶ。</p>
 	<p>このサイトに書かれている内容は本業とは一切関係のない、趣味やプライベートワークなどについて掲載しています。</p>
 </Layout>
