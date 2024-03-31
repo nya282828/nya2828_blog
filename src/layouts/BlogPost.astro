@@ -10,7 +10,7 @@ import { SITE_TITLE } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -36,7 +36,7 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 							</p>
 							<h1 class="c-blog__title t-headline1">{title}</h1>
 						</div>
-						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}</div>
+						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{heroImage && <img width="100%" src={heroImage.src} alt={heroImage.alt} />}</div>
 					</header>
 					<div class="c-blog__body">
 						<slot />
