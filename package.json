@@ -15,7 +15,7 @@
     "@astrojs/preact": "^2.2.0",
     "@astrojs/rss": "^2.4.2",
     "@astrojs/sitemap": "^1.2.2",
-    "astro": "^2.10.7",
+    "astro": "^4.5.12",
     "preact": "^10.14.1",
     "sass": "^1.62.0"
   }
