@@ -1,33 +1,28 @@
-// import rss, {
-// 	pagesGlobToRssItems
-// } from '@astrojs/rss';
-import rss, { pagesGlobToRssItems } from '@astrojs/rss';
+import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import sanitizeHtml from 'sanitize-html';
+import MarkdownIt from 'markdown-it';
+const parser = new MarkdownIt();
 
-const postImportResult = import.meta.glob('../content/blog/**/*.{md,mdx}', { eager: true });
-const posts = Object.values(postImportResult);
+export async function GET(context) {
+  const blog = await getCollection('blog');
 
-export const get = () => rss({
-  title: SITE_TITLE,
-  description: SITE_DESCRIPTION,
-  site: import.meta.env.SITE,
-  items: posts.map((post) => ({
-    link: post.url,
-    title: post.frontmatter.title,
-    pubDate: post.frontmatter.pubDate,
-		draft: post.frontmatter.draft,
-  }))
-});
-
-// export async function get(context) {
-// 	const posts = await getCollection('blog');
-// 	return rss({
-// 		title: SITE_TITLE,
-// 		description: SITE_DESCRIPTION,
-// 		site: context.site,
-// 		items: await pagesGlobToRssItems(
-//       import.meta.glob('./blog/*.{md,mdx}'),
-//     ),
-// 	});
-// }
+  return rss({
+    title: 'SITE_TITLE',
+    description: 'SITE_DESCRIPTION',
+    site: context.site,
+    items:blog.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      customData: post.data.customData,
+      link: `/blog/${post.slug}/`,
+      content: sanitizeHtml(parser.render(post.body)),
+      // enclosure: {
+      //   url: post.data.heroImage,
+      //   length: 0
+      // } // ogpを出したい
+    })),
+    customData: `<language>ja-jp</language>`,
+  });
+}

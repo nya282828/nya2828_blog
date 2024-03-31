@@ -10,13 +10,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.3",
-    "@astrojs/mdx": "^0.19.0",
-    "@astrojs/preact": "^2.2.0",
-    "@astrojs/rss": "^2.4.2",
-    "@astrojs/sitemap": "^1.2.2",
-    "astro": "^2.10.7",
+    "@astrojs/mdx": "^2.2.2",
+    "@astrojs/preact": "^3.1.1",
+    "@astrojs/rss": "^4.0.5",
+    "@astrojs/sitemap": "^3.1.2",
+    "astro": "^4.5.12",
+    "markdown-it": "^14.1.0",
     "preact": "^10.14.1",
+    "sanitize-html": "^2.13.0",
     "sass": "^1.62.0"
+  },
+  "devDependencies": {
+    "@types/sanitize-html": "^2.11.0"
   }
 }
