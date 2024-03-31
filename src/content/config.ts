@@ -15,10 +15,12 @@ const blog = defineCollection({
 			.string()
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
-		heroImage: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }).optional(),
+		heroImage: z.string().optional(),
+		heroAlt: z.string().optional(),
+		// heroImage: z.object({
+    //   src: z.string(),
+    //   alt: z.string(),
+    // }).optional(),
 		tags: z.array(
 			z.string()
 		).optional(),

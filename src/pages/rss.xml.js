@@ -18,31 +18,11 @@ export async function GET(context) {
       customData: post.data.customData,
       link: `/blog/${post.slug}/`,
       content: sanitizeHtml(parser.render(post.body)),
+      // enclosure: {
+      //   url: post.data.heroImage,
+      //   length: 0
+      // } // ogpを出したい
     })),
     customData: `<language>ja-jp</language>`,
   });
 }
-
-// export const get = () => rss({
-//   title: SITE_TITLE,
-//   description: SITE_DESCRIPTION,
-//   site: import.meta.env.SITE,
-//   items: posts.map((post) => ({
-//     link: post.url,
-//     title: post.frontmatter.title,
-//     pubDate: post.frontmatter.pubDate,
-// 		draft: post.frontmatter.draft,
-//   }))
-// });
-
-// export async function get(context) {
-// 	const posts = await getCollection('blog');
-// 	return rss({
-// 		title: SITE_TITLE,
-// 		description: SITE_DESCRIPTION,
-// 		site: context.site,
-// 		items: await pagesGlobToRssItems(
-//       import.meta.glob('./blog/*.{md,mdx}'),
-//     ),
-// 	});
-// }
