@@ -20,10 +20,6 @@ export async function GET(context) {
       link: `/blog/${post.slug}/`,
       // コンテンツ全文を出したい
       content: sanitizeHtml(parser.render(post.body))
-      // enclosure: {
-      //   url: post.data.heroImage,
-      //   length: 0
-      // } // ogpを出したい
     })),
     customData: `<language>ja-jp</language>`,
   });
