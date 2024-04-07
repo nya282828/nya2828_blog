@@ -1,4 +1,5 @@
 import rss, { pagesGlobToRssItems } from '@astrojs/rss';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
@@ -8,8 +9,8 @@ export async function GET(context) {
   const blog = await getCollection('blog');
 
   return rss({
-    title: 'SITE_TITLE',
-    description: 'SITE_DESCRIPTION',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     site: context.site,
     items:blog.map((post) => ({
       title: post.data.title,
@@ -18,7 +19,7 @@ export async function GET(context) {
       customData: post.data.customData,
       link: `/blog/${post.slug}/`,
       // コンテンツ全文を出したい
-      // content: sanitizeHtml(parser.render(post.body)),
+      content: sanitizeHtml(parser.render(post.body))
       // enclosure: {
       //   url: post.data.heroImage,
       //   length: 0
