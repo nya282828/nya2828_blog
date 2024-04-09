@@ -52,7 +52,7 @@
   // Light
   --c-bg:      #{ask.$c_background};
   --c-text:    #{ask.$c_text};
-  --c-caption: #{ask.$c_gray50};
+  --c-caption: #{ask.$c_gray35};
   --c-code:    #{ask.$c_code};
   --c-code-bg: #{ask.$c_code_bg};
   --c-border:  #{ask.$c_gray90};
@@ -67,7 +67,7 @@
     // Dark
     --c-bg:      #{ask.$c_black};
     --c-text:    #{ask.$c_white};
-    --c-caption: #{ask.$c_gray50};
+    --c-caption: #{ask.$c_gray65};
     --c-code:    #{ask.$c_code_dark};
     --c-code-bg: #{ask.$c_code_bg_dark};
     // --c-border:  #{ask.$c_gray90};
