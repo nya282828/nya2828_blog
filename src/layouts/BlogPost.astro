@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from "astro:assets";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BaseHead from '../components/BaseHead.astro';
@@ -36,7 +37,30 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 							</p>
 							<h1 class="c-blog__title t-headline1">{title}</h1>
 						</div>
-						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}</div>
+						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{
+							// heroImage && 
+							<Image
+								src={heroImage}
+								widths={[
+									320,
+									375,
+									580,
+									980,
+									1040,
+									1162
+								]}
+								sizes={`
+									(max-width: 375px) 320px,
+									(max-width: 580px) 375px,
+									(max-width: 768px) 580px,
+									(max-width: 960px) 960px,
+									(max-width: 1280px) 1040px,
+									1162px`}
+								decoding="sync"
+								loading="eager"
+								alt={heroAlt}
+							/>
+						}</div>
 					</header>
 					<div class="c-blog__body">
 						<slot />
