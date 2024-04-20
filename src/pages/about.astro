@@ -1,43 +1,68 @@
 ---
 import { Image } from 'astro:assets';
-import aboutImg from "../image/about.jpg";
-import Layout from '../layouts/BlogPost.astro';
-const pageTitle = "nyasusho（@nya2828）";
+import aboutImg from "../assets/about.jpg";
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import BackLink from '../components/BackLink.astro';
+import { SITE_TITLE } from '../consts';
+const title = "nyasusho（@nya2828）"
+const description = "nya2828について"
+const pubDate = new Date('2023/11/05')
 ---
-
-<Layout title={pageTitle} description="nya2828について" pubDate={new Date('2023/11/05')}>
-	<div class="l-rail l-rail--full--m">
-		<div class="c-media u-ar-16x9">
-			<!-- <div class="c-image">
-				<img src="image/about.jpg" alt="写真：:nyasusho">
-			</div> -->
-			<div class="c-image">
-				<!-- // vw375まで320pxの画像を出力 -->
-				<Image 
-					src={aboutImg}
-					widths={[
-						320,
-						375,
-						580,
-						980,
-						1040,
-						1162
-					]}
-					sizes={`
-						(max-width: 375px) 320px,
-						(max-width: 580px) 375px,
-						(max-width: 768px) 580px,
-						(max-width: 960px) 960px,
-						(max-width: 1280px) 1040px,
-						1162px`}
-					decoding="sync"
-					loading="eager"
-					alt="写真：nyasusho"
-				/>
-			</div>
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<BaseHead title={title + " - " + SITE_TITLE} description={description}/>
+		<!-- <link rel="stylesheet" href="../../public/prism-one-light.css"> -->
+	</head>
+	<body class="ask-wrapper">
+		<div class="l-content">
+			<Header title={SITE_TITLE} />
+			<main class="l-main">
+				<article class="c-blog">
+					<header class="c-blog__head">
+						<div class="c-blog__head__info">
+							<p class="c-blog__head__date">
+								<FormattedDate date={pubDate} />
+							</p>
+							<h1 class="c-blog__title t-headline1">{title}</h1>
+						</div>
+						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{
+							<Image
+								src={aboutImg}
+								widths={[
+									320,
+									375,
+									580,
+									980,
+									1040,
+									1162
+								]}
+								sizes={`
+									(max-width: 375px) 320px,
+									(max-width: 580px) 375px,
+									(max-width: 768px) 580px,
+									(max-width: 960px) 960px,
+									(max-width: 1280px) 1040px,
+									1162px`}
+								decoding="sync"
+								loading="eager"
+								alt="写真：nyasusho"
+							/>
+						}</div>
+					</header>
+					<div class="c-blog__body">
+						<p>報道機関で働くデザイナー。デザインで食べて、オートバイで遊ぶ。</p>
+						<p>このサイトに書かれている内容は本業とは一切関係のない、趣味やプライベートワークなどについて掲載しています。</p>
+					</div>
+					<div class="c-blog__foot">
+						<BackLink></BackLink>
+					</div>
+				</article>
+			</main>
+			<Footer />
 		</div>
-	</div>
-	<p>報道機関で働くデザイナー。デザインで食べて、オートバイで遊ぶ。</p>
-	<p>このサイトに書かれている内容は本業とは一切関係のない、趣味やプライベートワークなどについて掲載しています。</p>
-</Layout>
-</div>
+	</body>
+</html>

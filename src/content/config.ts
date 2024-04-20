@@ -1,10 +1,10 @@
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection, reference } from 'astro:content';
 
 // コンテンツタイプblog記事のコンテンツスキーマ
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
 	type: 'content',
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		description: z.string(),
 		pubDate: z
@@ -15,8 +15,8 @@ const blog = defineCollection({
 			.string()
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
+		heroImage: image().optional(),
 		// heroImage: z.string().optional(),
-		hereImage: z.string().optional(),
 		heroAlt: z.string().optional(),
 		// heroImage: z.object({
     //   src: z.string(),
@@ -25,7 +25,6 @@ const blog = defineCollection({
 		tags: z.array(
 			z.string()
 		).optional(),
-		author: z.string().default('nyasuho'),
 		footnote: z.string().optional(),
 		draft: z.boolean(),
 	}),
