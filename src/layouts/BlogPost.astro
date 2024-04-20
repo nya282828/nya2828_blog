@@ -7,9 +7,10 @@ import Footer from '../components/Footer.astro';
 import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import BackLink from '../components/BackLink.astro';
+import Img from '../components/Img.astro';
 
 const { frontmatter } = Astro.props;
-console.log(frontmatter, frontmatter.heroImage)
+// console.log(frontmatter, frontmatter.heroImage)
 
 ---
 <!DOCTYPE html>
@@ -37,6 +38,7 @@ console.log(frontmatter, frontmatter.heroImage)
 							<h1 class="c-blog__title t-headline1">{frontmatter.title}</h1>
 						</div>
 						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{
+							// widthsとsizesを最適な形にする
 							frontmatter.heroImage && 
 							<Image
 								src={frontmatter.heroImage}

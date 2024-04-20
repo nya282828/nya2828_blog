@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+export interface Props {
+  src: string;
+	alt: string;
+  loading: string;
+}
+const { src, alt, loading = "async" } = Astro.props;
+
+---
+<p>
+<Image
+  src={ src }
+  widths={[
+    320,
+    375,
+    580,
+    980,
+    1040,
+    1162
+  ]}
+  sizes={`
+    (max-width: 375px) 320px,
+    (max-width: 580px) 375px,
+    (max-width: 768px) 580px,
+    (max-width: 960px) 960px,
+    (max-width: 1280px) 1040px,
+    1162px`}
+  alt={ alt }
+  decoding="sync"
+  loading={loading}
+/>
+</p>

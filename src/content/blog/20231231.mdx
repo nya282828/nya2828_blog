@@ -8,13 +8,17 @@ draft: false
 import RailM from '../../components/RailM.astro';
 import RailFullM from '../../components/RailFullM.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
+import Img from '../../components/Img.astro';
+
+import img1 from "../../assets/blog/20231231/R0005374.JPG"
 
 もう2023年も終わる。早い。なので今年買ったものでよかったものをまとめる。  
 
 ## マムートのマウンテンパーカ  
 
 <RailFullM>
-  ![マムートのマウンテンパーカ](../../assets/blog/20231231/R0005374.JPG)
+  {/* ![マムートのマウンテンパーカ](../../assets/blog/20231231/R0005374.JPG) */}
+  <Img src={img1} alt="マムートのマウンテンパーカ" decoding="sync" loading="eager"/>
 <p class="t-caption">マムートのマウンテンパーカ。色合いが良い</p>
 </RailFullM>
 
