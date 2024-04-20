@@ -1,21 +1,22 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import { Image } from "astro:assets";
+import { SITE_TITLE } from '../consts';
+
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import BackLink from '../components/BackLink.astro';
-import { SITE_TITLE } from '../consts';
-// import { hljs } from '../../public/highlight.js';
+import Img from '../components/Img.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+const { frontmatter } = Astro.props;
+// console.log(frontmatter, frontmatter.heroImage)
 
-const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
-		<BaseHead title={title + " - " + SITE_TITLE} description={description} image={heroImage} />
+		<BaseHead title={frontmatter.title + " - " + SITE_TITLE} description={frontmatter.description} image={frontmatter.heroImage} />
 		<!-- <link rel="stylesheet" href="../../public/prism-one-light.css"> -->
 	</head>
 	<body class="ask-wrapper">
@@ -26,17 +27,41 @@ const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.p
 					<header class="c-blog__head">
 						<div class="c-blog__head__info">
 							<p class="c-blog__head__date">
-								<FormattedDate date={pubDate} />
+								<FormattedDate date={frontmatter.pubDate} />
 								{
-									updatedDate && (
+									frontmatter.updatedDate && (
 										<span class="t-time t-time--update">Last updated on </span>
-										<FormattedDate date={updatedDate} />
+										<FormattedDate date={frontmatter.updatedDate} />
 									)
 								}
 							</p>
-							<h1 class="c-blog__title t-headline1">{title}</h1>
+							<h1 class="c-blog__title t-headline1">{frontmatter.title}</h1>
 						</div>
-						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{heroImage && <img width="100%" src={heroImage} alt={heroAlt} />}</div>
+						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9">{
+							// widthsとsizesを最適な形にする
+							frontmatter.heroImage && 
+							<Image
+								src={frontmatter.heroImage}
+								widths={[
+									320,
+									375,
+									580,
+									980,
+									1040,
+									1920
+								]}
+								sizes={`
+									(max-width: 376px) 320px,
+									(max-width: 581px) 375px,
+									(max-width: 769px) 580px,
+									(max-width: 961px) 960px,
+									(max-width: 1281px) 1040px,
+									1920px`}
+								decoding="sync"
+								loading="eager"
+								alt={"" && frontmatter.heroAlt}
+							/>
+						}</div>
 					</header>
 					<div class="c-blog__body">
 						<slot />

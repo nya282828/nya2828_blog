@@ -8,13 +8,17 @@ draft: false
 import RailM from '../../components/RailM.astro';
 import RailFullM from '../../components/RailFullM.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
+import Img from '../../components/Img.astro';
+
+import img1 from "../../assets/blog/20231231/R0005374.JPG"
 
 もう2023年も終わる。早い。なので今年買ったものでよかったものをまとめる。  
 
 ## マムートのマウンテンパーカ  
 
 <RailFullM>
-  ![マムートのマウンテンパーカ](/blog/20231231/R0005374.JPG)
+  {/* ![マムートのマウンテンパーカ](../../assets/blog/20231231/R0005374.JPG) */}
+  <Img src={img1} alt="マムートのマウンテンパーカ" decoding="sync" loading="eager"/>
 <p class="t-caption">マムートのマウンテンパーカ。色合いが良い</p>
 </RailFullM>
 
@@ -22,7 +26,7 @@ import ImgGrid from '../../components/ImgGrid.astro';
 
 防風性能と透湿性能、速乾性能の高さが長旅でとても役に立った。見た目より防寒性能も高く、秋しか使えないかと思っていたが中に着る物を調整すれば冬でも普通に使えて驚いた。しかもめっちゃ軽くて負担にならない。知る限り他のマウンテンパーカーよりだいぶ細身で、オートバイでもバタつかない。それでもインナープロテクターをつけれる余裕はある。総じてオートバイ、アウトドアの疲労をかなり抑えてくれる。  
 
-![マムートのマウンテンパーカのロゴ](/blog/20231231/R0005365.JPG)
+![マムートのマウンテンパーカのロゴ](../../assets/blog/20231231/R0005365.JPG)
 <p class="t-caption">ロゴがかわいい</p>
 
 個人的な好みだが色がいい。目立つ色でありながらも安っぽくない絶妙な色だと思う。  
@@ -32,14 +36,14 @@ import ImgGrid from '../../components/ImgGrid.astro';
 ## The corona utilityのEPICナイロンジャケット  
 
 <RailFullM>
-  ![The corona utilityのEPICナイロンジャケット](/blog/20231231/R0005373.JPG)
+  ![The corona utilityのEPICナイロンジャケット](../../assets/blog/20231231/R0005373.JPG)
 <p class="t-caption">The corona utilityのEPICナイロンジャケット</p>
 </RailFullM>
 
 高い防水性、防風性、透湿性の高さと羽根のような軽さが特徴。  
 EPICという生地は、アメリカのNEXTEC社の開発するハイテク素材で、ゴアテックスのようなコーティングではなく、繊維の内側にシリコンバリアを施すことで生地の構造自体が水を弾く。なので洗濯に気を使わないし劣化しづらい。春夏で活躍した。  
 
-![The corona utilityのEPICナイロンジャケット](/blog/20231231/R0005371.JPG)
+![The corona utilityのEPICナイロンジャケット](../../assets/blog/20231231/R0005371.JPG)
 <p class="t-caption">テントの素材にちょっと似た質感と手触り</p>
 
 見た目がほどよくミリタリーっぽくていい。コテコテのミリタリーはよりこれくらいがちょうどよい。ゆったり着れる。  
@@ -53,7 +57,7 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 3x3でのタープ泊でも不満なく使えていたが、室内がもう少し広いと楽だなと思っていたでの、これを機に少し大きいのを買った。広さはやはり正義。とても快適だった。  
 
 <RailFullM>
-  ![DDタープ3.5mの設営イメージ](/blog/20231231/R0004807.JPG)
+  ![DDタープ3.5mの設営イメージ](../../assets/blog/20231231/R0004807.JPG)
 <p class="t-caption">3.5mの設営イメージ</p>
 </RailFullM>
 
@@ -64,7 +68,7 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 内燃機関と走るための機構、そして美少女と好きな要素がこれでもかと詰めこまれたアクションフィギュア。  
 
 <RailFullM>
-  ![アクションフィギュア、MOTORED CYBORG RUNNER](/blog/20231231/R0003677.JPG)
+  ![アクションフィギュア、MOTORED CYBORG RUNNER](../../assets/blog/20231231/R0003677.JPG)
 <p class="t-caption">MOTORED CYBORG RUNNERの名の通りのルックス</p>
 </RailFullM>
 
@@ -74,9 +78,9 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 
 <RailM>
   <ImgGrid>
-    ![アクションフィギュア、MOTORED CYBORG RUNNER](/blog/20231231/R0003703.JPG)
+    ![アクションフィギュア、MOTORED CYBORG RUNNER](../../assets/blog/20231231/R0003703.JPG)
 
-    ![アクションフィギュア、MOTORED CYBORG RUNNER](/blog/20231231/R0003706.JPG)
+    ![アクションフィギュア、MOTORED CYBORG RUNNER](../../assets/blog/20231231/R0003706.JPG)
   </ImgGrid>
   <p class="t-caption">プレイバリューが高い。</p>
 </RailM>
@@ -88,7 +92,7 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 メインマシンのSvartpilen701のためバックステップ。  
 
 <RailFullM>
-  ![Northline製バックステップ](/blog/20231231/R0002996.jpg)
+  ![Northline製バックステップ](../../assets/blog/20231231/R0002996.jpg)
 <p class="t-caption">もともとVitpilen701用だったらしい。そのまま付いてよかった</p>
 </RailFullM>
 
@@ -101,7 +105,7 @@ Northlineさんは昔から少し付き合いがあって、大阪に行った�
 ## 髭トリマー  
 
 <RailFullM>
-  ![ブラウンのヒゲトリマー](/blog/20231231/R0005386.JPG)
+  ![ブラウンのヒゲトリマー](../../assets/blog/20231231/R0005386.JPG)
 <p class="t-caption">ダイヤルで直感的に長さを設定できる</p>
 </RailFullM>
 
@@ -119,7 +123,7 @@ Northlineさんは昔から少し付き合いがあって、大阪に行った�
 オフロードではプロテクターは必須。胸部は命に直結する。オートバイ詳しくない人に向けて説明すると、胸にハンドルを強打したり、走行中に胸に木の枝が刺さったり、横に転倒した時に肘が脇腹を強打して肋を折ったり、そういうことを防いでくれる。  
 
 <RailFullM>
-  ![FOXのボディプロテクター](/blog/20231231/R0005378.JPG)
+  ![FOXのボディプロテクター](../../assets/blog/20231231/R0005378.JPG)
 <p class="t-caption">通気性も見た目よりいい</p>
 </RailFullM>
 
@@ -131,7 +135,7 @@ Northlineさんは昔から少し付き合いがあって、大阪に行った�
 直接手足につけるタイプのプロテクター。春夏用のプロテクター付きのウェアが好きになれず、好きなウェアの下につけるために買った。  
 
 <RailFullM>
-  ![HydoのD3Oプロテクター](/blog/20231231/R0005380.JPG)
+  ![HydoのD3Oプロテクター](../../assets/blog/20231231/R0005380.JPG)
 <p class="t-caption">柔らかいが、衝撃が加わると固くなる</p>
 </RailFullM>
 
@@ -147,7 +151,7 @@ D3Oは衝撃が加わった瞬間のみ固くなる特殊素材。なので普�
 Svartpilen701には小分けにして合体させられるバッグを使っていた。（というか車両構造上それしか使えない）が、ブロンコにはキャリアがあるのでほぼこちら専用。  
 
 <RailFullM>
-  ![エンデュリスタントルネード2L](/blog/20231231/IMG_8743.jpg)
+  ![エンデュリスタントルネード2L](../../assets/blog/20231231/IMG_8743.jpg)
 <p class="t-caption">キャリアに乗っているのがそれ。結構でかい</p>
 </RailFullM>
 
@@ -163,7 +167,7 @@ Svartpilen701には小分けにして合体させられるバッグを使って�
 前作から10年、青春時代を捧げたゲームシリーズの待望の最新作。発表のPVを見た段階でガチで泣いてしまったレベル。  
 
 <RailFullM>
-  ![ARMORED CORE VI FIRES OF RUBICON プレイ画面](/blog/20231231/IMG_7898.JPG)
+  ![ARMORED CORE VI FIRES OF RUBICON プレイ画面](../../assets/blog/20231231/IMG_7898.JPG)
 <p class="t-caption">プレイ画面</p>
 </RailFullM>
 
@@ -173,13 +177,13 @@ Svartpilen701には小分けにして合体させられるバッグを使って�
 
 <RailM>
   <ImgGrid>
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](/blog/20231231/IMG_7910.JPG)
+    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_7910.JPG)
 
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](/blog/20231231/IMG_7940.JPG)
+    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_7940.JPG)
 
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](/blog/20231231/IMG_7989.JPG)
+    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_7989.JPG)
 
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](/blog/20231231/IMG_8410.JPG)
+    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_8410.JPG)
   </ImgGrid>
   <p class="t-caption">フォトモードも楽しい</p>
 </RailM>

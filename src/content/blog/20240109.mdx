@@ -8,11 +8,15 @@ draft: false
 import RailM from '../../components/RailM.astro';
 import RailFullM from '../../components/RailFullM.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
+import Img from '../../components/Img.astro';
+
+import img1 from "../../assets/blog/20240109/nenga2024_web.jpg"
 
 明けましておめでとうございます。  
 
 <RailFullM>
-  ![年賀状](/blog/20240109/nenga2024_web.jpg)
+  {/* ![年賀状](../../assets/blog/20240109/nenga2024_web.jpg) */}
+  <Img src={img1} alt="年賀状" decoding="sync" loading="eager"/>
   <p class="t-caption">年賀状</p>
 </RailFullM>
 
@@ -22,4 +26,4 @@ import ImgGrid from '../../components/ImgGrid.astro';
 
 あまり焦るのは心身に良くないことは身をもって知っているので、時折オートバイで旅をしながら、マイペースにデザインやっていきたい。  
 
-![2024年の初日の出の写真](/blog/20240109/R0005396.JPG)
+![2024年の初日の出の写真](../../assets/blog/20240109/R0005396.JPG)
