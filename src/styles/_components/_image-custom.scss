@@ -1,5 +1,9 @@
 // image
+@use "../ask_setting" as ask;
+
 .c-image {
+  background: ask.$c_gray90;
+
   &--hero {
     img {
       width: 100%;
@@ -7,5 +11,9 @@
       object-fit: cover;
       object-position: center;
     }
+  }
+
+  .dark & {
+    background: ask.$c_gray15;
   }
 }
