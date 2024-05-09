@@ -12,5 +12,10 @@ export default defineConfig({
     extendMarkdownConfig: false,
     smartypants: true,
     gfm: true,
-  }), sitemap(), preact()]
+  }), sitemap(), preact()],
+  vite: {
+    css: {
+      devSourcemap: true,
+    },
+  }
 });

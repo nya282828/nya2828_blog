@@ -45,8 +45,13 @@
   // Font family
   --t-font-family-ja: #{ask.$t_list_system_ja};
 
+  // Font weight
+  --t-font-weight-noraml: #{map-get(ask.$t_list_weight, 'normal')};
+  --t-font-weight-bold: #{map-get(ask.$t_list_weight, 'bold')};
+
   // Color Set
   // common
+  --c-gray20: #{ask.$c_gray20};
   --c-gray90: #{ask.$c_gray90};
 
   // Light
@@ -65,8 +70,8 @@
   // Dark Theme用の値
   .dark & {
     // Dark
-    --c-bg:      #{ask.$c_black};
-    --c-text:    #{ask.$c_white};
+    --c-bg:      #{ask.$c_bg_dark};
+    --c-text:    #{ask.$c_text_dark};
     --c-caption: #{ask.$c_gray65};
     --c-code:    #{ask.$c_code_dark};
     --c-code-bg: #{ask.$c_code_bg_dark};

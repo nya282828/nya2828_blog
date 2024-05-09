@@ -17,10 +17,10 @@ ask.$t_h_size_xxxxl: ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_l
 
 .ask-wrapper {
   font-family: var(--t-font-family-ja);
-  -webkit-font-smoothing: antialiased;
   line-break: normal;
   hanging-punctuation: allow-end;
   font-size: var(--t-base-size);
+  font-weight: var(--t-font-weight-noraml);
   line-height: var(--t-base-line-height);
   letter-spacing: var(--t-letter-spacing);
 }
