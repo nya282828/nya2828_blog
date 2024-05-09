@@ -1,12 +1,16 @@
 // Project typeface
 @use "../ask_setting" as ask;
-
 //  Root typo Style
+
+::selection {
+  background-color: var(--c-text);
+  color: var(--c-bg);
+}
+
 .ask-wrapper {
   @if ask.$t_type_sans == true {
     font-family: var(--t-font-family-ja);
   }
-  -webkit-font-smoothing: antialiased;
   line-break: normal;
   hanging-punctuation: allow-end;
   font-size: var(--t-size_s);
@@ -23,7 +27,7 @@
 
 h1,h2,h3,h4 {
   font-family: var(--t-font-family-ja);
-  font-weight: 700;
+  font-weight: var(--t-font-weight-bold);
 }
 
 .t-link {
@@ -34,7 +38,7 @@ h1,h2,h3,h4 {
     color: var(--c-text);
   }
 
-  @media (hover: hover) and (pointer: fine) {
+  @include ask.mq-hover-mouse {
     &:hover {
       color: var(--c-hover);
       text-decoration-thickness: 1px;

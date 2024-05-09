@@ -8,13 +8,21 @@
 // ---------------------------------
 
 // Fontset
-// $t_fontset_ja: "dnp-shuei-gothic-kin-std",  sans-serif;
-// $t_fontset_ja: hiragino-kaku-gothic-pron, sans-serif;
-// $t_fontset_ja: "ryo-gothic-plusn", sans-serif;
+// ask.$t_list_system_ja: "dnp-shuei-gothic-kin-std",  sans-serif;
+// ask.$t_list_system_ja: hiragino-kaku-gothic-pron, sans-serif;
+// ask.$t_list_system_ja: "ryo-gothic-plusn", sans-serif;
+// ask.$t_list_system_ja: "IBM Plex Sans JP", sans-serif;
+// ask.$t_list_system_ja: "Zen Kaku Gothic New", sans-serif;
+// ask.$t_list_system_ja: "Sawarabi Gothic", sans-serif;
+ask.$t_list_system_ja: "Shippori Mincho", serif;
+// ask.$t_list_system_ja: "Klee One", cursive;
 $t_fontset_en: 'IBM Plex Mono', monospace;
 
 // Color
 ask.$c_black: #111;
+ask.$c_link: ask.$c_text;
+$c_bg_dark: hsl(180, 2%, 9%);
+$c_text_dark: hsl(0, 0%, 90%);
 $c_link_dark: ask.$c_white;
 $c_link_darkhover: #40a0ff;
 $c_link_darkvisited: #40a0ff;
