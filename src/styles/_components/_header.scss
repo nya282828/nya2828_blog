@@ -9,6 +9,7 @@
   font-family: var(--t-font-family-en);
 
   &__logo {
+    width: 5em;
     grid-column: 1 / -1;
     // @include ask.t-size(ask.$t_h_size_l, 32px);
     font-size: var(--t-size_l);
@@ -16,10 +17,6 @@
     // line-height: 32px;
     margin: 0;
     font-family: var(--t-font-family-en);
-
-    .t-link {
-      text-decoration: none;
-    }
   }
 
   &__nav {
@@ -35,5 +32,14 @@
     top: 0;
     right: 0;
     margin: 3em ask.$r_size_space*1em;
+  }
+}
+
+.c-logo {
+  display: block;
+
+  & > * {
+    width: 100%;
+    fill: var(--c-text);
   }
 }

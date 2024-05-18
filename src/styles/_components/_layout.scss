@@ -22,7 +22,7 @@
   min-height: 100svh;
   // max-width: calc(#{ask.$r_num_text*1.5em} + #{ask.$r_size_space*2em});
   margin: auto;
-  overflow: hidden;
+  // overflow: hidden;
 
   @include ask.mq-m {
     margin: 0 0 0 5vw;
