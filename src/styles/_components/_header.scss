@@ -36,10 +36,48 @@
 }
 
 .c-logo {
-  display: block;
+  display: grid;
+  position: relative;
+  align-items: center;
+  justify-items: center;
 
   & > * {
     width: 100%;
     fill: var(--c-text);
+    z-index: 1;
+    transition: all .2s ease;
+  }
+
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   display: block;
+  //   width: calc(100% + 0.5em);
+  //   height: calc(100% + 0.5em);
+  //   border-radius: 0.25em;
+  //   border: 1px solid transparent;
+  //   transition: all .2s ease;
+  // }
+
+  // タッチデバイス
+  @include ask.mq-hover-touch {
+    &:active > * {
+      fill: var(--c-hover);
+    }
+
+    // &:active::after {
+    //   border-color: var(--c-hover);
+    // }
+  }
+
+  // マウス
+  @include ask.mq-hover-mouse {
+    &:hover > * {
+      fill: var(--c-hover);
+    }
+
+    // &:hover::after {
+    //   border-color: var(--c-hover);
+    // }
   }
 }

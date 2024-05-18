@@ -38,6 +38,13 @@ h1,h2,h3,h4 {
     color: var(--c-text);
   }
 
+  @include ask.mq-hover-touch {
+    &:active {
+      color: var(--c-hover);
+      text-decoration-thickness: 1px;
+    }
+  }
+
   @include ask.mq-hover-mouse {
     &:hover {
       color: var(--c-hover);
