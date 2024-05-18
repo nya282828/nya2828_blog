@@ -1,15 +1,14 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import ThemeIcon from './ThemeIcon.astro';
+import Logo from './Logo.astro';
 import Dropdown from './Dropdown.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
 <header class="c-header">
 	<h1 class="c-header__logo">
-		<HeaderLink href="/">
-			{SITE_TITLE}
-		</HeaderLink>
+		<Logo></Logo>
 	</h1>
 	<nav class="c-header__nav">
 		<HeaderLink href="/about">About</HeaderLink>
