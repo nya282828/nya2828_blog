@@ -3,17 +3,39 @@
 
 .c-image {
   background: ask.$c_gray90;
+  display: grid;
+  place-items: center;
+  place-content: center;
 
-  &--hero {
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+  &__lazy,
+  &__body {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    z-index: 1;
+  }
+
+  &__body {
+    opacity: 0;
+    transition: all .4s ease;
+
+    &.u-loaded {
+      opacity: 1;
     }
+  }
+
+  &__lazy {
+    filter: blur(32px);
   }
 
   .dark & {
     background: ask.$c_gray15;
   }
+}
+
+.u-loaded {
+  opacity: 1;
 }

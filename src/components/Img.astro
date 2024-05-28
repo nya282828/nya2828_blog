@@ -10,7 +10,16 @@ const { src, alt, decoding = "async", loading = "lazy" } = Astro.props;
 
 ---
 <div class="c-image">
+  <Image 
+    src={src} 
+    alt="" 
+    widths={ [10] } 
+    class="c-image__lazy" 
+    aria-hidden="true" 
+    role="presentation" 
+  />
   <Image
+    data-high-res
     src={ src }
     widths={[
       320,
@@ -28,7 +37,20 @@ const { src, alt, decoding = "async", loading = "lazy" } = Astro.props;
       (max-width: 1281px) 1040px,
       1920px`}
     alt={ alt }
-    decoding={decoding}
-    loading={loading}
+    class="c-image__body"
+    decoding={decoding} 
+    loading={loading} 
   />
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const highResImage = document.querySelector('[data-high-res]');
+    console.log(highResImage);
+    if (highResImage) {
+      highResImage.onload = () => {
+        console.log('loaded');
+        highResImage.classList.add('u-loaded');
+      };
+    }
+  });
+</script>

@@ -46,6 +46,12 @@
     fill: var(--c-text);
     z-index: 1;
     transition: all .2s ease;
+
+    stroke: var(--c-text);
+    stroke-width: 0;
+    transition: all .2s ease;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   // &:after {
@@ -63,6 +69,9 @@
   @include ask.mq-hover-touch {
     &:active > * {
       fill: var(--c-hover);
+      
+      stroke-width: 1px;
+      stroke: var(--c-hover);
     }
 
     // &:active::after {
@@ -74,6 +83,9 @@
   @include ask.mq-hover-mouse {
     &:hover > * {
       fill: var(--c-hover);
+      
+      stroke-width: 1px;
+      stroke: var(--c-hover);
     }
 
     // &:hover::after {
