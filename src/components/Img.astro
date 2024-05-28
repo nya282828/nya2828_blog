@@ -14,6 +14,8 @@ const { src, alt, decoding = "async", loading = "lazy" } = Astro.props;
     src={src} 
     alt="" 
     widths={ [10] } 
+    decoding="sync" 
+    loading="eager" 
     class="c-image__lazy" 
     aria-hidden="true" 
     role="presentation" 
