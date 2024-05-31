@@ -21,28 +21,32 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover .sun {
+      fill: transparent;
+    }
+
+    &:hover .moon {
       fill: var(--c-hover);
-      transition: fill .2s ease;
     }
   }
 
   @media (hover: hover) and (pointer: fine) {
     .dark &:hover .moon {
-      fill: var(--c-hover);
-      transition: fill .2s ease;
+      fill: transparent;
     }
 
     .dark &:hover .sun {
-      fill: initial;
+      fill: var(--c-hover);
     }
   }
 }
 
 .sun {
   fill: var(--c-text);
+  transition: all .2s ease;
 }
 .moon {
   fill: transparent;
+  transition: all .2s ease;
 }
 
 .dark .sun {
