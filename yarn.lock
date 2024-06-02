@@ -3455,6 +3455,15 @@ remark-stringify@^11.0.0:
     mdast-util-to-markdown "^2.0.0"
     unified "^11.0.0"
 
+remark-unwrap-images@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-4.0.0.tgz#ea22d91c06daccdc7fad6cb2449ea77b10421b05"
+  integrity sha512-Ilr5ZhrhZSvnjemy1rRuxlTC0I/39YyWDRiE9d5vF079APcwdYYzwcZL8RGehlCtQCiik8hWMyo4Xhz2Fq0JhA==
+  dependencies:
+    "@types/mdast" "^4.0.0"
+    hast-util-whitespace "^3.0.0"
+    unist-util-visit "^5.0.0"
+
 resolve@^1.22.4, resolve@^1.22.8:
   version "1.22.8"
   resolved "https://registry.npmjs.org/resolve/-/resolve-1.22.8.tgz"
