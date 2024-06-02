@@ -2,6 +2,7 @@
 @use "../ask_setting" as ask;
 
 .c-image {
+  position: relative;
   background: ask.$c_gray90;
   display: grid;
   place-items: center;

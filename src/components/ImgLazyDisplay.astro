@@ -14,7 +14,7 @@ const { src, alt, decoding = "async", loading = "lazy" } = Astro.props;
     <Image 
       src={src} 
       alt="" 
-      widths={ [10] } 
+      widths={ [192] } 
       decoding="sync" 
       loading="eager" 
       class="c-image__lazy" 
@@ -46,7 +46,7 @@ const { src, alt, decoding = "async", loading = "lazy" } = Astro.props;
     />
   </div>
 </figure>
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', () => {
     const highResImage = document.querySelector('[data-high-res]');
     console.log(highResImage);
@@ -57,4 +57,4 @@ const { src, alt, decoding = "async", loading = "lazy" } = Astro.props;
       };
     }
   });
-</script>
+</script> -->
