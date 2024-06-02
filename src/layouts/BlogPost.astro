@@ -37,13 +37,13 @@ const { frontmatter } = Astro.props;
 							</p>
 							<h1 class="c-blog__title t-headline1">{frontmatter.title}</h1>
 						</div>
-						<div class="c-blog__head__hero c-image c-image--hero u-ar-16x9" id="lazyImage">{
+						<div class="c-blog__head__hero c-image c-image--lazy-display u-ar-16x9" id="lazyImage">{
 							// widthsとsizesを最適な形にする
 							frontmatter.heroImage && 
 							<Image 
 								src={frontmatter.heroImage} 
 								alt="" 
-								widths={ [50] } 
+								widths={ [192] } 
 								decoding="sync" 
 								loading="eager" 
 								class="c-image__lazy" 
@@ -94,6 +94,7 @@ const { frontmatter } = Astro.props;
     const highResImage = document.querySelector('[data-high-res]');
     if (highResImage) {
       highResImage.onload = () => {
+        console.log('loaded');
         highResImage.classList.add('u-loaded');
       };
     }

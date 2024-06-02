@@ -2,11 +2,14 @@
 @use "../ask_setting" as ask;
 
 .c-image {
-  position: relative;
   background: ask.$c_gray90;
-  display: grid;
-  place-items: center;
-  place-content: center;
+
+  &--lazy-display {
+    position: relative;
+    display: grid;
+    place-items: center;
+    place-content: center;
+  }
 
   &__lazy,
   &__body {
