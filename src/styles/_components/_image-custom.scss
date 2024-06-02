@@ -22,14 +22,14 @@
     z-index: 1;
   }
 
-  // &__body {
-  //   opacity: 0;
-  //   transition: all .4s ease;
+  &__body {
+    opacity: 0;
+    transition: all .4s ease;
 
-  //   &.u-loaded {
-  //     opacity: 1;
-  //   }
-  // }
+    &.u-loaded {
+      opacity: 1;
+    }
+  }
 
   &__lazy {
     filter: blur(32px);
