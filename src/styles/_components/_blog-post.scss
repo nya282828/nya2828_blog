@@ -63,7 +63,8 @@
     & > ol,
     & > blockquote,
     & > table,
-    & > .footnotes {
+    & > .footnotes,
+    & > .c-media {
       grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 6};
       max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text});
     }
@@ -158,8 +159,8 @@
       height: 100%;
     }
 
-    .c-image {
-      margin-top: 0.5lh;
+    .c-media {
+      margin: 0.5lh 0 0 0;
     }
     
     ul {

@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+export interface Props {
+  src: string;
+	alt: string;
+  decoding: string;
+  loading: string;
+}
+const { src, alt, decoding = "async", loading = "lazy" } = Astro.props;
+
+---
+<figure class="c-media">
+  <div class="c-image">
+    <Image 
+      src={src} 
+      alt="" 
+      widths={ [10] } 
+      decoding="sync" 
+      loading="eager" 
+      class="c-image__lazy" 
+      aria-hidden="true" 
+      role="presentation" 
+    />
+    <Image
+      data-high-res
+      src={ src }
+      widths={[
+        320,
+        375,
+        580,
+        980,
+        1040,
+        1920
+      ]}
+      sizes={`
+        (max-width: 376px) 320px,
+        (max-width: 581px) 375px,
+        (max-width: 769px) 580px,
+        (max-width: 961px) 960px,
+        (max-width: 1281px) 1040px,
+        1920px`}
+      alt={ alt }
+      class="c-image__body"
+      decoding={decoding} 
+      loading={loading} 
+    />
+  </div>
+</figure>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const highResImage = document.querySelector('[data-high-res]');
+    console.log(highResImage);
+    if (highResImage) {
+      highResImage.onload = () => {
+        console.log('loaded');
+        highResImage.classList.add('u-loaded');
+      };
+    }
+  });
+</script>
