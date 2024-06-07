@@ -150,11 +150,6 @@
       }
     }
   
-    .t-caption {
-      margin-block-start: 0.4lh;
-      margin-block-end: 0.7lh;
-    }
-  
     img {
       display: block;
       width: 100%;
@@ -163,10 +158,23 @@
 
     .c-media,
     .c-image-grid {
-      margin: 1lh 0 0.5lh;
+      margin: 1lh 0 0;
 
       &:has(+ .t-caption) {
         margin: 1lh 0 0;
+      }
+    }
+  
+    .t-caption {
+      margin-block-start: 0.4lh;
+    }
+
+    .c-media,
+    .c-image-grid,
+    .t-caption,
+    .l-rail {
+      &:has(+ p) + p:not(.t-caption) {
+        margin-top: 2em;
       }
     }
     
@@ -186,7 +194,7 @@
   
     blockquote {
       position: relative;
-      margin: 1em 0 0;
+      margin: 2em 0 0;
       padding: 0 0 0 0.75em;
       border-left: 0.25em solid var(--c-gray90);
 
