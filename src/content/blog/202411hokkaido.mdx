@@ -11,15 +11,200 @@ import RailM from '../../components/RailM.astro';
 import RailFullM from '../../components/RailFullM.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
 import Img from '../../components/Img.astro';
+import Ai2html from '../../components/Ai2html.astro';
 export const components = {img: Img}
+
+import routeSp from '../../assets/blog/202411hokkaido/route-small.jpg';
+import routePc from '../../assets/blog/202411hokkaido/route-large.jpg';
 
 今年も北海道へ行った。今年は昨年行けなかったところを回るついでに、林道も走りたかったのでオフロードバイクで行った。  
 
 昨年は完全に北海道の広大さを舐めていた結果、結構無理したルートになってしまったが、今回は二回目と言うこともありそれなり余裕のあるルート設定をできた。昨年より滞在期間が長かったのもあり、たっぷり北海道の自然を楽しむことができた。  
 <RailM>
-  ![地図：ツーリングルート](../../assets/blog/202411hokkaido/route.jpg)
-  <p class="t-caption">今回走ったルート。総走行距離約2400km。出典：国土地理院</p>
+  {/* ![地図：ツーリングルート](../../assets/blog/202411hokkaido/route.jpg)
+  <p class="t-caption">今回走ったルート。総走行距離約2400km。出典：国土地理院</p> */}
+  <figure class="c-media">
+  <Ai2html
+    css='g-route-box ,
+	#g-route-box .g-artboard {
+		margin:0 auto;
+    font-family: sans-serif;
+	}
+	#g-route-box .g-artboard {
+		display: none;
+	}
+	#g-route-box {
+		contain: content;
+		container-type: inline-size;
+	}
+	#g-route-box p {
+		margin:0;
+	}
+	#g-route-box .g-aiAbs {
+		position:absolute;
+	}
+	#g-route-box .g-aiImg {
+		position:absolute;
+		top:0;
+		display:block;
+		width:100% !important;
+	}
+	#g-route-box .g-aiSymbol {
+		position: absolute;
+		box-sizing: border-box;
+	}
+	#g-route-box .g-aiPointText p { white-space: nowrap; }
+	#g-route-large {
+		position:relative;
+		overflow:hidden;
+	}
+	#g-route-large p {
+		font-weight:regular;
+		line-height:14px;
+		height:auto;
+		opacity:1;
+		letter-spacing:0em;
+		font-size:12px;
+		text-align:left;
+		color:rgb(0,0,0);
+		text-transform:none;
+		padding-bottom:0;
+		padding-top:0;
+		mix-blend-mode:normal;
+		font-style:normal;
+		position:static;
+		text-stroke:initial;
+		-webkit-text-stroke:initial;
+		-moz-text-stroke:initial;
+		paint-order:normal;
+		text-shadow:initial;
+		filter:none;
+	}
+	#g-route-large .g-p0 {
+		font-weight:700;
+		height:14px;
+		text-align:center;
+	}
+	#g-route-large .g-p1 {
+		font-weight:700;
+		height:14px;
+	}
+	@container (min-width: 768px) {
+		.g-artboard#g-route-large { display: block; }
+	}
+	#g-route-small {
+		position:relative;
+		overflow:hidden;
+	}
+	#g-route-small p {
+		font-weight:regular;
+		line-height:12px;
+		height:auto;
+		opacity:1;
+		letter-spacing:0em;
+		font-size:10px;
+		text-align:left;
+		color:rgb(0,0,0);
+		text-transform:none;
+		padding-bottom:0;
+		padding-top:0;
+		mix-blend-mode:normal;
+		font-style:normal;
+		position:static;
+		text-stroke:initial;
+		-webkit-text-stroke:initial;
+		-moz-text-stroke:initial;
+		paint-order:normal;
+		text-shadow:initial;
+		filter:none;
+	}
+	#g-route-small .g-p0 {
+		font-weight:700;
+		height:12px;
+		text-align:center;
+	}
+	#g-route-small .g-p1 {
+		font-weight:700;
+		height:12px;
+	}
+	#g-route-small .g-p2 {
+		font-weight:700;
+		height:12px;
+		text-align:right;
+	}
+	@container (max-width: 767px) {
+		.g-artboard#g-route-small { display: block; }
+	}'>
+  <div id="g-route-box" class="ai2html">
+
+    {/* <!-- Artboard: large --> */}
+    <div id="g-route-large" class="g-artboard" style="min-width: 768px;" data-aspect-ratio="1.414">
+      <div style="padding: 0 0 70.7156% 0;"></div>
+      <img src={routePc.src} id="g-route-large-img" class="g-route-large-img g-aiImg" alt="地図：ツーリングルート。" />
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:43.8009%;margin-top:-9px;left:25.9047%;margin-left:-23.5px;width:47px;">
+        <p class="g-p0">石狩</p>
+      </div>
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:46.9495%;margin-top:-9px;left:90.0012%;width:70px;">
+        <p class="g-p1">納沙布岬</p>
+      </div>
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:49.4136%;margin-top:-9px;left:40.9137%;width:58px;">
+        <p class="g-p1">富良野</p>
+      </div>
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:50.3718%;margin-top:-9px;left:20.4738%;margin-left:-23.5px;width:47px;">
+        <p class="g-p0">小樽</p>
+      </div>
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:58.1748%;margin-top:-9px;left:51.9368%;width:46px;">
+        <p class="g-p1">帯広</p>
+      </div>
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:58.3117%;margin-top:-9px;left:24.6635%;margin-left:-23px;width:46px;">
+        <p class="g-p0">札幌</p>
+      </div>
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:60.6389%;margin-top:-9px;left:67.9472%;margin-left:-23px;width:46px;">
+        <p class="g-p0">釧路</p>
+      </div>
+      <div class="g-pc g-aiAbs g-aiPointText" style="top:70.3584%;margin-top:-9px;left:28.7676%;margin-left:-29px;width:58px;">
+        <p class="g-p0">苫小牧</p>
+      </div>
+    </div>
+
+    {/* <!-- Artboard: small --> */}
+    <div id="g-route-small" class="g-artboard" style="max-width: 767px;max-height: 542px" data-aspect-ratio="1.415">
+      <div style="padding: 0 0 70.6853% 0;"></div>
+      <img src={routeSp.src} id="g-route-small-img" class="g-route-small-img g-aiImg" alt="地図：ツーリングルート" />
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:42.8815%;margin-top:-7.6px;left:25.9427%;margin-left:-21.5px;width:43px;">
+        <p class="g-p0">石狩</p>
+      </div>
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:43.2691%;margin-top:-7.6px;left:89.1268%;margin-left:-31px;width:62px;">
+        <p class="g-p0">納沙布岬</p>
+      </div>
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:49.4706%;margin-top:-7.6px;left:20.5036%;margin-left:-21.5px;width:43px;">
+        <p class="g-p0">小樽</p>
+      </div>
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:49.8582%;margin-top:-7.6px;left:41.0441%;width:52px;">
+        <p class="g-p1">富良野</p>
+      </div>
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:59.548%;margin-top:-7.6px;left:24.7011%;margin-left:-21px;width:42px;">
+        <p class="g-p0">札幌</p>
+      </div>
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:62.6488%;margin-top:-7.6px;right:48.9702%;width:42px;">
+        <p class="g-p2">帯広</p>
+      </div>
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:63.0364%;margin-top:-7.6px;left:68.0503%;margin-left:-21px;width:42px;">
+        <p class="g-p0">釧路</p>
+      </div>
+      <div class="g-sp g-aiAbs g-aiPointText" style="top:72.3387%;margin-top:-7.6px;left:28.8112%;margin-left:-26px;width:52px;">
+        <p class="g-p0">苫小牧</p>
+      </div>
+    </div>
+
+  </div>
+
+  </Ai2html>
+  <figcaption class="t-caption">今回走ったルート。総走行距離約2400km。出典：国土地理院</figcaption>
+
+  </figure>
 </RailM>
+
 
 ## 素晴らしき道東  
 {/* <RailFullM>
