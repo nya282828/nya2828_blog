@@ -1,0 +1,21 @@
+---
+// slotで受け取る
+type Props = {
+	css?: string;
+};
+const { css } = Astro.props;
+const html = await Astro.slots.render("default");
+const id = "ai2html-" + Math.random().toString(36).slice(2);
+---
+
+<div id={id} class="mb-5"></div>
+
+<script define:vars={{ id, html, css }}>
+	const container = document.querySelector("#" + id);
+	const shadowRoot = container.attachShadow({ mode: "open" });
+	shadowRoot.innerHTML = html;
+
+	let sheet = new CSSStyleSheet();
+	sheet.replaceSync(css);
+	shadowRoot.adoptedStyleSheets.push(sheet);
+</script>
