@@ -2,13 +2,14 @@
 // slotで受け取る
 type Props = {
 	css?: string;
+	alt?: string;
 };
-const { css } = Astro.props;
+const { css, alt } = Astro.props;
 const html = await Astro.slots.render("default");
 const id = "ai2html-" + Math.random().toString(36).slice(2);
 ---
 
-<div id={id} class="mb-5"></div>
+<div id={id} class="mb-5" role="img" aria-label={alt}></div>
 
 <script define:vars={{ id, html, css }}>
 	const container = document.querySelector("#" + id);
