@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/index.scss';
 import { SITE_TITLE, SITE_DESCRIPTION, TWITTER_SITE } from '../consts';
+// import { Image } from 'astro:assets';
 
 export interface Props {
 	title: string;
@@ -13,6 +14,9 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
+console.log(image)
+console.log(Astro.url)
+console.log(new URL('./OGimage.jpg', Astro.url))
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -29,15 +33,15 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={title} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL('./OGimage.jpg', Astro.url)} />
 <meta property="og:locale" content="ja_JP">
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:site" content={TWITTER_SITE} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL('./OGimage.jpg', Astro.url)} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
