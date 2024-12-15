@@ -19,7 +19,7 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 
 // console.log(Astro.url);
 // console.log(canonicalURL);
-console.log(Astro.site + 'OGimage.jpg');
+console.log(Astro.url);
 // console.log(Astro.url + '/OGimage.jpg');
 ---
 <meta charset="utf-8" />
@@ -37,7 +37,6 @@ console.log(Astro.site + 'OGimage.jpg');
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={title} />
-<!-- <meta property="og:image" content={'/placeholder-social.jpg'} /> -->
 <meta property="og:image" content={Astro.url + 'OGimage.jpg'} />
 <meta property="og:locale" content="ja_JP">
 
@@ -46,7 +45,6 @@ console.log(Astro.site + 'OGimage.jpg');
 <meta property="twitter:site" content={TWITTER_SITE} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<!-- <meta property="twitter:image" content={'/placeholder-social.jpg'} /> -->
 <meta property="og:image" content={Astro.url + 'OGimage.jpg'} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
