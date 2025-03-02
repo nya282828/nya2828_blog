@@ -3,7 +3,6 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/index.scss';
 import { SITE_TITLE, SITE_DESCRIPTION, TWITTER_SITE } from '../consts';
-// import { Image } from 'astro:assets';
 
 export interface Props {
 	title: string;
@@ -11,16 +10,13 @@ export interface Props {
 	image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, 'https://nya2828.com/');
+const { title, description, image = '/OGimage.jpg' } = Astro.props;
+const imagePath = typeof image === 'string' ? image : image.src;
+const ogpImageURL = new URL(imagePath, Astro.url);
+// console.log(imagePath); // 確認用
+// console.log(ogpImageURL); // 確認用
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
-// console.log(image)
-// console.log(new URL(image, Astro.url + "/OGimage"));
-
-// console.log(Astro.url);
-// console.log(canonicalURL);
-console.log(Astro.url);
-// console.log(Astro.url + '/OGimage.jpg');
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -37,7 +33,7 @@ console.log(Astro.url);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={title} />
-<meta property="og:image" content={Astro.url + 'OGimage.jpg'} />
+<meta property="og:image" content={ogpImageURL} />
 <meta property="og:locale" content="ja_JP">
 
 <meta property="twitter:card" content="summary_large_image" />
@@ -45,7 +41,7 @@ console.log(Astro.url);
 <meta property="twitter:site" content={TWITTER_SITE} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="og:image" content={Astro.url + 'OGimage.jpg'} />
+<meta property="og:image" content={ogpImageURL} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

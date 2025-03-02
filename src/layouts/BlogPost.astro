@@ -10,13 +10,13 @@ import BackLink from '../components/BackLink.astro';
 import Img from '../components/Img.astro';
 
 const { frontmatter } = Astro.props;
-// console.log(frontmatter, frontmatter.heroImage)
+// console.log(frontmatter.heroImage)
 
 ---
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
-		<BaseHead title={frontmatter.title + " - " + SITE_TITLE} description={frontmatter.description} image={frontmatter.heroImage} />
+		<BaseHead title={frontmatter.title + " - " + SITE_TITLE} description={frontmatter.description} image={frontmatter.heroImage}/>
 		<!-- <link rel="stylesheet" href="../../public/prism-one-light.css"> -->
 	</head>
 	<body class="ask-wrapper">
@@ -53,7 +53,7 @@ const { frontmatter } = Astro.props;
 							<Image
 								data-high-res
 								src={frontmatter.heroImage}
-								alt={"" && frontmatter.heroAlt}
+								alt={frontmatter.heroAlt}
 								widths={[
 									320,
 									375,
