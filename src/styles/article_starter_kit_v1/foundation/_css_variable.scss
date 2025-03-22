@@ -68,6 +68,15 @@
     --c-visited: #{ask.$c_link_visited};
     --c-active:  #{ask.$c_link_active};
     --c-focus:   #{ask.$c_link_focus};
+    
+    // コントラスト設定
+    // @media (prefers-contrast: more) {
+
+    // }
+
+    // @media (prefers-contrast: less) {
+      
+    // }
   }
 
   // Dark Theme用の値
@@ -83,6 +92,15 @@
     --c-visited: #{ask.$c_link_darkvisited};
     --c-active:  #{ask.$c_link_darkactive};
     --c-focus:   #{ask.$c_link_darkfocus};
+
+    // コントラスト設定
+    // @media (prefers-contrast: more) {
+
+    // }
+
+    // @media (prefers-contrast: less) {
+      
+    // }
   }
 
   // ブレークポイント毎に再設定
