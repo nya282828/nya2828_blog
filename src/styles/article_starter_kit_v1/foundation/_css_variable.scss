@@ -1,12 +1,14 @@
 // common
 // css variables
 @use "sass:math";
-@use "ask_setting" as ask;
+@use "../../ask_setting" as ask;
 
 
 // root setting
 //----------------------------------------------
 .ask-wrapper {
+  color-scheme: light dark;
+
   // Font Size
   --t-base-size: #{ask.$t_size_base_px}; // 本文サイズ
   --t-base-line-height: #{ask.$t_lh_base}; // ベース行間
@@ -54,22 +56,31 @@
   --c-gray20: #{ask.$c_gray20};
   --c-gray90: #{ask.$c_gray90};
 
-  // Light
-  --c-bg:      #{ask.$c_background};
-  --c-text:    #{ask.$c_text};
-  --c-caption: #{ask.$c_gray35};
-  --c-code:    #{ask.$c_code};
-  --c-code-bg: #{ask.$c_code_bg};
-  --c-border:  #{ask.$c_gray90};
-  --c-link:    #{ask.$c_link};
-  --c-hover:   #{ask.$c_link_hover};
-  --c-visited: #{ask.$c_link_visited};
-  --c-active:  #{ask.$c_link_active};
-  --c-focus:   #{ask.$c_link_focus};
+  @media (prefers-color-scheme: light) {
+    --c-bg:      #{ask.$c_background};
+    --c-text:    #{ask.$c_text};
+    --c-caption: #{ask.$c_gray35};
+    --c-code:    #{ask.$c_code};
+    --c-code-bg: #{ask.$c_code_bg};
+    --c-border:  #{ask.$c_gray90};
+    --c-link:    #{ask.$c_link};
+    --c-hover:   #{ask.$c_link_hover};
+    --c-visited: #{ask.$c_link_visited};
+    --c-active:  #{ask.$c_link_active};
+    --c-focus:   #{ask.$c_link_focus};
+    
+    // コントラスト設定
+    // @media (prefers-contrast: more) {
+
+    // }
+
+    // @media (prefers-contrast: less) {
+      
+    // }
+  }
 
   // Dark Theme用の値
-  .dark & {
-    // Dark
+  @media (prefers-color-scheme: dark) {
     --c-bg:      #{ask.$c_bg_dark};
     --c-text:    #{ask.$c_text_dark};
     --c-caption: #{ask.$c_gray65};
@@ -81,6 +92,15 @@
     --c-visited: #{ask.$c_link_darkvisited};
     --c-active:  #{ask.$c_link_darkactive};
     --c-focus:   #{ask.$c_link_darkfocus};
+
+    // コントラスト設定
+    // @media (prefers-contrast: more) {
+
+    // }
+
+    // @media (prefers-contrast: less) {
+      
+    // }
   }
 
   // ブレークポイント毎に再設定

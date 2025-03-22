@@ -15,7 +15,8 @@
     &__hero {
       margin: 1.5lh 0 0 0;
       grid-column: 1 / -1;
-      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * 51);
+      // max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * 51);
+      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text*1.5});
       overflow: hidden;
     }
     
@@ -682,7 +683,7 @@
  }
  
 
-.dark {
+ @media (prefers-color-scheme: dark) {
   blockquote {
     border-left: 0.25em solid var(--c-gray20);
   }
@@ -846,5 +847,6 @@
     // line-height: 1em;
     box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
   }
+
 
 }

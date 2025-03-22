@@ -24,13 +24,13 @@ $t_spacing: 0;
 $t_scale_media: 1.125;
 
 // font/typogrphy: 見出しレベルごとの文字の拡大比率（単位:なし）
-$t_scale_lv_harmony: 9;
+$t_scale_lv_harmony: 8;
 
 // layout: 段の左右余白の大きさ（単位:em）
 $r_size_space: 2;
 
 // layout: 行文字数（単位:なし）
-$r_num_text: 34;
+$r_num_text: 32;
 $r_size_width: (1+$t_spacing) * $r_num_text; // 行最大サイズ。編集不要
 
 // small phone: 375px未満の画面における文字の縮小率
@@ -79,13 +79,12 @@ $ar: (
 @use "article_starter_kit_v1/module/component/button"; // ボタン
 @use "article_starter_kit_v1/module/component/table"; // テーブル
 
-// テーマ
-// @use "article_starter_kit_v1/theme/default/index";
-// @use "article_starter_kit_v1/theme/dark/index";
-
 // レイアウト用モジュール
 @use "article_starter_kit_v1/module/layout/rail"; // rail
 @use "article_starter_kit_v1/module/layout/row"; // 2カラム以上
+
+// CSSカスタムプロパティ
+@use "article_starter_kit_v1/foundation/css_variable";
 
 // -----------------------------------------------------
 // 3. このコンテンツのスタイル
@@ -93,9 +92,6 @@ $ar: (
 // 必ずここでコンポーネントを@useすること
 // ここに直接スタイルを記述するとエラーになるので注意
 // 必ず別モジュールでスタイルを記述して@useする
-
-// CSSカスタムプロパティ
-@use "./_css_variable";
 
 // プロジェクトモジュール
 @use "./_components/typo";

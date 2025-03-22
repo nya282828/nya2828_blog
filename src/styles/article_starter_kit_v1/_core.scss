@@ -36,10 +36,3 @@ img {
 [role="button"] {
   cursor: pointer;
 }
-
-// Overwrite for only iOS App
-html.vui-ua__nikkeiappli {
-  .u-hide-ios {
-    display: none!important;
-  }
-}
