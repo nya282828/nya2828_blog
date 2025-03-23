@@ -15,7 +15,7 @@
   hanging-punctuation: allow-end;
   font-size: var(--t-size_s);
   line-height: var(--t-line-height_s);
-  letter-spacing: var(--t-letter-spacing);
+  letter-spacing: calc(var(--t-letter-spacing) * 1em);
   background-color: var(--c-bg);
   color: var(--c-text);
 
