@@ -1,0 +1,87 @@
+// View Transition Styles
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  view-transition-name: root;
+}
+
+// ページ遷移時のアニメーション
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// ヘッダーの遷移
+.header {
+  view-transition-name: header;
+}
+
+// メインコンテンツの遷移
+.l-main {
+  view-transition-name: main-content;
+}
+
+// フッターの遷移
+.footer {
+  view-transition-name: footer;
+}
+
+// 特定の要素にスライドアニメーションを適用
+::view-transition-old(main-content) {
+  animation-name: slide-out-left;
+}
+
+::view-transition-new(main-content) {
+  animation-name: slide-in-right;
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
