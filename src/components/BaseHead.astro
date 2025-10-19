@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/index.scss';
 import { SITE_TITLE, SITE_DESCRIPTION, TWITTER_SITE } from '../consts';
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
 	title: string;
@@ -12,7 +13,7 @@ export interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, 'https://nya2828.com/');
 const { title, description, image = '/OGimage.jpg' } = Astro.props;
-const imagePath = typeof image === 'string' ? image : image.src;
+const imagePath = typeof image === 'string' ? image : (image as any)?.src || '/OGimage.jpg';
 const ogpImageURL = new URL(imagePath, Astro.url);
 // console.log(imagePath); // 確認用
 // console.log(ogpImageURL); // 確認用
@@ -21,6 +22,7 @@ const ogpImageURL = new URL(imagePath, Astro.url);
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="color-scheme" content="light dark">
+<meta name="view-transition" content="same-origin">
 <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
 <meta name="generator" content={Astro.generator} />
 
@@ -48,7 +50,7 @@ const ogpImageURL = new URL(imagePath, Astro.url);
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 <!-- <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet"> -->
 
-
+<ViewTransitions />
 
 <!-- <script>
   (function(d) {
