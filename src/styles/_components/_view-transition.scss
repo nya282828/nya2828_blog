@@ -40,9 +40,15 @@
   }
 }
 
-// ヘッダーの遷移
-.header {
+// ヘッダーの固定（アニメーションしない）
+.c-header {
   view-transition-name: header;
+}
+
+// ヘッダーの遷移を無効化
+::view-transition-old(header),
+::view-transition-new(header) {
+  animation: none;
 }
 
 // メインコンテンツの遷移
@@ -54,6 +60,13 @@
 .footer {
   view-transition-name: footer;
 }
+
+// ヘッダーの遷移を無効化
+::view-transition-old(footer),
+::view-transition-new(footer) {
+  animation: none;
+}
+
 
 // 特定の要素にスライドアニメーションを適用
 ::view-transition-old(main-content) {
