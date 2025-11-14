@@ -1,12 +1,9 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import ThemeIcon from './ThemeIcon.astro';
 import Logo from './Logo.astro';
-import Dropdown from './Dropdown.astro';
-import { SITE_TITLE } from '../consts';
 ---
 
-<header class="c-header">
+<header class="c-header" transition:persist>
 	<h1 class="c-header__logo">
 		<Logo></Logo>
 	</h1>
