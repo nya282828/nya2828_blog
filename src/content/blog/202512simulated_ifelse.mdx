@@ -1,0 +1,150 @@
+---
+title: "CSSカスタムプロパティと数学関数を用いて条件分岐を行う"
+description: "CSSで擬似的な条件分岐を行う"
+pubDate: "2025/12/07"
+tags: ["Web"]
+draft: false
+---
+
+CSSで値が特定の値より高いか低いか判定し、その条件ごとに異なる式を使って計算しようとすると、通常はSASSの `@if, @else` に頼るしかない。例えば入力値 `x` が基準値 `y` より大きい場合は `x/y` 、小さい場合は `y/x` の式を用いて値を算出したいケースなど。
+これをカスタムプロパティのみで完結したいと考えた。数学に強いエンジニアに相談したところ、「ステップ関数（のようなもの）を作り、式を擬似的に分岐させる」という面白い案が出た。
+## 条件ごとに返す値が変わる式を用意する
+まずは入力値 `--x` が基準値 `--y` より大きいか小さいかを判定する。
+これを行うために、CSS数学関数の[`sign()`](https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Values/sign)と [`abs()`](https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Values/abs) を用いて三つの式を作る。
+
+```css
+--x: 10; /* 入力値 */
+--y: 16; /* 基準値 */
+
+--step-left: clamp(0, -1 * sign(var(--x) - var(--y)), 1);
+--step-middle: clamp(0, 1 - abs(sign(var(--x) - var(--y))), 1);
+--step-right: clamp(0, sign(var(--x) - var(--y)), 1);
+```
+
+`sign()` は引数の値が負なら `-1`を、正なら `+1` を返す関数。`abs()` は引数の絶対値を同じ型で返す関数で、負の値が引数に与えられても正に変換する。上記の`--step-left, middle, right` は `clamp()` を用いることで入力値によってそれぞれ条件に応じて `1` または `0` を返す。
+
+- `x<y` の時、
+	- `--step-left = 1`
+	- `--step-middle = 0`
+	- `--step-right = 0`
+- `x=y` の時
+	- `--step-left = 0`
+	- `--step-middle = 1`
+	- `--step-right = 0`
+- `x>y` の時
+	- `--step-left = 0`
+	- `--step-middle = 0`
+	- `--step-right = 1`
+
+各関数の返す1を`true`、0を`false`と扱うことで条件分岐に利用できる。
+## 条件ごとに違う式を用いて計算を行う
+
+`1` を `ture` 、`0` を `false` と扱うために、条件ごとに行いたい計算式にこの関数を乗算する。
+
+```css
+--x: 10; /* 入力値 */
+--y: 16; /* 基準値 */
+
+--step-left: clamp(0, -1 * sign(var(--x) - var(--y)), 1);
+--step-middle: clamp(0, 1 - abs(sign(var(--x) - var(--y))), 1);
+--step-right: clamp(0, sign(var(--x) - var(--y)), 1);
+
+--ratio: calc(
+	/* x<y以外なら--step-leftは0なので、この式は0になる*/
+	(var(--x) / var(--y)) * var(--step-left) + 
+	/* x=yなら1、そうでないなら0
+	var(--step-middle) + 
+	/* x>y以外なら--step-leftは0なので、この式は0になる*/
+	(var(--y) / var(--x)) * var(--step-right) 
+	
+	/* 三つの--stepカスタムプロパティのうち1を返すのはどれかひとつなので、*/
+	/* 上記三つの式のうち一つだけが有効になる。*/
+);
+```
+
+上記のコードは `x<y` なら `x/y` を、 `x>y` なら `y/x` を、 `x=y` なら `1` を返すというコード。
+
+`--step-left, middle, right` のどれかが返す値が `1` ならその式は有効になり、それ以外には `0` が乗算されるので解は `0` になり式は無効になる。このように擬似的に条件分岐を行い、`x<y` では `x/y`、`x>y` では `y/x`の式を使わせることができる。
+
+## 使用例
+本文のフォントサイズと比べて、対象のフォントサイズが大きいほど、または小さいほど `line-height` を小さくするという処理を行う。自作フレームワークではこの処理をSassの条件分岐を使って行なっていたが、前述の処理を使うことでカスタムプロパティの利点を生かしたスタイリングが可能になる。
+
+``` css
+--size: 24; /* 対象のフォントサイズ値 */
+--basic-font-size: 16; /* 本文フォントサイズ */
+--basic-line-height: 2; /* 本文行高 */
+
+--step-left: clamp(0, -1 * sign(var(--size) - var(--basic-font-size)), 1);
+--step-middle: clamp(0, 1 - abs(sign(var(--size) - var(--basic-font-size))), 1);
+--step-right: clamp(0, sign(var(--size) - var(--basic-font-size)), 1);
+
+/* 16px を基準にして、x<16 では x/16,　x=16 では 16, x>16 では 16/x。1未満で比率を算出。*/
+--lh-ratio: calc(((var(--size) / var(--basic-font-size)) * var(--step-left) + var(--step-middle) + (var(--basic-font-size) / var(--size)) * var(--step-right)) * 1 + ((var(--basic-line-height) - 1)));
+
+/* 行高を算出し、4の倍数になるように四捨五入 */
+--lh-px: round(down, (var(--size) * var(--lh-ratio)), 4);
+
+/* 行高を対象の文字サイズで割り、字間を加味した行高を算出 */
+--lh: calc((var(--lh-px) / var(--size)) * (var(--letter-spacing) + 1));
+```
+
+これを本文以外のフォントサイズごと個別に行う。
+
+本来は条件分岐処理やそれを含めた処理全体を関数化し、入力される値は引数を使ってコードをコンパクトにするべき。しかしCSSには現在カスタム関数は存在しないため、これらの処理を一文で書く必要がある。一文にすると以下。
+
+```css
+:root{
+	--size: 24; /* 対象のフォントサイズ値 */
+	--basic-font-size: 16; /* 本文フォントサイズ */
+	--basic-line-height: 2; /* 本文行高 */
+	
+	/* 同じ処理を --sizeの数だけ行う必要がある */
+	--line_height: calc((round(down, (var(--size) * calc(((var(--size) / var(--basic-font-size)) * clamp(0, -1 * sign(var(--size) - var(--basic-font-size)), 1) + clamp(0, 1 - abs(sign(var(--size) - var(--basic-font-size))), 1) + (var(--basic-font-size) / var(--size)) * clamp(0, sign(var(--size) - var(--basic-font-size)), 1)) * 1 + ((var(--basic-line-height) - 1)))), 4) / var(--size)) * (var(--letter-spacing) + 1));
+}
+
+h2 {
+	font-size: var(--size);
+	line-height: var(--line_height);
+}
+```
+
+この処理をフォントサイズのスケールの数（`--x` の数）だけ繰り返す必要がある。
+
+普通に動くが、とても保守に向いた形ではないことがわかる。CSSカスタムプロパティとCSS数学関数によって複雑な計算処理が可能になったことで、処理一つ一つをカプセル化して引数ごとに再利用可能になることが求められる。カスタム関数の機能がCSSに追加されれば、より便利になるだろう。
+
+### 関数で書けるなら…
+現在仕様提案されている [`CSS Custom Function`](https://drafts.csswg.org/css-mixins-1/) の構文で書けるなら以下のようにできそう。
+
+```css
+:root{
+	@function --step-left(--value) {
+	  result: clamp(0, -1 * sign(var(--x) - var(--value)), 1);
+	}
+	
+	@function --step-middle(--value) {
+	  result: clamp(0, 1 - abs(sign(var(--x) - var(--value))), 1);
+	}
+	
+	@function --step-right(--value) {
+	  result: clamp(0, sign(var(--x) - var(--value)), 1);
+	}
+	
+	@function --calcing-line-height(--size, --basic-size, --basic-line-height) {
+	  result: calc(( round(down, (var(--size) * calc(((var(--size) / var(--basic-size)) * --step-left(var(--size)) + --step-middle(var(--size)) + (var(--basic-size) / var(--size)) * --step-right(var(--size))) * 1 + ((var(--basic-line-height) - 1)))), 4) / var(--size)) * (var(--letter-spacing) + 1));;
+	}
+	
+	
+	--size: 24;  /* 対象のフォントサイズ値 */
+	--basic-font-size: 16; /* 本文フォントサイズ */
+	--basic-line-height: 2; /* 本文行高 */
+}
+
+h2 {
+	font-size: var(--size);
+	line-height: --calcing-line-height(var(--size), var(--basic-font-size), var(--basic-line-height));
+}
+```
+
+カスタム関数が存在すればここまでコンパクトに、かつフォントサイズに応じて動的に行高の調整ができるだろう。フォントサイズのバリエーションが増えても関数を使い回すことで容易に運用できる。
+
+ともあれ、数年前は想像もできなかった複雑な処理を、CSSのみで行うことが可能になった。昨今の進化が凄まじいCSS、機能が増えればそれだけデザインの幅も広がる。今提案されている新機能を含めて今後がとっても楽しみだ。
