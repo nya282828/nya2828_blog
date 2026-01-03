@@ -9,7 +9,7 @@
   font-family: var(--t-font-family-en);
 
   &__logo {
-    width: 5em;
+    width: 4em;
     grid-column: 1 / -1;
     // @include ask.t-size(ask.$t_h_size_l, 32px);
     font-size: var(--t-size_l);
