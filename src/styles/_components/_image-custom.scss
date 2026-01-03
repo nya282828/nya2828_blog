@@ -2,7 +2,7 @@
 @use "../ask_setting" as ask;
 
 .c-image {
-  background: ask.$c_gray90;
+  background: color(from var(--c-text) srgb r g b / 0.1);
 
   &--lazy-display {
     position: relative;
@@ -33,10 +33,6 @@
 
   &__lazy {
     filter: blur(32px);
-  }
-
-  .dark & {
-    background: ask.$c_gray15;
   }
 }
 
