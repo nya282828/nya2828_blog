@@ -1,10 +1,8 @@
 @charset "utf-8";
-
-// ask初期設定、及びプロジェクト用に定義した変数の呼び出し
 @use "./ask_setting" as *;
 
 // -----------------------------------------------------
-// 1. askの文字組設定
+// 1. ask setting
 // -----------------------------------------------------
 
 // font/typogrphy: どのウェイトを読み込むか.（100,200,300,400,500,700,900）
@@ -58,20 +56,14 @@ $ar: (
   3x1: "3 / 1",
 );
 
-// -----------------------------------------------------
-// 以下編集禁止
-// -----------------------------------------------------
-// 基本表示設定
 @use "article_starter_kit_v1/module/base/article-core"; // 記事全体
 @use "article_starter_kit_v1/module/base/print"; // プリント設定
 @use "article_starter_kit_v1/module/base/z-index"; // z-index
 @use "article_starter_kit_v1/module/base/typography"; // 書体・サイズ・リズム
 
 // -----------------------------------------------------
-// 2. コンポーネント・レイアウト・テーマの読み込み
+// 2. ask modules
 // -----------------------------------------------------
-// - 利用する項目のみコメントアウトを外して使用
-// - 軽量化のため、使わない項目はコメントアウトする
 
 // コンポーネント
 @use "article_starter_kit_v1/module/component/media"; // 文字以外の媒体共通の設定
@@ -87,13 +79,8 @@ $ar: (
 @use "article_starter_kit_v1/foundation/css_variable";
 
 // -----------------------------------------------------
-// 3. このコンテンツのスタイル
+// 3. Project style
 // -----------------------------------------------------
-// 必ずここでコンポーネントを@useすること
-// ここに直接スタイルを記述するとエラーになるので注意
-// 必ず別モジュールでスタイルを記述して@useする
-
-// プロジェクトモジュール
 @use "./_components/typo";
 @use "./_components/header";
 @use "./_components/post-list";
@@ -109,7 +96,6 @@ $ar: (
 
 // -----------------------------------------------------
 // 4. 使用するユーティリティ
-// コンテンツスタイルの後に指定。新規作成したユーティリティ含む
 // -----------------------------------------------------
 @use "article_starter_kit_v1/module/utillity/display"; // 表示
 @use "article_starter_kit_v1/module/utillity/prohibition"; // 禁則処理
@@ -117,10 +103,8 @@ $ar: (
 
 @use "./_util/util"; // プロジェクトで定義したユーティリティ
 
-// ibmplex
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans+JP:wght@400;700&display=swap');
-// noto sans
-// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Noto+Sans+JP:wght@400;700&display=swap');
+// ibmplex mono
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
 
 // .ask-wrapper {
