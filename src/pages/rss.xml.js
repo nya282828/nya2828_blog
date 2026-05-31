@@ -1,4 +1,4 @@
-import rss, { pagesGlobToRssItems } from '@astrojs/rss';
+import rss from '@astrojs/rss';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import sanitizeHtml from 'sanitize-html';
@@ -17,7 +17,7 @@ export async function GET(context) {
       pubDate: post.data.pubDate,
       description: post.data.description,
       customData: post.data.customData,
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${post.id.replace(/\.mdx?$/, '')}/`,
       // コンテンツ全文を出したい
       content: sanitizeHtml(parser.render(post.body))
     })),
