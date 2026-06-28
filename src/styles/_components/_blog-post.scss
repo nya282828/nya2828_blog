@@ -54,26 +54,6 @@
       margin: 0;
     }
 
-    // contents max width
-    & > p,
-    & > h1,
-    & > h2,
-    & > h3,
-    & > h4,
-    & > ul,
-    & > ol,
-    & > blockquote,
-    & > table,
-    & > .footnotes,
-    & > .c-media {
-      grid-column: #{ask.$r_size_space + 2} / #{ask.$r_size_space - 6};
-      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text});
-    }
-
-    & > pre {
-      max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text+2});
-    }
-
     & > .l-rail {
       max-width: calc(var(--t-base-size) * (1 + var(--t-letter-spacing)) * #{ask.$r_num_text});
       
@@ -100,11 +80,18 @@
       width: 100%;
       grid-column: #{ask.$r_size_space + 2} / -1;
     }
+
+    & > [class~="l-rail--"] + .l-rail > *:first-child:not(.t-caption) {
+      margin-top: 2em;
+    }
     
     // style
 
     & > *:first-child {
       margin-top: 0;
+      & > *:first-child {
+        margin-top: 0;
+      }
     }
 
     h2 {
@@ -172,8 +159,7 @@
 
     .c-media,
     .c-image-grid,
-    .t-caption,
-    .l-rail {
+    .t-caption {
       &:has(+ p) + p:not(.t-caption) {
         margin-top: 2em;
       }

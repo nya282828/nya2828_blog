@@ -5,21 +5,19 @@ pubDate: "2024/01/09"
 tags: ["Other"]
 draft: false
 ---
-import RailM from '../../components/RailM.astro';
-import RailFullM from '../../components/RailFullM.astro';
+import Rail from '../../components/Rail.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
-import ImgLazyDisplay from '../../components/ImgLazyDisplay.astro';import Img from '../../components/Img.astro';
-export const components = {img: Img}
+import ImgLazyDisplay from '../../components/ImgLazyDisplay.astro';
 
 import img1 from "../../assets/blog/20240109/nenga2024_web.jpg"
 
 明けましておめでとうございます。  
 
-<RailFullM>
+<Rail size="m" space={false}>
   {/* ![年賀状](../../assets/blog/20240109/nenga2024_web.jpg) */}
   <ImgLazyDisplay src={img1} alt="年賀状" decoding="sync" loading="eager"/>
   <p class="t-caption">年賀状</p>
-</RailFullM>
+</Rail>
 
 昨年はここ数年よりプライベートワークを充実させられた。今年もこの勢いを維持してできることを増やしたい。ひとまず作りたいものを精神的負担にならない範囲で頑張って作ろうと思う。  
 

@@ -1,22 +1,12 @@
 ---
 import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
- 
+import Media from './Media.astro';
+
 type Props = {
   src: string | ImageMetadata;
   alt: string;
 };
- 
+
 const { src, alt } = Astro.props;
 ---
-<figure class="c-media">
-  <div class="c-image">
-    {
-      typeof src === 'string' ? (
-        <img src={src} alt={alt} />
-      ) : (
-        <Image {src} {alt}/>
-      )
-    }
-  </div>
-</figure>
+<Media type="img" {src} {alt} />

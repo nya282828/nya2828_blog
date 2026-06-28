@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import Media from '../../components/Media.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -13,5 +14,5 @@ const { Content } = await render(entry);
 ---
 
 <BlogPost frontmatter={entry.data}>
-	<Content />
+	<Content components={{ img: Media }} />
 </BlogPost>

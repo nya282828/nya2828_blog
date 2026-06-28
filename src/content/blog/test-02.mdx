@@ -7,8 +7,7 @@ heroAlt: "メイン画像の代替テキスト"
 tags: ["Moto", "Design"]
 draft: true
 ---
-import Img from '../../components/Img.astro';
-export const components = {img: Img}
+import Rail from '../../components/Rail.astro';
 import test from "../../assets/blog/test-02/hero_test-01.jpg";
 
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
@@ -19,22 +18,19 @@ import test from "../../assets/blog/test-02/hero_test-01.jpg";
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
 
 #### 図・画像見出し
-<Img src={test} alt="フクロウ" />
-{/* ![フクロウ](../../assets/blog/test-02/hero_test-01.jpg) */}
+{/* <Media src={test} alt="フクロウ" /> */}
+![代替テキスト](../../assets/blog/test-02/hero_test-01.jpg "画像キャプション")
 
 {/* <Image src={img} alt="代替"/> */}
-
-<p class="t-caption">画像キャプション</p>
 
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
 
 ### 見出し3
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
 
-<div class="l-rail l-rail--m">
-  ![写真](https://dl.dropboxusercontent.com/scl/fi/k9j0pjwh39smjb29hr4ub/R0001061.jpg?rlkey=ifdbcacjjgl5vnnepxgyey96k&)
-</div>
-<p class="t-caption">画像キャプション</p>
+<Rail size="m">
+  ![写真](https://dl.dropboxusercontent.com/scl/fi/k9j0pjwh39smjb29hr4ub/R0001061.jpg?rlkey=ifdbcacjjgl5vnnepxgyey96k& "キャプション")
+</Rail>
 
 あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
 
