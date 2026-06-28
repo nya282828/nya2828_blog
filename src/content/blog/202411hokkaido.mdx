@@ -7,8 +7,7 @@ heroAlt: "支笏湖畔の道"
 tags: ["Other"]
 draft: false
 ---
-import RailM from '../../components/RailM.astro';
-import RailFullM from '../../components/RailFullM.astro';
+import Rail from '../../components/Rail.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
 import Media from '../../components/Media.astro';
 import Ai2html from '../../components/Ai2html.astro';
@@ -20,7 +19,7 @@ import routePc from '../../assets/blog/202411hokkaido/route-large.jpg';
 今年も北海道へ行った。今年は昨年行けなかったところを回るついでに林道も走りたかったのでオフロードバイクで行った。  
 
 昨年は完全に北海道の広大さを舐めていた結果、結構無理したルートになってしまったが今回は二回目、それなり余裕のあるルートで楽しむことができた。  
-<RailM>
+<Rail size="m">
   {/* ![地図：ツーリングルート](../../assets/blog/202411hokkaido/route.jpg)
   <p class="t-caption">今回走ったルート。総走行距離約2400km。出典：国土地理院</p> */}
   <figure class="c-media">
@@ -204,14 +203,14 @@ import routePc from '../../assets/blog/202411hokkaido/route-large.jpg';
   <figcaption class="t-caption">今回走ったルート。総走行距離約2400km。出典：国土地理院</figcaption>
 
   </figure>
-</RailM>
+</Rail>
 
 
 ## 素晴らしき道東  
-<RailFullM>
+<Rail size="m" space={false}>
   ![写真：広大な草原の中を走る林道](../../assets/blog/202411hokkaido/rindo01.jpg)
   <p class="t-caption">広大な草原を貫くダートを走る。</p>
-</RailFullM>
+</Rail>
 今回、昨年に十分に散策できなかった道東、中でもその南部を中心としたエリアを走れて本当に良かった。主に釧路から東、納沙布岬までの区間。海と森と湿原などの多様な自然、そしてそれに人間の生活のための人工物が絡む素晴らしい景色ばかりだった。  
 
 そしてその周辺の林道、それは本州のそれとはかなり様子が異なるものだった。群生する樹木や草花はもちろん、ほとんどが丘陵地形の中の道でありアップダウンが少なく見通しがよい。本州の林道のほとんどは山間部なので、走りやすさも景色も大きく異なる物だった。美しい白樺に囲まれた真っ直ぐなダート、広い草原に囲まれたゆるい丘陵ダート、これらを走る体験は本州ではなかなか味わえない良い体験だった。オンロードバイクでは見ることができない景色が見れるのがオフロードバイクの良さだ。ふと入りたくなった道に臆することなく入れる、冒険している感じがたまらなく楽しかった。  
@@ -243,7 +242,7 @@ import routePc from '../../assets/blog/202411hokkaido/route-large.jpg';
 ## 年一の長旅を終えて  
 私は自然が作る美しい景色を見るためにオートバイに乗っているという部分がかなり大きい。関東から1日で行ける距離圏では満足できなくなってきてしまっている。それだけ関東では味わえない景色を北海道は提供してくれる。  
 
-<RailM>
+<Rail size="m">
   <ImgGrid>
     ![写真：代替テキスト](../../assets/blog/202411hokkaido/sec4-00005.JPG)
     
@@ -261,7 +260,7 @@ import routePc from '../../assets/blog/202411hokkaido/route-large.jpg';
 
     ![写真：代替テキスト](../../assets/blog/202411hokkaido/sec4-00010.JPG)
   </ImgGrid>
-</RailM>
+</Rail>
 
 ![写真：今回使ったオートバイのヤマハ・ブロンコと筆者の写真](../../assets/blog/202411hokkaido/close.JPG)
 <p class="t-caption">2400kmあまり走ったブロンコ。30年近く前のオートバイだがよく頑張ってくれた。</p>

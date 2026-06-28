@@ -21,7 +21,17 @@ const captionText = caption || title || null;
     <div class="c-image">
       {typeof src === 'string'
         ? <img src={src} alt={alt} />
-        : <Image src={src!} alt={alt} />
+        : <Image
+            src={src!}
+            alt={alt}
+            widths={[320, 375, 580, 980, 1040, 1920]}
+            sizes={`(max-width: 376px) 320px,
+                    (max-width: 581px) 375px,
+                    (max-width: 769px) 580px,
+                    (max-width: 961px) 960px,
+                    (max-width: 1281px) 1040px,
+                    1920px`}
+          />
       }
     </div>
   )}

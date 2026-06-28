@@ -1,6 +1,17 @@
 ---
+type Props = {
+  size?: string;
+  space?: boolean;
+};
 
+const { size, space = true } = Astro.props;
+
+const modifierClass = size
+  ? (space === false ? `l-rail--full--${size}` : `l-rail--${size}`)
+  : '';
+
+const className = modifierClass ? `l-rail ${modifierClass}` : 'l-rail';
 ---
-<div class="l-rail">
+<div class={className}>
   <slot />
 </div>

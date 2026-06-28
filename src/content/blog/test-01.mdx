@@ -7,8 +7,7 @@ heroAlt: "メイン画像の代替テキスト"
 tags: ["Moto", "Design"]
 draft: true
 ---
-import RailM from '../../components/RailM.astro';
-import RailFullM from '../../components/RailFullM.astro';
+import Rail from '../../components/Rail.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
 import ImgLazyDisplay from '../../components/ImgLazyDisplay.astro';
 import Media from '../../components/Media.astro';
@@ -113,6 +112,6 @@ https://www.google.co.jp/
 
 
 #### ファイル（画像大）
-<RailFullM>
+<Rail size="m" space={false}>
   ![フクロウ](../../assets/blog/test-01/hero_test-01.jpg)
-</RailFullM>
+</Rail>
