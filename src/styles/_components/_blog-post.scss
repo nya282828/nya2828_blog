@@ -100,11 +100,18 @@
       width: 100%;
       grid-column: #{ask.$r_size_space + 2} / -1;
     }
+
+    & > [class~="l-rail--"] + .l-rail > *:first-child:not(.t-caption) {
+      margin-top: 2em;
+    }
     
     // style
 
     & > *:first-child {
       margin-top: 0;
+      & > *:first-child {
+        margin-top: 0;
+      }
     }
 
     h2 {
@@ -172,8 +179,7 @@
 
     .c-media,
     .c-image-grid,
-    .t-caption,
-    .l-rail {
+    .t-caption {
       &:has(+ p) + p:not(.t-caption) {
         margin-top: 2em;
       }
