@@ -1,0 +1,41 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+type MediaType = 'img' | 'html' | 'chart' | 'video';
+
+type Props = {
+  type?: MediaType;
+  src?: string | ImageMetadata;
+  alt?: string;
+  caption?: string;
+  title?: string;
+};
+
+const { type = 'img', src, alt = '', caption, title } = Astro.props;
+const captionText = caption || title || null;
+---
+
+<figure class="c-media">
+  {type === 'img' && (
+    <div class="c-image">
+      {typeof src === 'string'
+        ? <img src={src} alt={alt} />
+        : <Image src={src!} alt={alt} />
+      }
+    </div>
+  )}
+  {(type === 'html' || type === 'chart') && (
+    <div class="c-chart" aria-label={alt || undefined}>
+      <slot />
+    </div>
+  )}
+  {type === 'video' && (
+    <div class="c-movie" aria-label={alt || undefined}>
+      <slot />
+    </div>
+  )}
+  {captionText && (
+    <figcaption class="c-media__caption t-caption">{captionText}</figcaption>
+  )}
+</figure>
