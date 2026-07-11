@@ -7,11 +7,14 @@ heroAlt: "Sociery for News Design"
 tags: ["Design"]
 draft: false
 ---
-import RailM from '../../components/RailM.astro';
-import RailFullM from '../../components/RailFullM.astro';
-import ImgGrid from '../../components/ImgGrid.astro';
-import Img from '../../components/Img.astro';
-export const components = {img: Img}
+import Rail from '../../components/Rail.astro';
+import Media from '../../components/Media.astro';
+export const components = {media: Media}
+import { getPostImages } from '../../utils/assetImages';
+import { Image } from 'astro:assets';
+export const images = getPostImages('20260628snd');
+
+
 
 4月の終わり頃、SND47のカンファレンスを聴きにシンガポール出張した。
 
@@ -29,6 +32,9 @@ SND（Society for News Design）は、報道機関のデザイン・イラスト
 > 当協会のユニークで多様な国際的かつ多文化的な特性を尊重する。  
 
 <p class="t-caption">引用元：[SND公式サイト](https://www.societyfornewsdesign.org/about/)</p>
+
+<Media src={images["kv.jpg"]} alt="代替テキスト" caption="キャプション" />
+
 
 歴史は古く、1979年に設立されて以来毎年、新聞やWebメディアにおけるビジュアルジャーナリズムのコンテストやカンファレンスを行っている。
 
