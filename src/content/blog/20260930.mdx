@@ -1,0 +1,48 @@
+---
+title: "男三人九州旅"
+description: "2026年の九州ツーリング記"
+pubDate: "2026/10/02"
+heroImage: "../../assets/blog/20260930/kv.jpg"
+heroAlt: "阿蘇の風景"
+tags: ["Other"]
+draft: false
+---
+import Rail from '../../components/Rail.astro';
+import Media from '../../components/Media.astro';
+import ImgGrid from '../../components/ImgGrid.astro';
+export const components = {media: Media}
+import { getPostImages } from '../../utils/assetImages';
+import { Image } from 'astro:assets';
+// 記事中画像のディレクトリ名
+export const images = getPostImages('20260930');
+
+九州ツーリングに行った。友人含めて三人で一週間。
+
+九州自体走るのは初めて。ずっと行きたかったのでとても楽しみだった。
+
+上陸して走ってみると、想像していたより全然暑くなかった。日差しは熱いが風が気持ちよく、走っている間は暑さを感じることはなかった。
+
+九州の景色は本州や北海道と比較しても独特だ。今回は福岡や熊本長崎と言った九州北部を回るルートだったが、特に阿蘇の景色は圧倒的個性と美しさだった。一週間ずっと阿蘇でも良いと思ったほどだった。
+
+阿蘇の景色を作る地形や植生は、今まで走った土地とはまた違った様相だった。山でも木より草原が多く、開けた視界は爽快だった。早朝に雲海を見れたのは良かった。あれだけで来た甲斐があったと思う。
+
+<Rail size="m" space={false}>
+<Media src={images['01.jpg']} alt="阿蘇の雲海の写真" caption="運良く見ることができた阿蘇の雲海"/>
+</Rail>
+
+普段は一人で好き勝手にマイペースに長旅をするのが好きなのだが、今回は友人と三人、普段と違う楽しさがあった。一人だと景色を見ながらぼーっとしたり考え事してることが多いんだけど、信頼できる友人が一緒だとその景色について感じたことを共有できる。みな受け取り方が違うのがよい。
+
+ひとりで景色のよいところでぼーっとするのもよいが、友人と景色を見ながらくだらん話をするのもよい。
+
+ひとりで現地のものを好きなように食べるのもよいが、友人に勧められたものを食べるのもよい。
+
+ひとりで行き先と行き方を考えるのもよいが、友人が行きたかったところから予想外の発見があるのもよい。
+
+ソロとマスは別物であってどちらも楽しいと思える旅だった。互いに時期を合わせるのも難しい年齢になったし、やっぱりソロが大好きだけど、またやりたい。
+
+<Rail size="m">
+  <ImgGrid>
+    <Media src={images['02.jpg']} alt="写真を撮る友人の写真" caption=""/>
+    <Media src={images['03.jpg']} alt="フェリー乗船前の友人と私の車両の写真。左からカワサキW650、私のSvartpilen701、BSAスピットファイアMk4" caption=""/>
+  </ImgGrid>
+</Rail>
