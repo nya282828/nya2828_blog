@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
     "@astrojs/preact": "^5.1.1",
-    "@astrojs/rss": "^4.0.5",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.1.2",
     "astro": "^6.4.6",
     "markdown-it": "^14.1.0",
