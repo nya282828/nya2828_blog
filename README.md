@@ -5,6 +5,6 @@ node v18.20.0
 
 # Dev
 ``` bush
-$ npm install
-$ npm start
+$ pnpm install
+$ pnpm run dev
 ```
