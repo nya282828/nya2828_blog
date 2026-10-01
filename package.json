@@ -14,15 +14,15 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
     "@astrojs/preact": "^5.1.1",
-    "@astrojs/rss": "^4.0.5",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.1.2",
-    "astro": "^6.4.2",
+    "astro": "^6.4.6",
     "markdown-it": "^14.1.0",
     "preact": "^10.14.1",
     "remark-unwrap-images": "^4.0.0",
-    "sanitize-html": "^2.13.0",
+    "sanitize-html": "^2.17.7",
     "sass": "^1.62.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.11.0"
