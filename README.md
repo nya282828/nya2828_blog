@@ -1,7 +1,7 @@
 # nya2828 blog
 nya2828のブログを構築する
 
-node v24.18.0
+node v24
 
 # Dev
 ``` bush
