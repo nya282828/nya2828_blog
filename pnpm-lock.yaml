@@ -1565,8 +1565,8 @@ packages:
   http-cache-semantics@4.2.0:
     resolution: {integrity: sha512-dTxcvPXqPvXBQpq5dUr6mEMJX4oIEFv6bwom3FDwKRDsuIjjJGANqhBuoAn9c1RQJIdAKav33ED65E2ys+87QQ==}
 
-  immutable@5.1.6:
-    resolution: {integrity: sha512-q1swsS8K7L8usSHuOqF2TAoCCkonYz0SG38wLAggaa4Wml70zixIvt2ql4coQ2C2B3hTjltJry4r6bULwgAXLQ==}
+  immutable@5.1.9:
+    resolution: {integrity: sha512-m8nVez3rwrgmWxtLMt1ZYXB2Lv7OKYn/disyxAlSDYAlKSlFoPPfIAmAM/M5xqL4m4C/wAPw7S2/CNaUii1Hxg==}
 
   inline-style-parser@0.2.7:
     resolution: {integrity: sha512-Nb2ctOyNR8DqQoR0OwRG95uNWIC0C1lCgf5Naz5H6Ji72KZ8OcFZLz2P5sNgwlyoJ8Yif11oMuYs5pBQa86csA==}
@@ -4065,7 +4065,7 @@ snapshots:
 
   http-cache-semantics@4.2.0: {}
 
-  immutable@5.1.6: {}
+  immutable@5.1.9: {}
 
   inline-style-parser@0.2.7: {}
 
@@ -4979,6 +4979,8 @@ snapshots:
   sass@1.100.0:
     dependencies:
       chokidar: 5.0.0
+      immutable: 5.1.9
+      source-map-js: 1.2.1
       immutable: 5.1.6
       source-map-js: 1.2.2
     optionalDependencies:
