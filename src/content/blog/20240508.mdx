@@ -9,6 +9,9 @@ draft: false
 ---
 import Rail from '../../components/Rail.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+export const images = getPostImages('20240508');
 
 新型Svartpilen801が発表された今だからこそ、愛車のSvartpilen701について語りたいと思う。  
 
@@ -17,11 +20,10 @@ import ImgGrid from '../../components/ImgGrid.astro';
 
 <Rail size="m">
   <ImgGrid>
-  ![Vitpilen701](../../assets/blog/20240508/01-1.jpg)  
+  <Media src={images['01-1.jpg']} alt="Vitpilen701" caption=""/>
 
-  ![Svartpilen701](../../assets/blog/20240508/01-2.jpg)  
+  <Media src={images['01-2.jpg']} alt="Svartpilen701" caption="左：Vitpilen701と右：Svartpilen701。出典：Husqvarna Motorcycles"/>
   </ImgGrid>
-  <p class="t-caption">左：Vitpilen701と右：Svartpilen701。<br/>出典：Husqvarna Motorcycles</p>
 </Rail>
 
 このオートバイは、他のネオクラシック（現代的な性能と装備を持ちつつルック＆フィールを往年のスタイルにまとめたオートバイ）とは造形のアプローチが根本的に異なるのが印象的だった。  
@@ -30,15 +32,11 @@ import ImgGrid from '../../components/ImgGrid.astro';
 
 ## Husqvarna motorcyclesというブランド
 
-![Husqvarna motorcyclesのロゴ](../../assets/blog/20240508/02-1.jpg)  
-
-<p class="t-caption">Husqvarna motorcyclesのロゴ</p>
+<Media src={images['02-1.jpg']} alt="Husqvarna motorcyclesのロゴ" caption="Husqvarna motorcyclesのロゴ"/>
 
 Husqvarnaという企業の歴史は長く、その始まりは300年以上前に遡る。元々はマスケット銃のメーカーとしてスウェーデンで始まる。その名残が企業ロゴから見て取れる（マスケット銃の銃口の形）。オートバイの製造は1903年から始まり、オフロードバイクレースで活躍する欧州有数のオートバイメーカーとなる。1950年代、Husqvarnaのオートバイを象徴するモデルがSilverpilen（銀の矢）だ。それはブランド初の量産オフロード競技バイクであり、軽量でハイパワーなパフォーマンスは人気を博したそうだ。
 
-![写真：Silverpilen](../../assets/blog/20240508/02-2.jpeg)  
-
-<p class="t-caption">Silverpilen<br/>出典：[Husqvarna motorcycles : The silver arrow - Episode 2](https://www.husqvarna-motorcycles.com/ja-jp/Good-old-times/the-silver-arrow---episode-2.html)</p>
+<Media src={images['02-2.jpeg']} alt="写真：Silverpilen" caption="Silverpilen 出典：Husqvarna motorcycles : The silver arrow - Episode 2"/>
 
 Silverpilenは、スウェーデンのインダストリアルデザイナー、[シクステン・セゾン](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%AF%E3%82%B9%E3%83%86%E3%83%B3%E3%83%BB%E3%82%BB%E3%82%BE%E3%83%B3)がデザインを手掛けている。元々SAABの航空技師だった彼は、第二次大戦後のSAABの自動車のみならずHusqvarna、ハッセルブラッドなどの民生品のデザインを手掛けている。そのマシンの「美しくシンプルで、美しく削ぎ落とされた」機能美、いわゆるスカンジナヴィアデザイン哲学をHusqvarnaとセゾンのSliverpilenは体現していた。  
 
@@ -56,37 +54,30 @@ KTMグループの製品含めたブランドデザインを一手に引き受�
 
 このVitpilen, Svartpilenは、他のメーカーのネオクラシックモデルとは造形のアプローチが根本的に異なるように見える。  
 
- ![他メーカーモデルとの比較。左からYAMAHA XSR900, Ducati Scrambler,  Vitpilen701](../../assets/blog/20240508/04-1.jpg)  
-
-<p class="t-caption">他メーカーモデルとの比較。YAMAHA XSR900, Ducati Scrambler, Vitpilen701。いずれも現代の車体・エンジンに対してクラシックオートバイからインスピレーションを受けた造形をしているが、ルック&フィールは異なる。</p>
+<Media src={images['04-1.jpg']} alt="他メーカーモデルとの比較。左からYAMAHA XSR900, Ducati Scrambler,  Vitpilen701" caption="他メーカーモデルとの比較。YAMAHA XSR900, Ducati Scrambler, Vitpilen701。いずれも現代の車体・エンジンに対してクラシックオートバイからインスピレーションを受けた造形をしているが、ルック&フィールは異なる。"/>
 
 他のメーカーのネオクラシックは、フレーム・エンジン・車体バランスは現代的ながら、各所の丸みを帯びたコンポーネント形状やボルト留めなどのディティールに至るまでレトロな印象を与える意匠を施していたり、往年の名車のルックスを再現するようなアプローチが見受けられる。  
 
 <Rail size="m">
   <ImgGrid>
-  ![写真：KAWASAKI Z1](../../assets/blog/20240508/KAWASAKI_Z1.jpg)
+  <Media src={images['KAWASAKI_Z1.jpg']} alt="写真：KAWASAKI Z1" caption=""/>
 
-
-  ![写真：KAWASAKI Z900RS](../../assets/blog/20240508/z900rs.jpg)
+  <Media src={images['z900rs.jpg']} alt="写真：KAWASAKI Z900RS" caption="KAWASAKI Z1とそのルックスを現代の車体とエンジンで再現したZ900RS"/>
   </ImgGrid>
-  <p class="t-caption">KAWASAKI Z1とそのルックスを現代の車体とエンジンで再現したZ900RS</p>
 </Rail>
 
 対してHusqvarna motorcyclesのVitpilen,Svartpilenは、全体はベース車両の690Dukeのフレームを起点にしつつあらゆるコンポーネント同士のラインが揃うような造形で、極限までディティールをそぎ落としながらも象徴となるクラシックなモチーフはところどころ削ぎ落とされた形で残っており、フレーム含む車体設計を尊重しつつも全体像から確かにネオクラシックの文脈にあることを理解させる姿にまとまっている。  
 
 
-![Svartpilen701・ガイドライン付き図](../../assets/blog/20240508/04-4.jpg)
-<p class="t-caption">Svartpilen701にガイド線を引いた図。各コンポーネントが特定のラインに沿うように造形・レイアウトされ、秩序を持たせている。</p>
+<Media src={images['04-4.jpg']} alt="Svartpilen701・ガイドライン付き図" caption="Svartpilen701にガイド線を引いた図。各コンポーネントが特定のラインに沿うように造形・レイアウトされ、秩序を持たせている。"/>
 
 <Rail size="m">
   <ImgGrid>
-  ![写真：伝統的なフラットトラックレーサー](../../assets/blog/20240508/04-5.jpg)
+  <Media src={images['04-5.jpg']} alt="写真：伝統的なフラットトラックレーサー" caption=""/>
 
-  ![写真：Svartpilen701のフロントビューとリア周り。フラットトラックレーサーのゼッケンプレートの名残が見て取れる](../../assets/blog/20240508/04-6.jpg)
+  <Media src={images['04-6.jpg']} alt="写真：Svartpilen701のフロントビューとリア周り。フラットトラックレーサーのゼッケンプレートの名残が見て取れる" caption="伝統的なフラットトラックレーサーとSvartpilen701の造形。ディテールを省いたシンプルな造形だが、クラシックフラットトラックレーサーの特徴であるゼッケンプレートからインスピレーションを得た造形が見て取れる。これらだけで充分クラシック文脈上にあることを伝えられている。"/>
   </ImgGrid>
 </Rail>
-
-<p class="t-caption">伝統的なフラットトラックレーサーとSvartpilen701の造形。ディテールを省いたシンプルな造形だが、クラシックフラットトラックレーサーの特徴であるゼッケンプレートからインスピレーションを得た造形が見て取れる。これらだけで充分クラシック文脈上にあることを伝えられている。</p>
 
 > “There have been a lot of interpretations of classic bikes in the market lately,”（中略）“But Husqvarna was always pioneering, and we wanted to be forward-thinking, not just harkening back to the past. Where others have tried to do retro design on their bikes, we wanted to be cutting edge, superminimalistic, and really progressive in our approach but still have this simplicity that the products back then had.”  
 > 最近、市場にはクラシックバイクの解釈が数多く出回っています。（中略）しかし、ハスクバーナは常にパイオニアであり、過去を懐かしむだけでなく、先進的でありたかった。他のメーカーがレトロなデザインのバイクを作ろうとするなか、私たちは最先端、超ミニマム、そして先進的なアプローチでありながら、当時の製品が持っていたようなシンプルさを残したかったのです。  
@@ -104,8 +95,7 @@ KTMグループの製品含めたブランドデザインを一手に引き受�
 ## 6年ぶりに再解釈される新しい矢  
 
 <Rail size="m">
-![Husqvarna motorcycles Svartpilen801](../../assets/blog/20240508/05-1.jpg)
-<p class="t-caption">Husqvarna motorcycles Svartpilen801<br/>出典：[Husqvarna motorcycles](https://www.husqvarna-motorcycles.com/ja-jp/models/naked/svartpilen/svartpilen-801-2024.html)</p>
+<Media src={images['05-1.jpg']} alt="Husqvarna motorcycles Svartpilen801" caption="Husqvarna motorcycles Svartpilen801 出典：Husqvarna motorcycles"/>
 </Rail>
 
 そんなVit, Svartpilenシリーズも、中型モデル共々装い新たにフルモデルチェンジした。賛否あると思うが、ここまで語ってきたような哲学は確実に受け継がれていると感じる。あとはルック&フィールが好みであるかどうかの問題しかない。もしかしたら、ミレニアル世代からさらに先のターゲットを見据えた進化なのかもしれない。だとしたら、自分に刺さらないのも当然である。なぜならHusqvarna motorcyclesは前途の通り常に過去に学び革新性と未来志向を強調しているのだから。  
@@ -114,8 +104,7 @@ KTMグループの製品含めたブランドデザインを一手に引き受�
 
 少なくとも、このようなコンセプトのオートバイが一代で終わらずにモデルチェンジを迎え、進化していることがとても嬉しく思う。この先もその哲学に惹かれ続けるだろうと思う。  
 
-![写真：私のSvartpilen701](../../assets/blog/20240508/IMG_3751.jpg)
-<p class="t-caption">私のSvartpilen701</p>
+<Media src={images['IMG_3751.jpg']} alt="写真：私のSvartpilen701" caption="私のSvartpilen701"/>
 
 ## 参考文献
 - AOTODESK：[How to bring a classic motorcycle design back to life

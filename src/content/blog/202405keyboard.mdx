@@ -8,6 +8,9 @@ tags: ["Other"]
 draft: false
 ---
 import ImgGrid from '../../components/ImgGrid.astro';
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+export const images = getPostImages('202405keyboard');
 
 ここ数年キーボードが楽しい。ボタンを押すのは楽しい。  
 
@@ -18,7 +21,7 @@ import ImgGrid from '../../components/ImgGrid.astro';
 ## 今持っているキーボード  
 
 ### Keychron K3
-![写真：Keychron K3](../../assets/blog/202405keyboard/R0006649.jpg)  
+<Media src={images['R0006649.jpg']} alt="写真：Keychron K3" caption=""/>
 
 最初に買ったメカニカルキーボード。  
 
@@ -30,7 +33,7 @@ Macの純正キーボードをリモートで使い続けるうちになんか�
 
 ### Keychron K2 Pro
 
-![写真：Keychron K2 Pro](../../assets/blog/202405keyboard/R0006648.jpg)  
+<Media src={images['R0006648.jpg']} alt="写真：Keychron K2 Pro" caption=""/>
 
 きっかけは忘れたが、よりストロークの長いキーボードがかっこよく思えてきて買った。K3と比べると重めで安定感がある。K3もそうだが、テンキーレス75%コンパクトレイアウトはMacbookの配列に近く、場所を取らないし使いやすくていい。すっぽり長方形に収まってるレイアウトも綺麗だ。視覚栄養価が高い（好みによる）。  
 
@@ -38,7 +41,7 @@ Macの純正キーボードをリモートで使い続けるうちになんか�
 
 ### Nuphy Air60 v2
 
-![写真：Nuphy Air60 v2](../../assets/blog/202405keyboard/R0006651.jpg)  
+<Media src={images['R0006651.jpg']} alt="写真：Nuphy Air60 v2" caption=""/>
 
 持ち運ぶために小さく、タイプ音が静かなものが欲しくて買った。見た目がかわいい。  
 
@@ -48,7 +51,7 @@ Macの純正キーボードをリモートで使い続けるうちになんか�
 
 ### Keychron Q3 Pro SE
 
-![写真：Keychron Q3 Pro SE](../../assets/blog/202405keyboard/R0006647.jpg)  
+<Media src={images['R0006647.jpg']} alt="写真：Keychron Q3 Pro SE" caption=""/>
 
 最近もっとデザインやコーディング作業を楽にしたくて左側にノブが付いているキーボードをずっと探していた中で見つけたもの。ゴツくて高度な機材っぽさがかっこいいと思いずっと欲しかったが高価で躊躇していたところをメルカリで格安で出品されている物をみつけて購入。ノブとマクロキーが簡易左手デバイスになり、特定のツールでの作業が楽になった。  
 
@@ -57,7 +60,7 @@ Macの純正キーボードをリモートで使い続けるうちになんか�
 デフォルトで入っていたバナナ軸が重めですごく好み。しばらくはこれで楽しみたい。  
 
 ### CIDOO V75 PRO  
-![CIDOO V75 PRO](../../assets/blog/202405keyboard/R0006646.jpg)  
+<Media src={images['R0006646.jpg']} alt="CIDOO V75 PRO" caption=""/>
 
 もう日頃からキーボード関連の情報を漁るようになっている中でふと目についたキーボード。懐かしさを感じるルックスがとてもよくてずっと気になっていたところ、ヤフオクで１円スタートだったものを見つけて購入。定価よりもすごく安く買えたので大丈夫か不安だったが杞憂だった。  
 
@@ -68,7 +71,7 @@ Macの純正キーボードをリモートで使い続けるうちになんか�
 
 ボタン、ノブ、トグルスイッチ、つまみ…などなど物理UIは機械を操作するための原始的なインターフェースかつ超基本的な機能だ。それの名残はタッチデバイスのUIコンポーネントにもわかりやすい形で残る。それでもまだ指先に返ってくるフィードバックは再現できていない。  
 
-![キーボードの接写写真](../../assets/blog/202405keyboard/R0006249.JPG)  
+<Media src={images['R0006249.JPG']} alt="キーボードの接写写真" caption=""/>
 
 物理的インターフェースを触る気持ちよさを体験したいがために、まだ使えもしない分野の機器を買おうと思うほどである。音楽制作におけるシンセサイザーやシーケンサー、ミキサーなどは見ているだけで心が躍る。専門的、かつ機器を目視せずに使うシーンが想定される機器ほど物理インターフェースが多いように思う。オーディオやカメラ、車やオートバイの一部もそうだ。  
 
