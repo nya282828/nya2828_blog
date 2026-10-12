@@ -5,9 +5,17 @@ node v24
 
 # Dev
 ``` bush
+# 初回のみ
+$ mise i
 $ pnpm install
-$ pnpm run start
+
+# ローカルサーバーの起動
+$ pnpm run dev
+
+# Build。distディレクトリへ出力
+$ pnpm run build
 ```
+以下各コンポーネントの使い方（自分用）
 
 # assetImages ユーティリティ
 
