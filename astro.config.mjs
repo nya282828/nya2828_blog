@@ -5,6 +5,7 @@ import remarkUnwrapImgae from 'remark-unwrap-images';
 import sitemap from '@astrojs/sitemap';
 import preact from "@astrojs/preact";
 import rehypeRailWrapper from './src/plugins/rehypeRailWrapper.mjs';
+import rssFromHtml from './src/integrations/rssFromHtml.mjs';
 
 
 // https://astro.build/config
@@ -21,7 +22,7 @@ export default defineConfig({
     extendMarkdownConfig: false,
     smartypants: true,
     gfm: true,
-  }), sitemap(), preact()],
+  }), sitemap(), preact(), rssFromHtml()],
   vite: {
     css: {
       devSourcemap: true,
