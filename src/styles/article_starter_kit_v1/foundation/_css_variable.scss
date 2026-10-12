@@ -1,5 +1,6 @@
 // common
 // css variables
+@use "sass:map";
 @use "sass:math";
 @use "../../ask_setting" as ask;
 
@@ -48,8 +49,8 @@
   --t-font-family-ja: #{ask.$t_list_system_ja};
 
   // Font weight
-  --t-font-weight-noraml: #{map-get(ask.$t_list_weight, 'normal')};
-  --t-font-weight-bold: #{map-get(ask.$t_list_weight, 'bold')};
+  --t-font-weight-noraml: #{map.get(ask.$t_list_weight, 'normal')};
+  --t-font-weight-bold: #{map.get(ask.$t_list_weight, 'bold')};
 
   // Color Set
   // common
@@ -104,7 +105,7 @@
   }
 
   // ブレークポイント毎に再設定
-  @media screen and (max-width: map-get(ask.$bp, xxxs) - 0.0625) {
+  @media screen and (max-width: map.get(ask.$bp, xxxs) - 0.0625) {
     --t-base-size: #{ask.$t_size_base_px*ask.$t_scale_small};
     // 以下xxxs〜xxxxlまでのデフォルトサイズとline-height
     --t-size_xxxs: #{ask.harmonic-type-scale(ask.$t_size_base_px, ask.$t_scale_lv_harmony, 3)*ask.$t_scale_small}; 

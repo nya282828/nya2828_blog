@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "sass:math";
 @use "./variable" as *;
 @use "./function" as *;
@@ -204,7 +205,7 @@
   }
 
   // 375px未満のsmall phone
-  @media screen and (max-width: map-get($bp, xxxs) - 0.0625) {
+  @media screen and (max-width: map.get($bp, xxxs) - 0.0625) {
     $scale: $t_scale_small;
 
     font-size: $size*$scale; // For small phone

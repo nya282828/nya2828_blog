@@ -1,3 +1,4 @@
+@use "sass:map";
 @use '../../ask' as ask;
 // display
 // sp -> pc間でdisplayを切り替えるユーティリティクラス一覧
@@ -14,7 +15,7 @@
 
 // 375未満で非表示
 .u-hide-under-xxxs {
-  @media (max-width: map-get(ask.$bp, xxxs) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, xxxs) - 0.0625) {
     display: none;
   }
 }
@@ -28,7 +29,7 @@
 
 // 480未満で非表示
 .u-hide-under-xxs {
-  @media (max-width: map-get(ask.$bp, xxs) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, xxs) - 0.0625) {
     display: none;
   }
 }
@@ -42,7 +43,7 @@
 
 // 580未満で非表示
 .u-hide-under-xs {
-  @media (max-width: map-get(ask.$bp, xs) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, xs) - 0.0625) {
     display: none;
   }
 }
@@ -56,7 +57,7 @@
 
 // 768未満で非表示
 .u-hide-under-s {
-  @media (max-width: map-get(ask.$bp, s) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, s) - 0.0625) {
     display: none;
   }
 }
@@ -70,7 +71,7 @@
 
 // 960未満で非表示
 .u-hide-under-m {
-  @media (max-width: map-get(ask.$bp, m) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, m) - 0.0625) {
     display: none;
   }
 }
@@ -84,7 +85,7 @@
 
 // 1024未満で非表示
 .u-hide-under-l {
-  @media (max-width: map-get(ask.$bp, l) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, l) - 0.0625) {
     display: none;
   }
 }
@@ -98,7 +99,7 @@
 
 // 1280未満で非表示
 .u-hide-under-xl {
-  @media (max-width: map-get(ask.$bp, xl) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, xl) - 0.0625) {
     display: none;
   }
 }
@@ -112,7 +113,7 @@
 
 // 1440未満で非表示
 .u-hide-under-xxl {
-  @media (max-width: map-get(ask.$bp, xxl) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, xxl) - 0.0625) {
     display: none;
   }
 }
@@ -126,7 +127,7 @@
 
 // 1920未満で非表示
 .u-hide-under-xxxl {
-  @media (max-width: map-get(ask.$bp, xxxl) - 0.0625) {
+  @media (max-width: map.get(ask.$bp, xxxl) - 0.0625) {
     display: none;
   }
 }

@@ -1,9 +1,11 @@
 @use "./variable" as *;
+@use "sass:map";
 @use "sass:math";
+@use "sass:meta";
 // function
 // 計算式から単位を取り除く
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
     // @return $number / ($number * 0 + 1);
     @return math.div($number, ($number * 0 + 1));
   }
@@ -22,7 +24,7 @@
 ///   z-index: 100;
 ///
 @function z-index($key) {
-  @return map-get($z, $key);
+  @return map.get($z, $key);
 }
 
 // Break point
@@ -39,7 +41,7 @@
 ///   @media (min-width: 80em)
 ///
 @function break($key) {
-  @return map-get($bp, $key);
+  @return map.get($bp, $key);
 }
 
 // harmonic type scale
@@ -102,8 +104,8 @@
     // $ratio: $base_size/$size-num + ($base_height - 1);
     $ratio: math.div($base_size, $size-num) + ($base_height - 1);
     // 文字サイズを4の倍数に丸める。floorで小数点以下切り下げ
-    // $lh-px: floor(($size-num*$ratio) / 4)*4;
-    $lh-px: floor(math.div(($size-num*$ratio), 4))*4;
+    // $lh-px: math.floor(($size-num*$ratio) / 4)*4;
+    $lh-px: math.floor(math.div(($size-num*$ratio), 4))*4;
     // 4の倍数に直した数値を、字間を考慮した行の高さに直す
     // $lh: $lh-px / $size-num* strip-unit($t_spacing+1);
     $lh: math.div($lh-px, $size-num) * strip-unit($t_spacing+1);
@@ -114,8 +116,8 @@
   @else if $size < $base_size {
     // $ratio: $size-num/$base_size + ($base_height - 1);
     $ratio: math.div($size-num, $base_size) + ($base_height - 1);
-    // $lh-px: floor(($size-num*$ratio) / 4)*4;
-    $lh-px: floor(math.div(($size-num*$ratio), 4))*4;
+    // $lh-px: math.floor(($size-num*$ratio) / 4)*4;
+    $lh-px: math.floor(math.div(($size-num*$ratio), 4))*4;
     // $lh: $lh-px / $size-num* strip-unit($t_spacing+1);
     $lh: math.div($lh-px, $size-num) * strip-unit($t_spacing+1);
     @return $lh;

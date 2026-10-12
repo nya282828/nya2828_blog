@@ -11,6 +11,10 @@ import ImgLazyDisplay from '../../components/ImgLazyDisplay.astro';
 
 import img1 from "../../assets/blog/20240109/nenga2024_web.jpg"
 
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+export const images = getPostImages('20240109');
+
 明けましておめでとうございます。  
 
 <Rail size="m" space={false}>
@@ -25,4 +29,4 @@ import img1 from "../../assets/blog/20240109/nenga2024_web.jpg"
 
 あまり焦るのは心身に良くないことは身をもって知っているので、時折オートバイで旅をしながら、マイペースにデザインやっていきたい。  
 
-![2024年の初日の出の写真](../../assets/blog/20240109/R0005396.JPG)
+<Media src={images['R0005396.JPG']} alt="2024年の初日の出の写真" caption=""/>
