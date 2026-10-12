@@ -23,6 +23,10 @@ import img9 from "../../assets/blog/20231120/R0004164.jpg"
 import img10 from "../../assets/blog/20231120/R0004282.jpg"
 import img11 from "../../assets/blog/20231120/96_1.15.3.jpg"
 
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+export const images = getPostImages('20231120');
+
 
 先日夏の休暇を利用して北海道にツーリングへ行った。  
 
@@ -36,9 +40,8 @@ import img11 from "../../assets/blog/20231120/96_1.15.3.jpg"
 
 <Rail size="m" space={false}>
   {/* ![猿払村道エサヌカ線](https://dl.dropboxusercontent.com/scl/fi/6pfgu9eml5x1gaj5dsm3a/73_1.11.4.jpg?rlkey=wgl67g1hstytnma51czqmqva1&dl=0) */}
-  ![猿払村道エサヌカ線](../../assets/blog/20231120/73_1.11.4.jpg)
+  <Media src={images['73_1.11.4.jpg']} alt="猿払村道エサヌカ線" caption="猿払村道エサヌカ線"/>
   {/* <Img src={img1} alt="猿払村道エサヌカ線" /> */}
-<p class="t-caption">猿払村道エサヌカ線</p>
 </Rail>
 
 とにかく広く、長い道。スケールが本州とは圧倒的に異なる。そのおかげの開けた景色を見ることができ、明らかに普段見ている景色より空が広い。そして様々な天気が歓迎してくれる。どんな天気でも美しく、立体感のある空は北海道だからなのか。天気の変わり目、雨が上がってばらけ始めた厚い雲と晴れ間が重なり立体感のある空を見ながら走ったオロロンラインは泣けるほど美しかった。自分の走るアスファルトと左右に広がる草原と空、このような場所は日本には少ないと思う。極上の体験。  
@@ -55,9 +58,8 @@ import img11 from "../../assets/blog/20231120/96_1.15.3.jpg"
 
 <Rail size="m" space={false}>
   {/* ![オロロンラインにて](https://dl.dropboxusercontent.com/scl/fi/scl/fi/xs6b8xb4dxyoa3s54qz8n/151_1.20.2.jpg?rlkey=kf2sjn21bml9u2oye2xbmbyf9&dl=0) */}
-  ![オロロンラインにて](../../assets/blog/20231120/151_1.20.2.jpg)
+  <Media src={images['151_1.20.2.jpg']} alt="オロロンラインにて" caption="オロロンラインにて"/>
   {/* <Img src={img2} alt="オロロンラインにて" /> */}
-  <p class="t-caption">オロロンラインにて</p>
 </Rail>
 北海道、オートバイツーリング雑誌では幾度となく各地の写真を見てきた中で、なんとなく知ってるとか行ったような気になっていたような気がするが、それは間違いだった。  
 
@@ -72,32 +74,32 @@ import img11 from "../../assets/blog/20231120/96_1.15.3.jpg"
 
 <Rail size="m">
   <ImgGrid>
-    ![エサヌカ線の草原](../../assets/blog/20231120/R0004046.jpg)
+    <Media src={images['R0004046.jpg']} alt="エサヌカ線の草原" caption=""/>
     {/* <Img src={img3} alt="エサヌカ線の草原" /> */}
 
-    ![オロロンラインの海岸](../../assets/blog/20231120/R0003944.jpg)
+    <Media src={images['R0003944.jpg']} alt="オロロンラインの海岸" caption=""/>
     {/* <Img src={img4} alt="オロロンラインの海岸" /> */}
 
-    ![野付半島の県道](../../assets/blog/20231120/62_1.11.1.jpg)
+    <Media src={images['62_1.11.1.jpg']} alt="野付半島の県道" caption=""/>
     {/* <Img src={img5} alt="野付半島の県道" /> */}
 
-    ![霧の知床峠](../../assets/blog/20231120/24_1.5.1-2.jpg)
+    <Media src={images['24_1.5.1-2.jpg']} alt="霧の知床峠" caption=""/>
     {/* <Img src={img6} alt="霧の知床峠" /> */}
 
-    ![野付半島にて](../../assets/blog/20231120/R0004268.jpg)
+    <Media src={images['R0004268.jpg']} alt="野付半島にて" caption=""/>
     {/* <Img src={img7} alt="野付半島にて" /> */}
 
-    ![ナイタイ高原牧場の牛](../../assets/blog/20231120/R0004378.jpg)
+    <Media src={images['R0004378.jpg']} alt="ナイタイ高原牧場の牛" caption=""/>
     {/* <Img src={img8} alt="ナイタイ高原牧場の牛" /> */}
 
-    ![知床の夕陽](../../assets/blog/20231120/R0004164.jpg)
+    <Media src={images['R0004164.jpg']} alt="知床の夕陽" caption=""/>
     {/* <Img src={img9} alt="知床の夕陽" /> */}
 
-    ![釧路で立ち寄ったカフェのコーヒー](../../assets/blog/20231120/R0004282.jpg)
+    <Media src={images['R0004282.jpg']} alt="釧路で立ち寄ったカフェのコーヒー" caption=""/>
     {/* <Img src={img10} alt="釧路で立ち寄ったカフェのコーヒー" /> */}
   </ImgGrid>
 
-  ![道東の夕陽](../../assets/blog/20231120/96_1.15.3.jpg)
+  <Media src={images['96_1.15.3.jpg']} alt="道東の夕陽" caption=""/>
   {/* <Img src={img11} alt="道東の夕陽" /> */}
 </Rail>
 

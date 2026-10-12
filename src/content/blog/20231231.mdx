@@ -11,6 +11,10 @@ import ImgLazyDisplay from '../../components/ImgLazyDisplay.astro';
 
 import img1 from "../../assets/blog/20231231/R0005374.JPG"
 
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+export const images = getPostImages('20231231');
+
 もう2023年も終わる。早い。なので今年買ったものでよかったものをまとめる。  
 
 ## マムートのマウンテンパーカ  
@@ -25,9 +29,7 @@ import img1 from "../../assets/blog/20231231/R0005374.JPG"
 
 防風性能と透湿性能、速乾性能の高さが長旅でとても役に立った。見た目より防寒性能も高く、秋しか使えないかと思っていたが中に着る物を調整すれば冬でも普通に使えて驚いた。しかもめっちゃ軽くて負担にならない。知る限り他のマウンテンパーカーよりだいぶ細身で、オートバイでもバタつかない。それでもインナープロテクターをつけれる余裕はある。総じてオートバイ、アウトドアの疲労をかなり抑えてくれる。  
 
-![マムートのマウンテンパーカのロゴ](../../assets/blog/20231231/R0005365.JPG)  
-
-<p class="t-caption">ロゴがかわいい</p>
+<Media src={images['R0005365.JPG']} alt="マムートのマウンテンパーカのロゴ" caption="ロゴがかわいい"/>
 
 個人的な好みだが色がいい。目立つ色でありながらも安っぽくない絶妙な色だと思う。  
 
@@ -36,17 +38,13 @@ import img1 from "../../assets/blog/20231231/R0005374.JPG"
 ## The corona utilityのEPICナイロンジャケット  
 
 <Rail size="m" space={false}>
-  ![The corona utilityのEPICナイロンジャケット](../../assets/blog/20231231/R0005373.JPG)
-
-<p class="t-caption">The corona utilityのEPICナイロンジャケット</p>
+  <Media src={images['R0005373.JPG']} alt="The corona utilityのEPICナイロンジャケット" caption="The corona utilityのEPICナイロンジャケット"/>
 </Rail>
 
 高い防水性、防風性、透湿性の高さと羽根のような軽さが特徴。  
 EPICという生地は、アメリカのNEXTEC社の開発するハイテク素材で、ゴアテックスのようなコーティングではなく、繊維の内側にシリコンバリアを施すことで生地の構造自体が水を弾く。なので洗濯に気を使わないし劣化しづらい。春夏で活躍した。  
 
-![The corona utilityのEPICナイロンジャケット](../../assets/blog/20231231/R0005371.JPG)  
-
-<p class="t-caption">テントの素材にちょっと似た質感と手触り</p>
+<Media src={images['R0005371.JPG']} alt="The corona utilityのEPICナイロンジャケット" caption="テントの素材にちょっと似た質感と手触り"/>
 
 見た目がほどよくミリタリーっぽくていい。コテコテのミリタリーはよりこれくらいがちょうどよい。ゆったり着れる。  
 
@@ -59,9 +57,7 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 3x3でのタープ泊でも不満なく使えていたが、室内がもう少し広いと楽だなと思っていたでの、これを機に少し大きいのを買った。広さはやはり正義。とても快適だった。  
 
 <Rail size="m" space={false}>
-  ![DDタープ3.5mの設営イメージ](../../assets/blog/20231231/R0004807.JPG)
-
-<p class="t-caption">3.5mの設営イメージ</p>
+  <Media src={images['R0004807.JPG']} alt="DDタープ3.5mの設営イメージ" caption="3.5mの設営イメージ"/>
 </Rail>
 
 この大きさならオートバイへの積載や収納も面倒にならない。4x4だとデカすぎてきついかもしれない。  
@@ -71,9 +67,7 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 内燃機関と走るための機構、そして美少女と好きな要素がこれでもかと詰めこまれたアクションフィギュア。  
 
 <Rail size="m" space={false}>
-  ![アクションフィギュア、MOTORED CYBORG RUNNER](../../assets/blog/20231231/R0003677.JPG)
-
-<p class="t-caption">MOTORED CYBORG RUNNERの名の通りのルックス</p>
+  <Media src={images['R0003677.JPG']} alt="アクションフィギュア、MOTORED CYBORG RUNNER" caption="MOTORED CYBORG RUNNERの名の通りのルックス"/>
 </Rail>
 
 もともとは敬愛するイラストレーター、AF_KURO氏が世界観を構築するイラストレーション作品群で、それをご本人がそのままフィギュアとして企画したもの。元プロダクトデザイナーであった氏の描くイラストは意図の塊であり、現実のオートバイをはじめとするプロダクトデザインの文脈から来る説得力とリアリティに裏付けされたルックスが抜群にかっこいい。  
@@ -82,11 +76,10 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 
 <Rail size="m">
   <ImgGrid>
-    ![アクションフィギュア、MOTORED CYBORG RUNNER](../../assets/blog/20231231/R0003703.JPG)
+    <Media src={images['R0003703.JPG']} alt="アクションフィギュア、MOTORED CYBORG RUNNER" caption=""/>
 
-    ![アクションフィギュア、MOTORED CYBORG RUNNER](../../assets/blog/20231231/R0003706.JPG)
+    <Media src={images['R0003706.JPG']} alt="アクションフィギュア、MOTORED CYBORG RUNNER" caption="プレイバリューが高い。"/>
   </ImgGrid>
-  <p class="t-caption">プレイバリューが高い。</p>
 </Rail>
 
 他のモデルも出たら買うと思う。今後も楽しみだ。  
@@ -96,9 +89,7 @@ DDタープは元々お気に入りのキャンプギアで、知らない人に
 メインマシンのSvartpilen701のためバックステップ。  
 
 <Rail size="m" space={false}>
-  ![Northline製バックステップ](../../assets/blog/20231231/R0002996.jpg)
-
-<p class="t-caption">もともとVitpilen701用だったらしい。そのまま付いてよかった</p>
+  <Media src={images['R0002996.jpg']} alt="Northline製バックステップ" caption="もともとVitpilen701用だったらしい。そのまま付いてよかった"/>
 </Rail>
 
 ノーマルステップはシートから距離があり、膝の曲がりが足りず、荷重がかけにくかった。オートバイは全身で重心を動かして操作する乗り物。ポジションはとても大事。  
@@ -110,9 +101,7 @@ Northlineさんは昔から少し付き合いがあって、大阪に行った�
 ## 髭トリマー  
 
 <Rail size="m" space={false}>
-  ![ブラウンのヒゲトリマー](../../assets/blog/20231231/R0005386.JPG)
-
-<p class="t-caption">ダイヤルで直感的に長さを設定できる</p>
+  <Media src={images['R0005386.JPG']} alt="ブラウンのヒゲトリマー" caption="ダイヤルで直感的に長さを設定できる"/>
 </Rail>
 
 
@@ -129,9 +118,7 @@ Northlineさんは昔から少し付き合いがあって、大阪に行った�
 オフロードではプロテクターは必須。胸部は命に直結する。オートバイ詳しくない人に向けて説明すると、胸にハンドルを強打したり、走行中に胸に木の枝が刺さったり、横に転倒した時に肘が脇腹を強打して肋を折ったり、そういうことを防いでくれる。  
 
 <Rail size="m" space={false}>
-  ![FOXのボディプロテクター](../../assets/blog/20231231/R0005378.JPG)
-
-<p class="t-caption">通気性も見た目よりいい</p>
+  <Media src={images['R0005378.JPG']} alt="FOXのボディプロテクター" caption="通気性も見た目よりいい"/>
 </Rail>
 
 このプロテクターのいいところは、他のモデルよりスリムで装着感が薄いところ。いろんなものの下に着れるし、動きを阻害する感じがない。  
@@ -142,9 +129,7 @@ Northlineさんは昔から少し付き合いがあって、大阪に行った�
 直接手足につけるタイプのプロテクター。春夏用のプロテクター付きのウェアが好きになれず、好きなウェアの下につけるために買った。  
 
 <Rail size="m" space={false}>
-  ![HydoのD3Oプロテクター](../../assets/blog/20231231/R0005380.JPG)
-
-<p class="t-caption">柔らかいが、衝撃が加わると固くなる</p>
+  <Media src={images['R0005380.JPG']} alt="HydoのD3Oプロテクター" caption="柔らかいが、衝撃が加わると固くなる"/>
 </Rail>
 
 D3Oは衝撃が加わった瞬間のみ固くなる特殊素材。なので普段は柔らかく、装着感が全くない。動きやすくてとてもいい。ちょっと蒸れやすいのが欠点だが、楽に洗えるし冬は暖かいのであまり気にしてない。  
@@ -159,9 +144,7 @@ D3Oは衝撃が加わった瞬間のみ固くなる特殊素材。なので普�
 Svartpilen701には小分けにして合体させられるバッグを使っていた。（というか車両構造上それしか使えない）が、ブロンコにはキャリアがあるのでほぼこちら専用。  
 
 <Rail size="m" space={false}>
-  ![エンデュリスタントルネード2L](../../assets/blog/20231231/IMG_8743.jpg)
-
-<p class="t-caption">キャリアに乗っているのがそれ。結構でかい</p>
+  <Media src={images['IMG_8743.jpg']} alt="エンデュリスタントルネード2L" caption="キャリアに乗っているのがそれ。結構でかい"/>
 </Rail>
 
 分割するバッグはでかいものを入れられない欠点があったが、これには問題なく入るので雑にパッキングできるのがいい。  
@@ -176,9 +159,7 @@ Svartpilen701には小分けにして合体させられるバッグを使って�
 前作から10年、青春時代を捧げたゲームシリーズの待望の最新作。発表のPVを見た段階でガチで泣いてしまったレベル。  
 
 <Rail size="m" space={false}>
-  ![ARMORED CORE VI FIRES OF RUBICON プレイ画面](../../assets/blog/20231231/IMG_7898.JPG)
-
-<p class="t-caption">プレイ画面</p>
+  <Media src={images['IMG_7898.JPG']} alt="ARMORED CORE VI FIRES OF RUBICON プレイ画面" caption="プレイ画面"/>
 </Rail>
 
 自分のやりたい戦闘スタイルや見た目の好みに合わせてパーツを組み合わせ、オリジナルの機体を作る、という根幹のシステムを踏襲しつつ、過去作で追加された要素を大胆にそぎ落とし、原点回帰している。  
@@ -187,15 +168,14 @@ Svartpilen701には小分けにして合体させられるバッグを使って�
 
 <Rail size="m">
   <ImgGrid>
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_7910.JPG)
+    <Media src={images['IMG_7910.JPG']} alt="ARMORED CORE VI FIRES OF RUBICON フォトモード" caption=""/>
 
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_7940.JPG)
+    <Media src={images['IMG_7940.JPG']} alt="ARMORED CORE VI FIRES OF RUBICON フォトモード" caption=""/>
 
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_7989.JPG)
+    <Media src={images['IMG_7989.JPG']} alt="ARMORED CORE VI FIRES OF RUBICON フォトモード" caption=""/>
 
-    ![ARMORED CORE VI FIRES OF RUBICON フォトモード](../../assets/blog/20231231/IMG_8410.JPG)
+    <Media src={images['IMG_8410.JPG']} alt="ARMORED CORE VI FIRES OF RUBICON フォトモード" caption="フォトモードも楽しい"/>
   </ImgGrid>
-  <p class="t-caption">フォトモードも楽しい</p>
 </Rail>
 
 そして長年待ったファンへの熱いメッセージとも取れるストーリー文脈に泣かされてしまった。過去作よりもネットでの盛り上がりも高かったので、また続編を楽しみにしたい。  

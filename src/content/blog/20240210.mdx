@@ -9,6 +9,9 @@ draft: false
 ---
 import Rail from '../../components/Rail.astro';
 import ImgGrid from '../../components/ImgGrid.astro';
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+export const images = getPostImages('20240210');
 
 GRIIIxを買って一年ほど経った。  
 結論から言うと非常に満足しており、写真に対する気持ちがガラリと変わった。  
@@ -32,9 +35,7 @@ GRの前に最後にカメラを買ったのは10年近く前で、ソニーの�
 
 単焦点レンズと簡便な操作系で余計なことを考えずに絵の切り取りと露出に集中でき、取り出しもスピーディでいつでもすぐに撮れる。右手だけで撮影が完結するのもよい。これらのおかげでトライアンドエラーの回転数を上げてくれる。  
 
-![近所の定食屋](../../assets/blog/20240210/R0004918.JPG)
-
-<p class="t-caption">撮りたいと思った瞬間にすぐに切り取れる</p>
+<Media src={images['R0004918.JPG']} alt="近所の定食屋" caption="撮りたいと思った瞬間にすぐに切り取れる"/>
 
 持つのが億劫にならないハードルの低さ気軽さと、持ち手の気分を上げてくれるアウトプットが楽しさに気づかせてくれる。  
 
@@ -42,20 +43,19 @@ GRの前に最後にカメラを買ったのは10年近く前で、ソニーの�
 
 <Rail size="m">
   <ImgGrid>
-    ![自転車で信号待ちする青年](../../assets/blog/20240210/R0000430.jpg)
-  
-    ![PAの電灯](../../assets/blog/20240210/R0001061.jpg)
+    <Media src={images['R0000430.jpg']} alt="自転車で信号待ちする青年" caption=""/>
 
-    ![知床の夕日](../../assets/blog/20240210/R0004165.JPG)
+    <Media src={images['R0001061.jpg']} alt="PAの電灯" caption=""/>
 
-    ![お参りする人](../../assets/blog/20240210/R0000211.jpg)
+    <Media src={images['R0004165.JPG']} alt="知床の夕日" caption=""/>
 
-    ![高速の車の中から](../../assets/blog/20240210/R0003594.JPG)
+    <Media src={images['R0000211.jpg']} alt="お参りする人" caption=""/>
 
-    ![夕焼けの重機](../../assets/blog/20240210/R0004795.JPG)
+    <Media src={images['R0003594.JPG']} alt="高速の車の中から" caption=""/>
+
+    <Media src={images['R0004795.JPG']} alt="夕焼けの重機" caption="露出と切り取りに集中できるので、写真の練習にかなり良い"/>
 
   </ImgGrid>
-  <p class="t-caption">露出と切り取りに集中できるので、写真の練習にかなり良い</p>
 </Rail>
 
 
@@ -72,17 +72,17 @@ GRの前に最後にカメラを買ったのは10年近く前で、ソニーの�
 <Rail size="m">
   <ImgGrid>
 
-    ![PAで富士山を撮る人](../../assets/blog/20240210/R0001077.jpg)
+    <Media src={images['R0001077.jpg']} alt="PAで富士山を撮る人" caption=""/>
 
-    ![渋谷](../../assets/blog/20240210/R0002072.JPG)
+    <Media src={images['R0002072.JPG']} alt="渋谷" caption=""/>
 
-    ![奥多摩の山奥](../../assets/blog/20240210/R0002845.jpg)
+    <Media src={images['R0002845.jpg']} alt="奥多摩の山奥" caption=""/>
 
-    ![京都の飲み屋街](../../assets/blog/20240210/R0002978.jpg)
+    <Media src={images['R0002978.jpg']} alt="京都の飲み屋街" caption=""/>
 
-    ![夏のゲレンデ](../../assets/blog/20240210/R0003371.jpg)
+    <Media src={images['R0003371.jpg']} alt="夏のゲレンデ" caption=""/>
 
-    ![バイクと吊り橋](../../assets/blog/20240210/R0002849.jpg)
+    <Media src={images['R0002849.jpg']} alt="バイクと吊り橋" caption=""/>
   </ImgGrid>
 </Rail>
 
