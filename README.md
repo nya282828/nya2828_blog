@@ -87,6 +87,23 @@ import Media from '../../components/Media.astro';
 </Media>
 ```
 
+**4. キャプションにリンクを入れる**
+
+`caption` / `title`（Markdown 画像構文の `"キャプション"` を含む）の中に `[テキスト](URL)` と書くとリンクになる。通常の文字列との混在も可。
+
+```mdx
+![代替テキスト](../../assets/blog/202405keyboard/photo01.jpg "[記事タイトル](https://example.com/article)")
+
+![代替テキスト](../../assets/blog/202405keyboard/photo01.jpg "出典: [サイト名](https://example.com/)")
+
+<Media src={photo} alt="代替テキスト" caption="[記事タイトル](https://example.com/article)" />
+```
+
+- リンク先は `http(s)://` で始まる URL か、`/` で始まるサイト内パスのみ有効（それ以外はリンクにならず文字列のまま表示される）
+- URL 中に `)` を含む場合は `%29` と書く
+- リンク記法以外の HTML タグはエスケープされ、そのまま文字列として表示される
+- 画像の次の行に `[テキスト](URL)` を書いても、キャプションにはならない（別の段落になる）
+
 **`Img.astro` ラッパー:** `<Media type="img">` の薄いラッパー。単純な画像には `<Img src={...} alt="..." />` でも使える。
 
 
