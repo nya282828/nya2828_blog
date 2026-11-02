@@ -14,6 +14,17 @@ type Props = {
 
 const { type = 'img', src, alt = '', caption, title } = Astro.props;
 const captionText = caption || title || null;
+
+const escapeHtml = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// キャプション内の [text](url) をリンク化する。http(s):// か / 始まりのみ許可。
+// URL 中に ) を含む場合は %29 と書くこと。
+const renderCaption = (text: string) =>
+  escapeHtml(text).replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g,
+    (_, label, href) => `<a href="${href}">${label}</a>`,
+  );
 ---
 
 <figure class="c-media">
@@ -46,6 +57,6 @@ const captionText = caption || title || null;
     </div>
   )}
   {captionText && (
-    <figcaption class="c-media__caption t-caption">{captionText}</figcaption>
+    <figcaption class="c-media__caption t-caption" set:html={renderCaption(captionText)} />
   )}
 </figure>

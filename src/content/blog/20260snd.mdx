@@ -15,15 +15,28 @@ import { Image } from 'astro:assets';
 export const images = getPostImages('2026snd');
 
 
-4月末、シンガポールにSND47のカンファレンスを聴きに行った。
+4月末、同僚とシンガポールにSND47のカンファレンスを聴きに行った。
+なぜ今更書くのかというと、膨大な情報量を咀嚼しきれなかったのもあるし、思いの外ここで聞いて考える必要があったことがここ半年間の仕事で割と比重が大きかったので、考えをまとめようと思った。
 
-なぜ今更書くのか。それはここで聞いて考えたことが、ここ半年の仕事の中で大きなテーマとなって長く考える必要があるものであったからだ。
+そもそもビジュアルジャーナリズムってなんだ？という話から、このカンファレンスを経て考えたことを書く。
 
-ビジュアルジャーナリズムってなんだという話から、このカンファレンスを経て半年で考えたことを書く。
+## ビジュアルジャーナリズムってなに
+視覚情報を積極的に用いる報道表現・手法が広くそう呼ばれる。私は普段この分野でデザインしたりプログラムしたりしている。テキストのみでは伝えにくい情報をグラフィックス、必要ならばインタラクションも交えて理解を助ける。その中でも以下のような種類がある。
+
+- データジャーナリズム
+	- オープンデータや統計とそれらの可視化を用いて、データに基づいた物語を語る手法
+- ビジュアルエクスプレーナー
+	- 一連のニュースの背景や仕組みを、図解などを交えて伝えるニュース解説
+- ビジュアルインベスティゲーション
+	- 伝統的な報道手法とともに、SNS映像や衛星画像、公的書類などの視覚的な証拠を収集・分析し、事実を明らかにする調査報道手法。
+
+いずれも紙・デジタルにかかわらず、情報を伝える上で視覚要素の比重が大きいコンテンツである。故に、従来の報道のスキルだけでなく、ファクトを発掘するためのデータを分析に用いる統計学や機械学習、Webページを実装するWebフロントエンド技術、良い読者体験のための情報設計技術、伝えるためのグラフィックデザインスキル等、複合的なスキルセットが求められる。
 
 ## Society for News Designとは
 
-SND（Society for News Design）は、報道機関のデザイン・イラスト・インフォグラフィック等の専門家のための非営利団体。要は報道機関で働くデザイナーやイラストレーターのコミュニティである。
+![Society for News Design](../../assets/blog/2026snd/snd.jpg)
+
+私がSociety for News Design（SND）は、報道機関のデザイン・イラスト・インフォグラフィック等の専門家のための非営利団体。要は報道機関で働くデザイナーやイラストレーターのコミュニティである。
 
 > 世界最高水準のビジュアルジャーナリズムを創造、制作、促進、教育しています。  当協会は、以下のことを目指しています。
 > - すべての職種において最高水準の倫理基準を促進する
@@ -38,51 +51,34 @@ SND（Society for News Design）は、報道機関のデザイン・イラスト
 
 歴史は古く、1979年に設立されて以来毎年、世界中の新聞やWebメディアにおけるビジュアルストーリーテリングやインフォグラフィックスをはじめ、昨今のインタラクティブビジュアルストーリーを用いたより良いジャーナリズムのあり方について議論し、年一で優れたコンテンツやチームを表彰する [コンペティション](https://snd.org/best-of-design-competitions/) やカンファレンスを開催している。
 
-いつも米国で開かれるカンファレンスが、今回初めてアジア、シンガポールで開催されるとのことだったので、同じデザイナーの同僚と行ってきた。
-## 今年のコンペ受賞作から見る現在のビジュアルジャーナリズム
-ビジュアルジャーナリズムとはどんなものなのか。テキストだけでは伝えきれない情報をグラフィックス、デジタル媒体であればそこにインタラクションを組み合わせることで、よりわかりやすく情報を伝える報道手法だ。その中でも以下のような種類がある。
-
-- データジャーナリズム
-	- オープンデータや統計とそれらの可視化を用いて、データに基づいた物語を語る手法
-- ビジュアルエクスプレーナー
-	- 一連のニュースの背景や仕組みを、図解などを交えて伝えるニュース解説
-- ビジュアルインベスティゲーション
-	- 伝統的な報道手法とともに、SNS映像や衛星画像、公的書類などの視覚的な証拠を収集・分析し、事実を明らかにする調査報道手法。
-
-いずれも紙・デジタルにかかわらず、情報を伝える上で視覚要素の比重が大きいコンテンツである。故に、従来の報道のスキルだけでなく、ファクトを発掘するためのデータを分析に用いる統計学や機械学習、Webページを実装するWebフロントエンド技術、良い読者体験のための情報設計技術、伝えるためのグラフィックデザインスキル等、複合的なスキルセットが求められる。
-
-今年のコンペティションの受賞作で私が個人的に気に入ったコンテンツをいくつか紹介する。
+## 今年のコンペ受賞作
+百聞は一見にしかず。今年のコンペティションの受賞作で私が個人的に気に入ったコンテンツをいくつか紹介する。
 
 ### The Straits Times
 
-![The Straits Times](../../assets/blog/2026snd/straitstimes.png "The Straits Times")
-[No quiet at home: The reality of living with Singapore’s traffic noise](https://www.straitstimes.com/multimedia/graphics/2025/12/singapore-traffic-noise/index.html)
+![The Straits Times](../../assets/blog/2026snd/straitstimes.png "出典：[No quiet at home: The reality of living with Singapore’s traffic noise](https://www.straitstimes.com/multimedia/graphics/2025/12/singapore-traffic-noise/index.html)")
 
 シンガポールの新聞社であるThe Straits Timesの、シンガポールの騒音問題について伝えるエクスプレーナー。周波数とデシベル値を組み合わせた独自の可視化表現を用いることで視覚的なインパクトを持たせている。
 
 ### South China Morning Post
 
-![South China Morning Post](../../assets/blog/2026snd/scmp.png "South China Morning Post")
-[Hiroshima and Nagasaki Visualising the human toll from the world’s first nuclear attacks](https://multimedia.scmp.com/infographics/news/world/article/3320825/hiroshima_nagasaki/index.html)
+![South China Morning Post](../../assets/blog/2026snd/scmp.png "出典：[Hiroshima and Nagasaki Visualising the human toll from the world’s first nuclear attacks](https://multimedia.scmp.com/infographics/news/world/article/3320825/hiroshima_nagasaki/index.html)")
 
 香港の英字新聞であるサウスチャイナモーニングポストが、広島平和記念日に合わせて公開したコンテンツ。実際の紙にスタンプで原爆犠牲者の数を可視化、その紙を大きな鶴に折って哀悼とする、情緒を煽るアナログ仕事の光るコンテンツ。
 
 ### ABC News
 
-![ABC News](../../assets/blog/2026snd/abcnews.png "ABC News")
-[You read the terms and conditions, right?](https://www.abc.net.au/news/2025-02-27/classroom-apps-technology-kids-data-terms-conditions/104966952)
+![ABC News](../../assets/blog/2026snd/abcnews.png "出典：[You read the terms and conditions, right?](https://www.abc.net.au/news/2025-02-27/classroom-apps-technology-kids-data-terms-conditions/104966952)")
 
 米国ABC Newsのコンテンツ。テックサービスの利用規約とプライバシーポリシーを実際の紙に印刷して壁に貼り、それを子供やその親が実際に読み理解することが如何に困難か伝えるコンテンツ。実物にすることでインパクトを持たせている。
 
 ### The Washington Post
 
-![The Washington Post](../../assets/blog/2026snd/wp.png "The Washington Post")
-[60,000 Gazans have been killed. 18,500 were children.](https://www.washingtonpost.com/world/interactive/2025/israel-gaza-war-children-death-toll/)
+![The Washington Post](../../assets/blog/2026snd/wp.png "出典：[60,000 Gazans have been killed. 18,500 were children.](https://www.washingtonpost.com/world/interactive/2025/israel-gaza-war-children-death-toll/)")
 
 米国有力紙の一つのワシントンポストのコンテンツ。ガザで亡くなった未成年の名前をただひたすらに列挙することで、その数の多さと重さを伝えるコンテンツ。個人的に昨年最も印象に残った。
 
----
-
+### 特徴
 このようにビジュアルジャーナリズムコンテンツは、文章では伝えにくいデータや自分事にしにくい概念だけでなく、感情を動かす役割をグラフィックに持たせることで、記事としてより重みのある体験を提供する。今回の受賞作は、デジタル完全完結でなくリアル世界に出力することで出せる説得力や共感を活かす表現が特に印象的だった。
 
 ## カンファレンス
