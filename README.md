@@ -52,6 +52,7 @@ const images = getPostImages('202405keyboard');
 | `alt`     | `string`                              | `''`      | alt テキスト                  |
 | `caption` | `string`                              | —         | キャプション（優先）          |
 | `title`   | `string`                              | —         | キャプション（caption がない場合）|
+| `sources` | `{ src: ImageMetadata; media: string; widths?: number[]; sizes?: string }[]` | — | アートディレクション用の `<source>`（`<picture>` で出力） |
 
 ## 使い方
 
@@ -103,6 +104,31 @@ import Media from '../../components/Media.astro';
 - URL 中に `)` を含む場合は `%29` と書く
 - リンク記法以外の HTML タグはエスケープされ、そのまま文字列として表示される
 - 画像の次の行に `[テキスト](URL)` を書いても、キャプションにはならない（別の段落になる）
+
+**5. アートディレクション（`<picture>`）**
+
+`sources` を渡すと `<picture><source media=…>` で出力され、ビューポートに応じて別の画像（構図）を出し分けられる。`src` は どの `media` にも合致しない場合のフォールバック（`<img>` 本体）。Markdown 画像構文では指定できないので `<Media>` を直接使う。
+
+```mdx
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+
+export const images = getPostImages('2026snd');
+
+<Media
+  src={images['wide.jpg']}
+  alt="代替テキスト"
+  caption="キャプション"
+  sources={[
+    { src: images['tall.jpg'], media: '(max-width: 580px)' },
+  ]}
+/>
+```
+
+- `<source>` は配列の順に評価され、最初に合致した `media` が使われる。複数指定するときは合致させたい順に並べる
+- `sizes` 省略時は `100vw`、`widths` 省略時は `src` と同じ幅セットで書き出される
+- `src` が文字列（外部 URL）の場合、`sources` は無視される
+- 各 `<source>` には `sources[].src` の画像サイズから `width` / `height` が自動で付く（通常の `<Image>` と同様）。縦横比の違う画像でも、合致した画像の比率で領域が確保される。フォールバックの `<img>` は `src` のサイズ
 
 **`Img.astro` ラッパー:** `<Media type="img">` の薄いラッパー。単純な画像には `<Img src={...} alt="..." />` でも使える。
 
