@@ -23,6 +23,9 @@
   --t-font-family-ja: #{ask.$t_list_system_ja};
   --t-font-family-en: #{ask.$t_fontset_en};
   font-family: var(--t-font-family-ja);
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,h2,h3,h4 {
