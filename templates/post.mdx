@@ -1,0 +1,24 @@
+---
+title: "タイトル"
+description: "ディスクリプション"
+pubDate: "{{date}}"
+# updatedDate: "YYYY/MM/DD"
+# heroImage: "../../assets/blog/{{slug}}/kv.jpg"
+# heroAlt: "メイン画像の代替テキスト"
+tags: []
+draft: true
+---
+import Rail from '../../components/Rail.astro';
+import ImgGrid from '../../components/ImgGrid.astro';
+import Media from '../../components/Media.astro';
+import { getPostImages } from '../../utils/assetImages';
+export const images = getPostImages('{{slug}}');
+
+{/* 画像: ![代替テキスト](../../assets/blog/{{slug}}/xxx.jpg "キャプション") */}
+{/* 広め: <Rail size="m">...</Rail> */}
+{/* グリッド: <Rail size="m"><ImgGrid><Media src={images['xxx.jpg']} alt="" caption=""/></ImgGrid></Rail> */}
+
+導入文
+
+## 見出し
+本文

@@ -2,6 +2,10 @@
 @use "../ask_setting" as ask;
 
 .c-image {
+  picture {
+    display: block;
+  }
+
   background: color(from var(--c-text) srgb r g b / 0.1);
 
   &--lazy-display {

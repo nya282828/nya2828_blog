@@ -1,8 +1,15 @@
 ---
 import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 
 type MediaType = 'img' | 'html' | 'chart' | 'video';
+
+type PictureSource = {
+  src: ImageMetadata;
+  media: string;
+  widths?: number[];
+  sizes?: string;
+};
 
 type Props = {
   type?: MediaType;
@@ -10,10 +17,45 @@ type Props = {
   alt?: string;
   caption?: string;
   title?: string;
+  sources?: PictureSource[];
 };
 
-const { type = 'img', src, alt = '', caption, title } = Astro.props;
+const { type = 'img', src, alt = '', caption, title, sources } = Astro.props;
+
+const defaultWidths = [320, 375, 580, 980, 1040, 1920];
+const defaultSizes = `(max-width: 376px) 320px,
+                    (max-width: 581px) 375px,
+                    (max-width: 769px) 580px,
+                    (max-width: 961px) 960px,
+                    (max-width: 1281px) 1040px,
+                    1920px`;
+
+// アートディレクション用の <source>。配列順に評価され、最初に合致した media が採用される
+const pictureSources = type === 'img' && typeof src !== 'string' && sources?.length
+  ? await Promise.all(sources.map(async (s) => {
+      const img = await getImage({ src: s.src, widths: s.widths ?? defaultWidths, format: 'webp' });
+      return {
+        media: s.media,
+        sizes: s.sizes ?? '100vw',
+        srcset: img.srcSet.attribute,
+        type: `image/${img.options.format}`,
+        width: img.attributes.width,
+        height: img.attributes.height,
+      };
+    }))
+  : [];
 const captionText = caption || title || null;
+
+const escapeHtml = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// キャプション内の [text](url) をリンク化する。http(s):// か / 始まりのみ許可。
+// URL 中に ) を含む場合は %29 と書くこと。
+const renderCaption = (text: string) =>
+  escapeHtml(text).replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g,
+    (_, label, href) => `<a href="${href}">${label}</a>`,
+  );
 ---
 
 <figure class="c-media">
@@ -21,17 +63,14 @@ const captionText = caption || title || null;
     <div class="c-image">
       {typeof src === 'string'
         ? <img src={src} alt={alt} />
-        : <Image
-            src={src!}
-            alt={alt}
-            widths={[320, 375, 580, 980, 1040, 1920]}
-            sizes={`(max-width: 376px) 320px,
-                    (max-width: 581px) 375px,
-                    (max-width: 769px) 580px,
-                    (max-width: 961px) 960px,
-                    (max-width: 1281px) 1040px,
-                    1920px`}
-          />
+        : pictureSources.length > 0
+          ? <picture>
+              {pictureSources.map((s) => (
+                <source media={s.media} srcset={s.srcset} sizes={s.sizes} type={s.type} width={s.width} height={s.height} />
+              ))}
+              <Image src={src!} alt={alt} widths={defaultWidths} sizes={defaultSizes} />
+            </picture>
+          : <Image src={src!} alt={alt} widths={defaultWidths} sizes={defaultSizes} />
       }
     </div>
   )}
@@ -46,6 +85,6 @@ const captionText = caption || title || null;
     </div>
   )}
   {captionText && (
-    <figcaption class="c-media__caption t-caption">{captionText}</figcaption>
+    <figcaption class="c-media__caption t-caption" set:html={renderCaption(captionText)} />
   )}
 </figure>
