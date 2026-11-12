@@ -15,6 +15,13 @@ $ pnpm run dev
 # Build。distディレクトリへ出力
 $ pnpm run build
 ```
+
+## 新規記事の作成
+``` bush
+$ pnpm new <slug>
+```
+`templates/post.mdx` を元に `src/content/blog/<slug>.mdx`（`draft: true`、`pubDate` は今日）と画像用ディレクトリ `src/assets/blog/<slug>/` を作成する。
+メイン画像を置いたら frontmatter の `heroImage` / `heroAlt` のコメントを外す。
 以下各コンポーネントの使い方（自分用）
 
 # assetImages ユーティリティ
